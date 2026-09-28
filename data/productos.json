@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cámara DSLR Canon EOS 6D Mark ii",
+        "categoria": "Cine y NF",
+        "precio": 12500,
+        "descripcion": "Kit con lente 18-55mm, 2 baterías y cargador",
+        "imagen": "",
+        "stock": "2"
+    },
+  {
+        "id": 2,
+        "nombre": "Kit 2 Fresneles GODOX",
+        "categoria": "Cine y NF",
+        "precio": 9800,
+        "descripcion": "Dos fresneles RGB regulables con dos trípode araña.",
+        "imagen": "",
+        "stock": "1"
+    },
+     {
+        "id": 3,
+        "nombre": "Kit de 3 microfonos dji corbatero",
+        "categoria": "Cine y TV",
+        "precio": 18000,
+        "descripcion": "Sistema de 3 microfonos inalámbricos para rodaje o entrevistas",
+        "imagen": "",
+        "stock": "3"
+    },
+     {
+        "id": 4,
+        "nombre": "Estabilizador con discos",
+        "categoria": "Cine y NF",
+        "precio": 6000,
+        "descripcion": "Estabilizador de cámara hasta 4kg con pesas en formato de discos. Incluye funda y manual.",
+        "imagen": "",
+        "stock": "6"
+    },
+     {
+        "id": 5,
+        "nombre": "Tableta Gráfica WACOM",
+        "categoria": "Diseño Gráfico",
+        "precio": 4000,
+        "descripcion": "Tableta gráfica con lápiz sensible a 8192 niveles de presión. Incluye funda y manual.",
+        "imagen": "",
+        "stock": "15"
+    },
+     {
+        "id": 6,
+        "nombre": "Pantalla Interactiva XP-Pen Artist 16",
+        "categoria": "Diseño Gráfico",
+        "precio": 16000,
+        "descripcion": "Monitor de dibujo HD de 15.6 pulgadas para ilustración digital y retoque fotográfico directo. Incluye manual de conexión y funda. ",
+        "imagen": "",
+        "stock": "7"
+    },
+     {
+        "id": 7,
+        "nombre": "Guía de colores Pantome Formula Guide",
+        "categoria": "Diseño Gráfico",
+        "precio": 3000,
+        "descripcion": "Muestrario de colores impresos en papel brillante y mate. Incluye caja y funda.",
+        "imagen": "",
+        "stock": "17"
+    },
+     {
+        "id": 8,
+        "nombre": "Cortadora de papel rotativa A3",
+        "categoria": "Diseño Gráfico",
+        "precio": 2000,
+        "descripcion": "Guillotina de precisión para maquetación, armado de fanzines y corte de láminas de entrega. Incluye caja.",
+        "imagen": "",
+        "stock": "5"
+    },
+     {
+        "id": 9,
+        "nombre": "Laptop Lenovo ThinkPad i7 16GB RAM",
+        "categoria": "Programación",
+        "precio": 18000,
+        "descripcion": "Computadora portátil con softwares de la carrera previamente instalados. ",
+        "imagen": "",
+        "stock": "6"
+    },
+     {
+        "id": 10,
+        "nombre": "Monitor secundario portátil 15.6 Full HD",
+        "categoria": "Programación",
+        "precio": 6000,
+        "descripcion": "Pantalla liviana conectable por USB-C para programar a doble monitor. Incluye cable de conexión, funda y manual.",
+        "imagen": "",
+        "stock": "9"
+    },
+     {
+        "id": 11,
+        "nombre": "Teclado mecánico Keychron K2",
+        "categoria": "Programación",
+        "precio": 4000,
+        "descripcion": "Teclado compacto a Bluetooth. Incluye caja.",
+        "imagen": "",
+        "stock": "8"
+    },
+     {
+        "id": 12,
+        "nombre": "Casco VR Meta Quest 2",
+        "categoria": "Videojuegos",
+        "precio": 20000,
+        "descripcion": "Casco VR para testing de prototipos. Incluye caja con todos sus objetos originales.",
+        "imagen": "",
+        "stock": "2"
+    },
+     {
+        "id": 13,
+        "nombre": "Playstation 5 con 2 controles",
+        "categoria": "Videojuegos",
+        "precio": 25000,
+        "descripcion": "Consola para pruebas de rendimiento, testeos de UX. Incluy e caja con todos sus accesorios originales.",
+        "imagen": "",
+        "stock": "1"
+    },
+     {
+        "id": 14,
+        "nombre": "Joystick bluetooth Gamepad (PC/Android)",
+        "categoria": "Videojuegos",
+        "precio": 3000,
+        "descripcion": "Control inalámbrico programable para mapeo e integración de mandos en Unity y Unreal Engine.",
+        "imagen": "",
+        "stock": "12"
+    },
+     {
+        "id": 15,
+        "nombre": "Mouse ergonómico",
+        "categoria": "Programación",
+        "precio": 2000,
+        "descripcion": "Mouse ergonómico e inalámbrico Logitech. NO incluye pilas extra.",
+        "imagen": "",
+        "stock": "9"
+    }
+]
