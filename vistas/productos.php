@@ -35,7 +35,7 @@
                     <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-100 mt-4">
                         <span class="text-m font-black text-green-600">Precio por día: $<?= $item-> getPrecio() ?> </span>
                         <span></span>
-                        <a href="index.php?p=detalle&id=<?= $item->getId()?> " class ="bg-slate-900 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">Ver más</a>
+                        <a href="index.php?p=detalle&id=<?= $item->getId();?>" class ="bg-slate-900 hover:bg-indigo-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">Ver más</a>
                     </div>
                 </div>
             </div> 

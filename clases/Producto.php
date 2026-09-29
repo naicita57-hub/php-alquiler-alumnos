@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class Producto{
+class Producto
+{
     private $id;
     private $nombre;
     private $categoria;
@@ -15,56 +16,64 @@ class Producto{
     /**
      * Obtiene el id de Producto
      */
-    public function getId():int{
+    public function getId(): int
+    {
         return $this->id;
     }
 
     /**
      * Obtiene el nombre de Producto
      */
-    public function getNombre():string{
+    public function getNombre(): string
+    {
         return $this->nombre;
     }
 
     /**
      * Obtiene la categoria de Producto
      */
-    public function getCategoria():string{
+    public function getCategoria(): string
+    {
         return $this->categoria;
     }
 
     /**
      * Obtiene el precio de Producto
      */
-    public function getPrecio():int{
+    public function getPrecio(): int
+    {
         return $this->precio;
     }
 
     /**
      * Obtiene la descripcion de Producto
      */
-    public function getDescripcion():string{
+    public function getDescripcion(): string
+    {
         return $this->descripcion;
     }
 
     /**
      * Obtiene la imagen de Producto
      */
-    public function getImagen():string{
+    public function getImagen(): string
+    {
         return $this->imagen;
     }
 
     /**
      * Obtiene el stock de Producto
      */
-    public function getStock():int{
+    public function getStock(): int
+    {
         return $this->stock;
     }
 
-     /**
+    /**
      * Obtiene la fecha de ingreso de Producto
      */
-    public function getFechaIngreso():string{
+    public function getFechaIngreso(): string
+    {
         return $this->fechaIngreso;
     }
 
@@ -74,15 +83,17 @@ class Producto{
      * Setea el id de Producto
      * @param int $dato id del producto
      */
-    public function setId(int $dato){
-    $this->id = $dato;
+    public function setId(int $dato)
+    {
+        $this->id = $dato;
     }
 
     /**
      * Setea el nombre de Producto
      * @param string $dato nombre del producto
      */
-    public function setNombre (string $dato){
+    public function setNombre(string $dato)
+    {
         $this->nombre = $dato;
     }
 
@@ -90,7 +101,8 @@ class Producto{
      * Setea la categoria de Producto
      * @param string $dato categoria del producto
      */
-    public function setCategoria(string $dato){
+    public function setCategoria(string $dato)
+    {
         $this->categoria = $dato;
     }
 
@@ -98,7 +110,8 @@ class Producto{
      * Setea el precio de Producto
      * @param int $dato precio del producto
      */
-    public function setPrecio(int $dato){
+    public function setPrecio(int $dato)
+    {
         $this->precio = $dato;
     }
 
@@ -106,7 +119,8 @@ class Producto{
      * Setea la descripcion de Producto
      * @param string $dato descripcion del producto
      */
-    public function setDescripcion(string $dato){
+    public function setDescripcion(string $dato)
+    {
         $this->descripcion = $dato;
     }
 
@@ -114,7 +128,8 @@ class Producto{
      * Setea la imagen de Producto
      * @param string $dato imagen del producto
      */
-    public function setImagen(string $dato){
+    public function setImagen(string $dato)
+    {
         $this->imagen = $dato;
     }
 
@@ -122,7 +137,8 @@ class Producto{
      * Setea el stock de Producto
      * @param int $dato stock del producto
      */
-    public function setStock(int $dato){
+    public function setStock(int $dato)
+    {
         $this->stock = $dato;
     }
 
@@ -130,13 +146,14 @@ class Producto{
      * Setea la fecha de ingreso de Producto
      * @param string $dato fecha de ingreso del producto
      */
-    public function setFechaIngreso(string $dato){
+    public function setFechaIngreso(string $dato)
+    {
         $this->fechaIngreso = $dato;
     }
 
     //Para que aparezcan los productos
 
-    public static function catalogo_completo():array
+    public static function catalogo_completo(): array
     {
         $catalogo = [];
 
@@ -144,7 +161,7 @@ class Producto{
 
         $JSONData = json_decode($JSON);
 
-        foreach ($JSONData as $value){
+        foreach ($JSONData as $value) {
             $producto = new self();
 
             $producto->id = $value->id;
@@ -157,42 +174,50 @@ class Producto{
             $producto->fechaIngreso = ($value->fechaIngreso ?? "Sin fecha");
 
             $catalogo[] = $producto;
-
         }
         return $catalogo;
     }
 
-    public static function catalogo_carrera(string $categoria):array
+    public static function catalogo_carrera(string $categoria): array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $c){
-            if($c->_categoria == $categoria){
-            $resultado[] = $c;
+        foreach ($catalogo as $c) {
+            if ($c->categoria == $categoria) {
+                $resultado[] = $c;
             }
         }
         return $resultado;
     }
 
-    public static function catalogo_fecha(string $fechaFiltro):array
+    public static function catalogo_fecha(string $fechaFiltro): array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $producto){
+        foreach ($catalogo as $producto) {
             $date = $producto->getFechaIngreso();
 
             $fecha = substr($date, 0, 4);
 
-            if($fecha === $fechaFiltro) {
+            if ($fecha === $fechaFiltro) {
                 $resultado[] = $producto;
             }
         }
 
         return $resultado;
+    }
 
+    public static function producto_id(int $id): ?Producto
+    {
+        $catalogo = self::catalogo_completo();
+
+        foreach ($catalogo as $p) {
+            if ($p->id == $id) {
+                return $p;
+            }
+        }
+        return null;
     }
 }
-
-?>
