@@ -7,4 +7,5 @@
     <title>Tienda Online - <?=  ucfirst($seccion); ?></title>
  <script src="https://cdn.tailwindcss.com"></script>   
 </head>
-<body></body>
+<body>
+
