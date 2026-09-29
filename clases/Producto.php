@@ -168,7 +168,7 @@ class Producto{
         $catalogo = self::catalogo_completo();
 
         foreach ($catalogo as $c){
-            if($c->_categoria == $categoria){
+            if($c->categoria == $categoria){
             $resultado[] = $c;
             }
         }

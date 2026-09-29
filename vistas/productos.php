@@ -1,13 +1,49 @@
 <?php
     require_once "clases/Producto.php";
-    $productos = Producto::catalogo_completo();
+    $carreraFiltro = $_GET['carrera'] ?? 'todos';
+    if ($carreraFiltro !== 'todos'){
+        $productos = Producto::catalogo_carrera($carreraFiltro);
+    }else {
+        $productos = Producto::catalogo_completo();
+    }
+   
 ?>
 
-<section class= "py-6 space-y-8">
-    <div class= "">
-        <h1 class="text-3xl font-black text-slate-800">Catálogo de Insumos</h1>
-        <p  class="text-slate-500 text-sm mt-1">Recordá que los precios son por día</p>
+ <div>
+        <h1 class=" items-center text-3xl font-black text-slate-800">Catálogo de Insumos</h1>
+        <p class="text-slate-500 text-sm mt-1">Recordá que los precios son por día</p>
     </div>
+
+    <!-- BARRA DE FILTROS EN PILLS GLASSMORPHISM -->
+    <div class=" items-center justify-center flex flex-wrap gap-3 py-2">
+        <a href="index.php?p=productos&carrera=todos" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Todos
+        </a>
+
+        <a href="index.php?p=productos&carrera=Cine y NF" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Cine y NF' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Cine y NF
+        </a>
+
+        <a href="index.php?p=productos&carrera=Diseño Gráfico" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Diseño Gráfico' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Diseño Gráfico
+        </a>
+
+        <a href="index.php?p=productos&carrera=Programación" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Programación' ? 'glass-pill-active' : 'glass-pill' ?>">
+            Programación
+        </a>
+
+        <a href="index.php?p=productos&carrera=Videojuegos" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?=  $carreraFiltro === 'Videojuegos' ? 'glass-pill-active' : 'glass-pill' ?>">
+            Videojuegos
+        </a>
+    </div>
+
+<section class= "py-6 space-y-8">
+   
 
     <!-- Grid prod -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
@@ -18,7 +54,7 @@
                 <div class= "h-60 bg-white relative overflow-hidden">
                     <img src="imagenes/<?= $item->getImagen() ?>" alt="<?= $item->getNombre() ?>" class="w-full h-full object-cover" > 
                     </img>
-                    <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"> $<?= $item->getCategoria() ?>
+                    <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"> <?= $item->getCategoria() ?>
                     </span>
                 </div>
 
