@@ -64,7 +64,7 @@ class Producto{
      /**
      * Obtiene la fecha de ingreso de Producto
      */
-    public function getFechaIngreso():int{
+    public function getFechaIngreso():string{
         return $this->fechaIngreso;
     }
 
@@ -128,9 +128,9 @@ class Producto{
 
     /**
      * Setea la fecha de ingreso de Producto
-     * @param int $dato fecha de ingreso del producto
+     * @param string $dato fecha de ingreso del producto
      */
-    public function setFechaIngreso(int $dato){
+    public function setFechaIngreso(string $dato){
         $this->fechaIngreso = $dato;
     }
 
@@ -162,7 +162,7 @@ class Producto{
         return $catalogo;
     }
 
-    public static function carrera(string $categoria):array
+    public static function catalogo_carrera(string $categoria):array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
@@ -173,6 +173,21 @@ class Producto{
             }
         }
         return $resultado;
+    }
+
+    public static function catalogo_fecha(string $fechaIngreso):array
+    {
+        $resultado = [];
+        $catalogo = self::catalogo_completo();
+
+        foreach($catalogo as $producto) {
+            if ($producto->getFechaIngreso() === $fechaIngreso) {
+                $resultado[] = $producto;
+            }
+        }
+        
+        return $resultado;
+
     }
 }
 
