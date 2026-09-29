@@ -8,6 +8,7 @@ class Producto{
     private $descripcion;
     private $imagen;
     private $stock;
+    private $fechaIngreso;
 
     //GETTERS
 
@@ -26,7 +27,7 @@ class Producto{
     }
 
     /**
-     * Obtiene el categoria de Producto
+     * Obtiene la categoria de Producto
      */
     public function getCategoria():string{
         return $this->categoria;
@@ -40,14 +41,14 @@ class Producto{
     }
 
     /**
-     * Obtiene el descripcion de Producto
+     * Obtiene la descripcion de Producto
      */
     public function getDescripcion():string{
         return $this->descripcion;
     }
 
     /**
-     * Obtiene el imagen de Producto
+     * Obtiene la imagen de Producto
      */
     public function getImagen():string{
         return $this->imagen;
@@ -58,6 +59,13 @@ class Producto{
      */
     public function getStock():int{
         return $this->stock;
+    }
+
+     /**
+     * Obtiene la fecha de ingreso de Producto
+     */
+    public function getFechaIngreso():int{
+        return $this->fechaIngreso;
     }
 
     //SETTERS
@@ -79,7 +87,7 @@ class Producto{
     }
 
     /**
-     * Setea el categoria de Producto
+     * Setea la categoria de Producto
      * @param string $dato categoria del producto
      */
     public function setCategoria(string $dato){
@@ -95,7 +103,7 @@ class Producto{
     }
 
     /**
-     * Setea el descripcion de Producto
+     * Setea la descripcion de Producto
      * @param string $dato descripcion del producto
      */
     public function setDescripcion(string $dato){
@@ -103,7 +111,7 @@ class Producto{
     }
 
     /**
-     * Setea el imagen de Producto
+     * Setea la imagen de Producto
      * @param string $dato imagen del producto
      */
     public function setImagen(string $dato){
@@ -116,6 +124,50 @@ class Producto{
      */
     public function setStock(int $dato){
         $this->stock = $dato;
+    }
+
+    /**
+     * Setea la fecha de ingreso de Producto
+     * @param int $dato fecha de ingreso del producto
+     */
+    public function setFechaIngreso(int $dato){
+        $this->fechaIngreso = $dato;
+    }
+
+    //Para que aparezcan los productos
+
+    public static function catalogo_completo():array
+    {
+        $catalogo = [];
+
+        $JSON = file_get_contents('data/productos.json');
+
+        $JSONData = json_decode($JSON);
+
+        foreach ($JSONData as $value){
+            $producto = new self();
+
+            $producto->id = $value->id;
+            $producto->nombre = $value->nombre;
+            $producto->categoria = $value->categoria;
+            $producto->descripcion = $value->descripcion;
+            $producto->precio = $value->precio;
+            $producto->imagen = $value->imagen;
+            $producto->stock = $value->stock;
+            $producto->fechaIngreso = $value->fechaIngreso;
+
+            $catalogo[] = $producto;
+
+        }
+        return $catalogo;
+    }
+
+    public static function carrera(string $categoria):array
+    {
+        $resultado = [];
+        $catalogo = self::catalogo_completo();
+
+        foreach ($catalogo as $c)
     }
 }
 
