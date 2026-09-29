@@ -7,7 +7,7 @@
         "descripcion": "Kit con lente 18-55mm, 2 baterías y cargador",
         "imagen": "",
         "stock": "2",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2026-02-13"
     },
   {
         "id": 2,
@@ -17,7 +17,7 @@
         "descripcion": "Dos fresneles RGB regulables con dos trípode araña.",
         "imagen": "",
         "stock": "1",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2023-10-15"
     },
      {
         "id": 3,
@@ -27,7 +27,7 @@
         "descripcion": "Sistema de 3 microfonos inalámbricos para rodaje o entrevistas",
         "imagen": "",
         "stock": "3",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2026-04-17"
     },
      {
         "id": 4,
@@ -37,7 +37,7 @@
         "descripcion": "Estabilizador de cámara hasta 4kg con pesas en formato de discos. Incluye funda y manual.",
         "imagen": "",
         "stock": "6",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-01-20"
     },
      {
         "id": 5,
@@ -47,7 +47,7 @@
         "descripcion": "Tableta gráfica con lápiz sensible a 8192 niveles de presión. Incluye funda y manual.",
         "imagen": "",
         "stock": "15",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2022-06-15"
     },
      {
         "id": 6,
@@ -57,7 +57,7 @@
         "descripcion": "Monitor de dibujo HD de 15.6 pulgadas para ilustración digital y retoque fotográfico directo. Incluye manual de conexión y funda. ",
         "imagen": "",
         "stock": "7",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-06-23"
     },
      {
         "id": 7,
@@ -67,7 +67,7 @@
         "descripcion": "Muestrario de colores impresos en papel brillante y mate. Incluye caja y funda.",
         "imagen": "",
         "stock": "17",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2022-03-14"
     },
      {
         "id": 8,
@@ -77,7 +77,7 @@
         "descripcion": "Guillotina de precisión para maquetación, armado de fanzines y corte de láminas de entrega. Incluye caja.",
         "imagen": "",
         "stock": "5",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-06-15"
     },
      {
         "id": 9,
@@ -87,7 +87,7 @@
         "descripcion": "Computadora portátil con softwares de la carrera previamente instalados. ",
         "imagen": "",
         "stock": "6",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2026-02-13"
     },
      {
         "id": 10,
@@ -97,7 +97,7 @@
         "descripcion": "Pantalla liviana conectable por USB-C para programar a doble monitor. Incluye cable de conexión, funda y manual.",
         "imagen": "",
         "stock": "9",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-02-15"
     },
      {
         "id": 11,
@@ -107,7 +107,7 @@
         "descripcion": "Teclado compacto a Bluetooth. Incluye caja.",
         "imagen": "",
         "stock": "8",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-03-15"
     },
      {
         "id": 12,
@@ -117,7 +117,7 @@
         "descripcion": "Casco VR para testing de prototipos. Incluye caja con todos sus objetos originales.",
         "imagen": "",
         "stock": "2",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2026-02-12"
     },
      {
         "id": 13,
@@ -127,7 +127,7 @@
         "descripcion": "Consola para pruebas de rendimiento, testeos de UX. Incluy e caja con todos sus accesorios originales.",
         "imagen": "",
         "stock": "1",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-08-19"
     },
      {
         "id": 14,
@@ -137,7 +137,7 @@
         "descripcion": "Control inalámbrico programable para mapeo e integración de mandos en Unity y Unreal Engine.",
         "imagen": "",
         "stock": "12",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2024-06-19"
     },
      {
         "id": 15,
@@ -147,6 +147,6 @@
         "descripcion": "Mouse ergonómico e inalámbrico Logitech. NO incluye pilas extra.",
         "imagen": "",
         "stock": "9",
-        "Fecha de ingreso": "2024-06-15"
+        "fechaIngreso": "2025-09-05"
     }
 ]
