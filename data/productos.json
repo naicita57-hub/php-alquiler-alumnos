@@ -6,7 +6,8 @@
         "precio": 12500,
         "descripcion": "Kit con lente 18-55mm, 2 baterías y cargador",
         "imagen": "",
-        "stock": "2"
+        "stock": "2",
+        "Fecha de ingreso": "2024-06-15"
     },
   {
         "id": 2,
@@ -15,7 +16,8 @@
         "precio": 9800,
         "descripcion": "Dos fresneles RGB regulables con dos trípode araña.",
         "imagen": "",
-        "stock": "1"
+        "stock": "1",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 3,
@@ -24,7 +26,8 @@
         "precio": 18000,
         "descripcion": "Sistema de 3 microfonos inalámbricos para rodaje o entrevistas",
         "imagen": "",
-        "stock": "3"
+        "stock": "3",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 4,
@@ -33,7 +36,8 @@
         "precio": 6000,
         "descripcion": "Estabilizador de cámara hasta 4kg con pesas en formato de discos. Incluye funda y manual.",
         "imagen": "",
-        "stock": "6"
+        "stock": "6",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 5,
@@ -42,7 +46,8 @@
         "precio": 4000,
         "descripcion": "Tableta gráfica con lápiz sensible a 8192 niveles de presión. Incluye funda y manual.",
         "imagen": "",
-        "stock": "15"
+        "stock": "15",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 6,
@@ -51,7 +56,8 @@
         "precio": 16000,
         "descripcion": "Monitor de dibujo HD de 15.6 pulgadas para ilustración digital y retoque fotográfico directo. Incluye manual de conexión y funda. ",
         "imagen": "",
-        "stock": "7"
+        "stock": "7",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 7,
@@ -60,7 +66,8 @@
         "precio": 3000,
         "descripcion": "Muestrario de colores impresos en papel brillante y mate. Incluye caja y funda.",
         "imagen": "",
-        "stock": "17"
+        "stock": "17",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 8,
@@ -69,7 +76,8 @@
         "precio": 2000,
         "descripcion": "Guillotina de precisión para maquetación, armado de fanzines y corte de láminas de entrega. Incluye caja.",
         "imagen": "",
-        "stock": "5"
+        "stock": "5",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 9,
@@ -78,7 +86,8 @@
         "precio": 18000,
         "descripcion": "Computadora portátil con softwares de la carrera previamente instalados. ",
         "imagen": "",
-        "stock": "6"
+        "stock": "6",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 10,
@@ -87,7 +96,8 @@
         "precio": 6000,
         "descripcion": "Pantalla liviana conectable por USB-C para programar a doble monitor. Incluye cable de conexión, funda y manual.",
         "imagen": "",
-        "stock": "9"
+        "stock": "9",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 11,
@@ -96,7 +106,8 @@
         "precio": 4000,
         "descripcion": "Teclado compacto a Bluetooth. Incluye caja.",
         "imagen": "",
-        "stock": "8"
+        "stock": "8",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 12,
@@ -105,7 +116,8 @@
         "precio": 20000,
         "descripcion": "Casco VR para testing de prototipos. Incluye caja con todos sus objetos originales.",
         "imagen": "",
-        "stock": "2"
+        "stock": "2",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 13,
@@ -114,7 +126,8 @@
         "precio": 25000,
         "descripcion": "Consola para pruebas de rendimiento, testeos de UX. Incluy e caja con todos sus accesorios originales.",
         "imagen": "",
-        "stock": "1"
+        "stock": "1",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 14,
@@ -123,7 +136,8 @@
         "precio": 3000,
         "descripcion": "Control inalámbrico programable para mapeo e integración de mandos en Unity y Unreal Engine.",
         "imagen": "",
-        "stock": "12"
+        "stock": "12",
+        "Fecha de ingreso": "2024-06-15"
     },
      {
         "id": 15,
@@ -132,6 +146,7 @@
         "precio": 2000,
         "descripcion": "Mouse ergonómico e inalámbrico Logitech. NO incluye pilas extra.",
         "imagen": "",
-        "stock": "9"
+        "stock": "9",
+        "Fecha de ingreso": "2024-06-15"
     }
 ]
