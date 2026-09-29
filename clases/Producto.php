@@ -175,17 +175,21 @@ class Producto{
         return $resultado;
     }
 
-    public static function catalogo_fecha(string $fechaIngreso):array
+    public static function catalogo_fecha(string $fechaFiltro):array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
-        foreach($catalogo as $producto) {
-            if ($producto->getFechaIngreso() === $fechaIngreso) {
+        foreach ($catalogo as $producto){
+            $date = $producto->getFechaIngreso();
+
+            $fecha = substr($date, 0, 4);
+
+            if($fecha === $fechaFiltro) {
                 $resultado[] = $producto;
             }
         }
-        
+
         return $resultado;
 
     }
