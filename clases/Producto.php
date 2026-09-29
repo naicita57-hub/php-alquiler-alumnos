@@ -154,7 +154,7 @@ class Producto{
             $producto->precio = $value->precio;
             $producto->imagen = $value->imagen;
             $producto->stock = $value->stock;
-            $producto->fechaIngreso = $value->fechaIngreso;
+            $producto->fechaIngreso = ($value->fechaIngreso ?? "Sin fecha");
 
             $catalogo[] = $producto;
 
