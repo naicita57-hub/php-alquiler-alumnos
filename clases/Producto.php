@@ -183,9 +183,9 @@ class Producto
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $c) {
-            if ($c->categoria == $categoria) {
-                $resultado[] = $c;
+        foreach ($catalogo as $c){
+            if($c->categoria == $categoria){
+            $resultado[] = $c;
             }
         }
         return $resultado;

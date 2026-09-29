@@ -2,3 +2,30 @@ body {
     padding-left: 8rem;  
     padding-right: 8rem; 
 }
+
+.glass-pill {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    color: #334155; /* slate-700 */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima */
+.glass-pill:hover {
+    background: rgba(255, 255, 255, 0.75);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Estado activo (pill seleccionada) */
+.glass-pill-active {
+    background: rgba(15, 23, 42, 0.85); /* Oscuro elegante translúcido */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
