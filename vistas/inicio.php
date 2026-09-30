@@ -16,36 +16,56 @@ $destacados = Producto::destacados();
     <!-- Contenido  normal -->
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
-        <div class=" text-black rounded-3xl p-8 md:p-12 flex flex-col items-center gap-4">
+        <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
             <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
             <p class="text-slate-600 text-base md:text-lg max-w-2xl">Accedé a herramientas, accesorios y más de las carreras disponibles en Da Vinci</p>
-            <a href="index.php?p=productos" class="mt-2 inline-block bg-black-600 hover:bg-black-700 text-black font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
+            <a href="index.php?p=productos" class="mt-2 inline-block bg-indigo-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
         </div>
 
-        <div class=" ">
+        <div>
              <h2 class="text-2xl font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
-            <div class="flex flex-wrap gap-6 items-center justify-center">
-                <div class="bg-white/45 backdrop-blur-md p-6 rounded-3xl border border-slate-200/80 shadow-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" >
-                <h3 class="font-bold text-lg text-slate-800 mb-2">Cine y Nuevos Formatos</h3>
-                <img src="imagenes/cine-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
-                <p></p>
-               </div>
-               <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-lg text-slate-800 mb-2">Diseño Gráfico</h3>
-                <img src="imagenes/diseno-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
-                <p></p>
-                </div>
-                 <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-lg text-slate-800 mb-2">Programación</h3>
-                <img src="imagenes/programacion-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
-                <p></p>
-                </div>
-                 <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-lg text-slate-800 mb-2">Videojuegos</h3>
-                <img src="imagenes/videojuegos-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
-                <p></p>
-                </div>
-            </div>
+  
+   
+    
+   
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        
+        <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+             <a href="index.php?p=productos&carrera=Cine y NF">
+            <h3 class="font-bold text-lg text-slate-800 mb-2">Cine y Nuevos Formatos</h3>
+            <img src="imagenes/cine-portada.webp" alt="Cine y Nuevos Formatos" class="object-cover w-full h-48 rounded-lg"> 
+        </a>
+        </div>
+           
+    
+        <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <a href="index.php?p=productos&carrera=Diseño Gráfico">
+            <h3 class="font-bold text-lg text-slate-800 mb-2">Diseño Gráfico</h3>
+            <img src="imagenes/diseno-portada.webp" alt="Diseño Gráfico" class="object-cover w-full h-48 rounded-lg"> 
+        </a>
+        </div>
+           
+
+       
+        <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <a href="index.php?p=productos&carrera=Programación">
+            <h3 class="font-bold text-lg text-slate-800 mb-2">Programación</h3>
+            <img src="imagenes/programacion-portada.webp" alt="Programación" class="object-cover w-full h-48 rounded-lg">
+        </a>
+        </div>
+        
+        
+        <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <a href="index.php?p=productos&carrera=Videojuegos">
+            <h3 class="font-bold text-lg text-slate-800 mb-2">Videojuegos</h3>
+            <img src="imagenes/videojuegos-portada.webp" alt="Videojuegos" class="object-cover w-full h-48 rounded-lg">
+        </a>
+        </div>
+
+    </div>
+</div>
+
         </div>
 
     </div>
@@ -57,9 +77,9 @@ $destacados = Producto::destacados();
 
    
     <div class="text-center max-w-xl mx-auto">
-        <h2 class="text-3xl font-black text-slate-800"> Productos Destacados</h2>
+        <h2 class="text-3xl font-black text-slate-800"> Productos más Alquilados</h2>
         <p class="text-slate-500 text-sm mt-1">
-            Los insumos y equipos más elegidos para los entregables de la facu
+            Los insumos y equipos más elegidos por los estudiantes
         </p>
     </div>
 
@@ -71,36 +91,42 @@ $destacados = Producto::destacados();
                 
          
                 <div class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
-                    <div>
-                       
-                        <div class="aspect-square w-full bg-white rounded-2xl overflow-hidden mb-4">
-                            <img src="imagenes/<?= $producto->getImagen(); ?>" 
-                                 alt="<?= $producto->getNombre(); ?>" 
-                                 class="w-full h-full object-contain">
-                        </div>
-                        
-                   
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">
-                            <?= $producto->getCategoria(); ?>
-                        </span>
-                        
-                        
-                        <h3 class="text-lg font-bold text-slate-800 mt-2">
-                            <?= $producto->getNombre(); ?>
-                        </h3>
-                    </div>
+    <div>
+       
+        <div class="aspect-square w-full bg-white rounded-2xl overflow-hidden mb-4 flex items-center justify-center p-2">
+            <img src="imagenes/<?= $producto->getImagen(); ?>" 
+                 alt="<?= $producto->getNombre(); ?>" 
+                 class="w-full h-full object-contain">
+        </div>
+        
+      
+        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+            <?= $producto->getCategoria(); ?>
+        </span>
+        
+       
+        <h3 class="text-lg font-bold text-slate-800 mt-2">
+            <?= $producto->getNombre(); ?>
+        </h3>
 
-                   
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-sm font-black text-slate-900">
-                            $<?= number_format($producto->getPrecio(), 0, ',', '.'); ?> /día
-                        </span>
-                        <a href="index.php?p=detalle&id=<?= $producto->getId(); ?>" 
-                           class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors">
-                            Ver detalle →
-                        </a>
-                    </div>
-                </div>
+       
+        <div class="flex justify-between items-center text-[14px] text-slate-400 pt-2 border-t border-slate-100/80 mt-3">
+            <span>Stock: <?= $producto->getStock(); ?></span>
+            <span>Ingreso: <?= $producto->getFechaIngreso(); ?></span>
+        </div>
+    </div>
+
+   
+    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+        <span class="text-sm font-black text-slate-900">
+            $<?= number_format($producto->getPrecio(), 0, ',', '.'); ?> <span class="text-sm font-normal text-slate-500">/día</span>
+        </span>
+        <a href="index.php?p=detalle&id=<?= $producto->getId(); ?>" 
+           class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm">
+            Ver detalle ★
+        </a>
+    </div>
+</div>
 
             <?php endforeach; ?>
 
