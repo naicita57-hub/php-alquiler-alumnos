@@ -2,7 +2,7 @@
 require_once "clases/Producto.php";
 
 
-$destacados = Producto::catalogo_destacados();
+$destacados = Producto::destacados();
 ?>
 <div class="bg-formas-container py-10">
 
