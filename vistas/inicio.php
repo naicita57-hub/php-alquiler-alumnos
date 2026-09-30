@@ -24,6 +24,7 @@ $destacados = Producto::destacados();
                 catálogo</a>
         </div>
 
+
         <div>
             <h2 class="text-2xl font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
 
@@ -80,12 +81,12 @@ $destacados = Producto::destacados();
 </div>
 
 
-<section class="py-8 space-y-6 container-pad">
+<section class=" space-y-9  md:mx-20 container-pad" id= destacados>
 
 
     <div class="text-center max-w-xl mx-auto">
         <h2 class="text-3xl font-black text-slate-800"> Productos más Alquilados</h2>
-        <p class="text-slate-500 text-sm mt-1">
+        <p class="text-slate-500 text-sm md:text-[20px] mt-4">
             Los insumos y equipos más elegidos por los estudiantes
         </p>
     </div>
