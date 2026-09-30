@@ -12,7 +12,7 @@
  
     <div class="border-b border-slate-200 pb-5 text-center">
         <h1 class="text-3xl font-black text-slate-800">Realizado por Funky Studios</h1>
-        <p class="text-slate-500 text-sm mt-1">Integrantes del Proyecto - Parcial 1 | Programación II</p>
+        <p class="text-slate-500 text-sm mt-1 md:text-[16px]">Integrantes del Proyecto - Parcial 1 | Programación II</p>
     </div>
 
    
@@ -29,7 +29,7 @@
            
             <details class="group cursor-pointer">
                 <summary class="list-none flex items-center justify-between font-bold text-slate-800 hover:text-indigo-600 transition-colors py-2 px-1 select-none border-t border-slate-100">
-                    <span class="text-lg">Andrea Portillo</span>
+                    <span class="text-lg ">Andrea Portillo</span>
                     
                     <span class="bg-slate-100 text-slate-500 group-open:rotate-180 transition-transform p-1.5 rounded-full text-xs estrellita-drop">
                         ✭
@@ -39,18 +39,18 @@
 
                 <div class=" bg-white/45 mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Email</span>
-                        <a href="mailto:andrea.portillo@escueladavinci.edu.ar" class="text-indigo-800 hover:underline">
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Email</span>
+                        <a href="mailto:andrea.portillo@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[16px]">
                             andrea.portillo@escueladavinci.edu.ar
                         </a>
                     </div>
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Carrera</span>
-                        <span>Diseño y Desarrollo Web</span>
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Carrera</span>
+                        <span class="md:text-[16px]">Diseño y Desarrollo Web</span>
                     </div>
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Comisión</span>
-                        <span>DWNO SEEE </span>
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Comisión</span>
+                        <span class="md:text-[16px]">DWM3AP </span>
                     </div>
                 </div>
             </details>
@@ -80,18 +80,18 @@
                 
                 <div class="mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Email</span>
-                        <a href="mailto:naiara.tymkiw@escueladavinci.edu.ar" class="text-indigo-800 hover:underline">
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Email</span>
+                        <a href="mailto:naiara.tymkiw@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[16px]">
                             naiara.tymkiw@escueladavinci.edu.ar
                         </a>
                     </div>
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Carrera</span>
-                        <span>Diseño y Desarrollo Web</span>
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Carrera</span>
+                        <span class="md:text-[16px]">Diseño y Desarrollo Web</span>
                     </div>
                     <div>
-                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Comisión</span>
-                        <span>DW3... mp3 nose no me sale nunca</span>
+                        <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Comisión</span>
+                        <span class="md:text-[16px]">DWM3AP</span>
                     </div>
                 </div>
             </details>

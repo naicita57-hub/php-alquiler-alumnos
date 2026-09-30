@@ -3,7 +3,6 @@
     
     $filtroActual = $_GET['filtro'] ?? 'todos';
 
-    // Diccionario para traducir URLs limpias a los nombres reales del JSON
     $categorias = [
         'cine-y-nf' => 'Cine y NF',
         'diseno-grafico' => 'Diseño Gráfico',
