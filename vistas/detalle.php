@@ -7,11 +7,12 @@ $producto = $id ? Producto::producto_id($id) : null;
 ?>
 
 <?php if ($producto != null) { ?>
-<div class="flex flex-row bg-white/90 rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-    <div>
-        <img src="imagenes/<?= $producto->getImagen() ?>" alt="<?= $producto->getNombre() ?>"></img>
+<div class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-row justify-items-center justify-center w-fit">
+
+    <div class=" bg-white aspect-square bg-slate-100/70 rounded-2xl overflow-hidden flex p-2">
+        <img src="imagenes/<?= $producto->getImagen() ?>" alt="<?= $producto->getNombre() ?>" class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm image-contain"></img>
     </div>
-    <div>
+    <div class="content-evenly">
         <p>
             <?= $producto->getCategoria(); ?>
         </p>
