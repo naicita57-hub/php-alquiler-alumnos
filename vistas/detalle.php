@@ -7,14 +7,14 @@ $producto = $id ? Producto::producto_id($id) : null;
 ?>
 
 <?php if ($producto != null) { ?>
-<div>
+<div class="flex flex-row">
     <div>
-        <img src="imagenes/<?= $producto->getImagen() ?>" alt="<?= $producto->getNombre() ?>" class="w-full h-full object-cover" > </img>
+        <img src="imagenes/<?= $producto->getImagen() ?>" alt="<?= $producto->getNombre() ?>"></img>
     </div>
     <div>
-        <h1>
+        <h3>
             <?= $producto->getNombre(); ?>
-        </h1>
+        </h3>
         <pp>
             <?= $producto->getCategoria(); ?>
         </pp>

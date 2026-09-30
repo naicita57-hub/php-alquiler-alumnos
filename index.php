@@ -1,7 +1,7 @@
 <?php
 $seccion = isset($_GET['p']) ? $_GET['p'] : 'inicio';
 
-$secciones_validas = ["inicio", "productos", "contacto", "alumnas", "detalle"];
+$secciones_validas = ["inicio", "productos", "contacto", "alumnas", "detalle", "enviado"];
 if (!in_array($seccion, $secciones_validas)) {
     $seccion = '404';
 }
