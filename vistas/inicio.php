@@ -51,3 +51,66 @@ $destacados = Producto::destacados();
     </div>
 
 </div>
+
+
+<section class="py-8 space-y-6">
+
+   
+    <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-3xl font-black text-slate-800"> Productos Destacados</h2>
+        <p class="text-slate-500 text-sm mt-1">
+            Los insumos y equipos más elegidos para los entregables de la facu
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        
+        <?php if (!empty($destacados)): ?>
+            
+            <?php foreach ($destacados as $producto): ?>
+                
+         
+                <div class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                       
+                        <div class="aspect-square w-full bg-white rounded-2xl overflow-hidden mb-4">
+                            <img src="imagenes/<?= $producto->getImagen(); ?>" 
+                                 alt="<?= $producto->getNombre(); ?>" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        
+                   
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">
+                            <?= $producto->getCategoria(); ?>
+                        </span>
+                        
+                        
+                        <h3 class="text-lg font-bold text-slate-800 mt-2">
+                            <?= $producto->getNombre(); ?>
+                        </h3>
+                    </div>
+
+                   
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-sm font-black text-slate-900">
+                            $<?= number_format($producto->getPrecio(), 0, ',', '.'); ?> /día
+                        </span>
+                        <a href="index.php?p=detalle&id=<?= $producto->getId(); ?>" 
+                           class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors">
+                            Ver detalle →
+                        </a>
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
+
+        <?php else: ?>
+            
+            <p class="col-span-full text-center text-slate-400 py-8">
+                No hay productos destacados para mostrar en este momento.
+            </p>
+        <?php endif; ?>
+
+    </div>
+
+</section>
