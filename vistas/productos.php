@@ -28,7 +28,6 @@
 
 <div class="bg-formas-container py-10 container-pad">
 
-    <!-- Capa de luces??? -->
     <div class="formas-coloridas">
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
@@ -44,9 +43,7 @@
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
         <div class="forma-luz luz-azul"></div>
-    </div>   
-    <!-- Botonera de Filtros Unificados -->
-    <!-- Botonera de Filtros Unificados -->
+    </div>
     <div class="items-center justify-center flex flex-wrap gap-3 py-4 relative z-10">
         
         <a href="index.php?p=productos&filtro=todos" 
@@ -54,7 +51,6 @@
              Todos
         </a>
 
-        <!-- Filtros de Categoría con URLs limpias -->
         <a href="index.php?p=productos&filtro=cine-y-nf" 
            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'cine-y-nf' ? 'glass-pill-active' : 'glass-pill' ?>">
              Cine y NF
@@ -72,10 +68,8 @@
             Videojuegos
         </a>
 
-        <!-- Divisor visual -->
         <span class="w-px h-8 bg-slate-300 mx-1 hidden sm:block"></span>
 
-        <!-- Filtro de Stock y Fecha (se mantienen igual porque ya no tenían espacios) -->
         <a href="index.php?p=productos&filtro=en-stock" 
            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'en-stock' ? 'glass-pill-active' : 'glass-pill' ?>">
             Solo en Stock
