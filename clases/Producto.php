@@ -247,7 +247,7 @@ class Producto
         $catalogo = self::catalogo_completo();
 
         foreach ($catalogo as $producto) {
-            if($producto->getDestacado === true){
+            if($producto->getDestacado() === true){
                 $resultado[] = $producto;
             }
         }

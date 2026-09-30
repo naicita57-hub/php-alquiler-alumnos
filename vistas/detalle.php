@@ -7,23 +7,23 @@ $producto = $id ? Producto::producto_id($id) : null;
 ?>
 
 <?php if ($producto != null) { ?>
-<div class="flex flex-row">
+<div class="flex flex-row bg-white/90 rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
     <div>
         <img src="imagenes/<?= $producto->getImagen() ?>" alt="<?= $producto->getNombre() ?>"></img>
     </div>
     <div>
-        <h3>
+        <p>
+            <?= $producto->getCategoria(); ?>
+        </p>
+        <h3 class="font-bold text-slate-800 text-lg leading-snug">
             <?= $producto->getNombre(); ?>
         </h3>
-        <pp>
-            <?= $producto->getCategoria(); ?>
-        </pp>
-        <pp>
+        <p>
             <?= $producto->getDescripcion(); ?>
-        </pp>
-        <h2p>$
+        </p>
+        <h2 class="text-m font-black text-green-600">Precio por día: $
             <?= number_format($producto->getPrecio(), 2, ',', '.'); ?>
-        </h2p>
+        </h2>
         <p><strong>Stock disponible:</strong>
             <?= $producto->getStock(); ?> unidades
         </p>
@@ -31,9 +31,9 @@ $producto = $id ? Producto::producto_id($id) : null;
             <?= $producto->getFechaIngreso(); ?>
         </p>
 
-        <a href="?p=productos" p>Volver al catálogo</a>
     </div>
 </div>
+<a href="?p=productos" p>Volver al catálogo</a>
 <?php } else { ?>
 <div>
     <h2>Producto no encontrado</h2>
