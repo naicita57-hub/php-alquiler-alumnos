@@ -6,14 +6,14 @@
     
 }
 
-body {
-    padding-left: 8rem;  
-    padding-right: 8rem; 
+.container-pad{
+     padding-left: 8rem !important;  
+    padding-right: 8rem !important; 
 }
 
 .bg-formas-container {
     position: relative !important;
-    background-color: #ffffff !important; /* Fondo base blanco para dar contraste */
+    background-color: #ffffff !important; 
     overflow: hidden !important;
     min-height: 100vh !important;
 }
@@ -24,16 +24,16 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    pointer-events: none; /* No interfiere con los clics */
-    z-index: 0; /* Queda al fondo */
+    pointer-events: none;
+    z-index: 0; 
     overflow: hidden;
 }
 
-/* --- ESTILO DE LAS FORMAS --- */
+
 .forma-luz {
     position: absolute;
     border-radius: 50%;
-    filter: blur(50px); /* Desenfoque tipo gota */
+    filter: blur(70px);
     opacity: 0.8;
 }
 
@@ -67,7 +67,6 @@ body {
     animation: lavaAzul 16s ease-in-out infinite alternate;
 }
 
-/* --- ANIMACIONES DE MOVIMIENTO --- */
 @keyframes lavaRoja {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(140px, 160px) scale(1.2); }
@@ -89,20 +88,19 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    color: #334155; /* slate-700 */
+    color: #334155; 
     transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima */
+
 .glass-pill:hover {
     background: rgba(255, 255, 255, 0.75);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Estado activo (pill seleccionada) */
 .glass-pill-active {
-    background: rgba(15, 23, 42, 0.85); /* Oscuro elegante translúcido */
+    background: rgba(15, 23, 42, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -111,4 +109,13 @@ body {
 }
 .estrellita-drop{
     color: blue !important;
+}
+
+@media (max-width: 767px) {
+    .container-pad{
+        padding: 10px !important;
+    }
+    .formas-coloridas{
+        display: none !important;
+    }
 }

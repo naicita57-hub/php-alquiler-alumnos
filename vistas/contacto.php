@@ -1,4 +1,4 @@
-<form class="container bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between" action="?p='enviado'" method="get">
+<form class="container" action="?p='enviado'" method="get">
     <?php
     if (isset($_GET['p']) && $_GET['p'] === 'contacto') {
         ?>

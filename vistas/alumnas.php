@@ -6,7 +6,8 @@
         <div class="forma-luz luz-verde"></div>
         <div class="forma-luz luz-azul"></div>
     </div>
-<section class="py-6 space-y-8">
+
+    <section class="py-6 space-y-8 container-pad">
 
  
     <div class="border-b border-slate-200 pb-5 text-center">
@@ -15,8 +16,8 @@
     </div>
 
    
-      
-        <div class=" flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
+ <div class="flex flex-col md:flex-row gap-7 justify-center items-center md:items-start max-w-4xl mx-auto px-4">     
+        <div class=" w-fit flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
             
             
             <div class="w-full h-80  rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
@@ -35,7 +36,7 @@
                     </span>
                 </summary>
                 
-              
+
                 <div class=" bg-white/45 mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider">Email</span>
@@ -57,7 +58,7 @@
         </div>
 
        
-        <div class=" bg-white/45 backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
+        <div class=" w-fit bg-white/45 backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
             
          
             <div class=" bg-white/45 w-full h-80 rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
@@ -98,5 +99,5 @@
         </div>
 
     </div>
-
+</div>
 </section>
