@@ -14,16 +14,16 @@
 
     <ul id="menu" class="hidden w-full md:flex md:w-auto items-center gap-2 md:gap-3 font-medium text-sm mt-3 md:mt-0 flex-col md:flex-row">
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=inicio" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'inicio') ? 'bg-pink-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Inicio</a>
+            <a href="index.php?p=inicio" class=" px-4 py-2  transition-all <?= ($seccion === 'inicio') ? 'text-pink-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Inicio</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=productos" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'productos') ? 'bg-indigo-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Productos</a>
+            <a href="index.php?p=productos" class=" px-4 py-2 transition-all <?= ($seccion === 'productos') ? ' text-indigo-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Productos</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=contacto" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'contacto') ? 'bg-red-500 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Contacto</a>
+            <a href="index.php?p=contacto" class="px-4 py-2 transition-all <?= ($seccion === 'contacto') ? ' text-red-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Contacto</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=alumnas" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? 'bg-green-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
+            <a href="index.php?p=alumnas" class=" px-4 py-2  transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? ' text-green-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
         </li>
     </ul>
 

@@ -16,14 +16,16 @@ $destacados = Producto::destacados();
     <!-- Contenido  normal -->
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
-        <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
-            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
-            <p class="text-slate-600 text-base md:text-lg max-w-2xl">Accedé a herramientas, accesorios y más de las carreras disponibles en Da Vinci</p>
-            <a href="index.php?p=productos" class="mt-2 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
+        <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-6">
+            <h1 class="text-3xl md:text-[50px] font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
+            <p class="text-slate-600 text-base md:text-[20px] max-w-2xl">Accedé a herramientas, accesorios y más de las carreras disponibles en Da Vinci</p>
+            <a href="index.php?p=productos" class="mt-4 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
+           <a href="index.php?p=inicio#destacados" class="mt-4 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver Destacados</a>
         </div>
 
+
         <div>
-             <h2 class="text-2xl font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
+             <h2 class="text-2xl  md:text-[25px] font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
   
    
     
@@ -34,15 +36,15 @@ $destacados = Producto::destacados();
         <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
              <a href="index.php?p=productos&carrera=Cine y NF">
             <h3 class="font-bold text-lg text-slate-800 mb-2">Cine y Nuevos Formatos</h3>
-            <img src="imagenes/cine-portada.webp" alt="Cine y Nuevos Formatos" class="object-cover w-full h-48 rounded-lg"> 
+            <img src="imagenes/cine-portada.webp" alt="Cine y Nuevos Formatos" class="object-cover w-full h-70 rounded-lg"> 
         </a>
         </div>
            
     
         <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
             <a href="index.php?p=productos&carrera=Diseño Gráfico">
-            <h3 class="font-bold text-lg text-slate-800 mb-2">Diseño Gráfico</h3>
-            <img src="imagenes/diseno-portada.webp" alt="Diseño Gráfico" class="object-cover w-full h-48 rounded-lg"> 
+            <h3 class="font-bold text-lg text-slate-900 mb-2">Diseño Gráfico</h3>
+            <img src="imagenes/diseno-portada.webp" alt="Diseño Gráfico" class="object-cover w-full h-70 rounded-lg"> 
         </a>
         </div>
            
@@ -51,7 +53,7 @@ $destacados = Producto::destacados();
         <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
             <a href="index.php?p=productos&carrera=Programación">
             <h3 class="font-bold text-lg text-slate-800 mb-2">Programación</h3>
-            <img src="imagenes/programacion-portada.webp" alt="Programación" class="object-cover w-full h-48 rounded-lg">
+            <img src="imagenes/programacion-portada.webp" alt="Programación" class="object-cover w-full h-70 rounded-lg">
         </a>
         </div>
         
@@ -59,7 +61,7 @@ $destacados = Producto::destacados();
         <div class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
             <a href="index.php?p=productos&carrera=Videojuegos">
             <h3 class="font-bold text-lg text-slate-800 mb-2">Videojuegos</h3>
-            <img src="imagenes/videojuegos-portada.webp" alt="Videojuegos" class="object-cover w-full h-48 rounded-lg">
+            <img src="imagenes/videojuegos-portada.webp" alt="Videojuegos" class="object-cover w-full h-70 rounded-lg">
         </a>
         </div>
 
@@ -73,17 +75,17 @@ $destacados = Producto::destacados();
 </div>
 
 
-<section class="py-8 space-y-6 container-pad">
+<section class=" space-y-9  md:mx-20 container-pad" id= destacados>
 
    
     <div class="text-center max-w-xl mx-auto">
         <h2 class="text-3xl font-black text-slate-800"> Productos más Alquilados</h2>
-        <p class="text-slate-500 text-sm mt-1">
+        <p class="text-slate-500 text-sm md:text-[20px] mt-4">
             Los insumos y equipos más elegidos por los estudiantes
         </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-2 md:gap-4">
         
         <?php if (!empty($destacados)): ?>
             

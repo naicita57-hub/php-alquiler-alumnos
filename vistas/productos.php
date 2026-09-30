@@ -34,9 +34,9 @@
         <div class="forma-luz luz-azul"></div>
     </div>
 
- <div class="relative z-10">
-        <h1 class=" items-center text-3xl font-black text-slate-800">Catálogo de Insumos</h1>
-        <p class="text-slate-500 text-sm mt-1">Recordá que los precios son por día</p>
+ <div class="relative z-10 items-center">
+        <h1 class="text-xl md:text-3xl font-black text-slate-800">Catálogo de Insumos</h1>
+        <p class="text-slate-500 text-sm md:text-m mt-1">Recordá que los precios son por día</p>
     </div>
 
     <div class="formas-coloridas">
@@ -79,11 +79,12 @@
             Ingresos 2026
         </a>
     </div>
+    
 
-<section class="relative z-10 py-6 space-y-8 ">
+<section class="relative z-10 py-6 space-y-8 md:mx-20 ">
 
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4"> 
         <?php foreach ($productos as $item): ?>
 
            
