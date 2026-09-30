@@ -8,22 +8,22 @@
 
     <!-- btn hamburgyesa-->
     <button id="menu-btn" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none">
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" w-6 h-6 lucide lucide-menu preview-icon"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" w-6 h-6lucide lucide-menu preview-icon"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
     </button>
 
 
     <ul id="menu" class="hidden w-full md:flex md:w-auto items-center gap-2 md:gap-3 font-medium text-sm mt-3 md:mt-0 flex-col md:flex-row">
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=inicio" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'inicio') ? 'bg-slate-900 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Inicio</a>
+            <a href="index.php?p=inicio" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'inicio') ? 'bg-pink-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Inicio</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=productos" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'productos') ? 'bg-slate-900 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Productos</a>
+            <a href="index.php?p=productos" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'productos') ? 'bg-indigo-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Productos</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=contacto" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'contacto') ? 'bg-slate-900 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Contacto</a>
+            <a href="index.php?p=contacto" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'contacto') ? 'bg-red-500 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Contacto</a>
         </li>
         <li class="w-full md:w-auto text-center">
-            <a href="index.php?p=alumnas" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? 'bg-slate-900 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
+            <a href="index.php?p=alumnas" class="block px-4 py-2 rounded-full transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? 'bg-green-600 text-white font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
         </li>
     </ul>
 

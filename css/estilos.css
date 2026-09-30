@@ -6,8 +6,6 @@
     
 }
 
-
-
 .container-pad{
      padding-left: 8rem !important;  
     padding-right: 8rem !important; 
@@ -69,7 +67,6 @@
     animation: lavaAzul 16s ease-in-out infinite alternate;
 }
 
-/* --- ANIMACIONES DE MOVIMIENTO --- */
 @keyframes lavaRoja {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(140px, 160px) scale(1.2); }
@@ -91,20 +88,19 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    color: #334155; /* slate-700 */
+    color: #334155; 
     transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima */
+
 .glass-pill:hover {
     background: rgba(255, 255, 255, 0.75);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Estado activo (pill seleccionada) */
 .glass-pill-active {
-    background: rgba(15, 23, 42, 0.85); /* Oscuro elegante translúcido */
+    background: rgba(15, 23, 42, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);

@@ -19,7 +19,7 @@ $destacados = Producto::destacados();
         <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
             <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
             <p class="text-slate-600 text-base md:text-lg max-w-2xl">Accedé a herramientas, accesorios y más de las carreras disponibles en Da Vinci</p>
-            <a href="index.php?p=productos" class="mt-2 inline-block bg-indigo-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
+            <a href="index.php?p=productos" class="mt-2 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
         </div>
 
         <div>
