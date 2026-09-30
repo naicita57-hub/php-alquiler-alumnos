@@ -1,5 +1,5 @@
 
-<nav class="max-w-6xl mx-auto bg-white/90 backdrop-blur-md  shadow-sm  px-6 py-3 flex items-center justify-between transition-all">
+<nav class="max-w-6xl  relative z-10  mx-auto bg-white/90 backdrop-blur-md  border border-200 px-6 py-3 flex items-center justify-between transition-all">
         
         <!-- Logo a la Izquierda -->
         <a href="index.php?p=inicio" class="flex items-center gap-2 hover:opacity-90 transition-opacity">

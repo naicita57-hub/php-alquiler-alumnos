@@ -1,3 +1,9 @@
+<?php
+require_once "clases/Producto.php";
+
+
+$destacados = Producto::catalogo_destacados();
+?>
 <div class="bg-formas-container py-10">
 
     <!-- Capa de luces??? -->
@@ -19,22 +25,22 @@
         <div class=" ">
              <h2 class="text-2xl font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
             <div class="flex flex-wrap gap-6 items-center justify-center">
-                <div class="bg-white/30 backdrop-blur-md p-6 rounded-3xl border border-slate-200/80 shadow-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" >
+                <div class="bg-white/45 backdrop-blur-md p-6 rounded-3xl border border-slate-200/80 shadow-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" >
                 <h3 class="font-bold text-lg text-slate-800 mb-2">Cine y Nuevos Formatos</h3>
                 <img src="imagenes/cine-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
                 <p></p>
                </div>
-               <div class="bg-white/30 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                 <h3 class="font-bold text-lg text-slate-800 mb-2">Diseño Gráfico</h3>
                 <img src="imagenes/diseno-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
                 <p></p>
                 </div>
-                 <div class="bg-white/30 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                 <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                 <h3 class="font-bold text-lg text-slate-800 mb-2">Programación</h3>
                 <img src="imagenes/programacion-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
                 <p></p>
                 </div>
-                 <div class="bg-white/30 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                 <div class="bg-white/45 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                 <h3 class="font-bold text-lg text-slate-800 mb-2">Videojuegos</h3>
                 <img src="imagenes/videojuegos-portada.webp" alt="" class="object-cover w-full h-48 rounded-lg mb-4">
                 <p></p>

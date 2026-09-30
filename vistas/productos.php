@@ -8,8 +8,16 @@
     }
    
 ?>
+<div class="bg-formas-container py-10">
 
- <div>
+    <!-- Capa de luces??? -->
+    <div class="formas-coloridas">
+        <div class="forma-luz luz-roja"></div>
+        <div class="forma-luz luz-verde"></div>
+        <div class="forma-luz luz-azul"></div>
+    </div>
+
+ <div class="relative z-10">
         <h1 class=" items-center text-3xl font-black text-slate-800">Catálogo de Insumos</h1>
         <p class="text-slate-500 text-sm mt-1">Recordá que los precios son por día</p>
     </div>
@@ -42,7 +50,7 @@
         </a>
     </div>
 
-<section class= "py-6 space-y-8">
+<section class= "relative z-10  py-6 space-y-8">
    
 
     <!-- Grid prod -->
@@ -50,16 +58,16 @@
         <?php foreach ($productos as $item):?>
 
             <!-- tarjeta ind -->
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
+            <div class="bg-white/90 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between">
                 <div class= "h-60 bg-white relative overflow-hidden">
-                    <img src="imagenes/<?= $item->getImagen() ?>" alt="<?= $item->getNombre() ?>" class="w-full h-full object-cover" > 
+                    <img src="imagenes/<?= $item->getImagen() ?>" alt="<?= $item->getNombre() ?>" class="w-full h-full object-contain" > 
                     </img>
                     <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"> <?= $item->getCategoria() ?>
                     </span>
                 </div>
 
                 <!-- datos del prodd--> 
-                <div class="p-5 space-y-2">
+                <div class=" bg-white/90 p-5 space-y-2">
                     <h2 class="font-bold text-slate-800 text-lg leading-snug"> <?= $item->getNombre() ?> </h2>
                     <div class="flex justify-between items-center text-[11px] text-slate-400 pt-1">
                         <span>Stock disponible: <?= $item->getStock() ?></span>
