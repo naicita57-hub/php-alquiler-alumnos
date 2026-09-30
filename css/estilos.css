@@ -6,9 +6,11 @@
     
 }
 
-body {
-    padding-left: 8rem;  
-    padding-right: 8rem; 
+
+
+.container-pad{
+     padding-left: 8rem !important;  
+    padding-right: 8rem !important; 
 }
 
 .bg-formas-container {
@@ -111,4 +113,13 @@ body {
 }
 .estrellita-drop{
     color: blue !important;
+}
+
+@media (max-width: 767px) {
+    .container-pad{
+        padding: 10px !important;
+    }
+    .formas-coloridas{
+        display: none !important;
+    }
 }

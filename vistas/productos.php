@@ -8,7 +8,7 @@
     }
    
 ?>
-<div class="bg-formas-container py-10">
+<div class="bg-formas-container py-10 container-pad">
 
     <!-- Capa de luces??? -->
     <div class="formas-coloridas">
@@ -50,7 +50,7 @@
         </a>
     </div>
 
-<section class="relative z-10 py-6 space-y-8">
+<section class="relative z-10 py-6 space-y-8 ">
 
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
@@ -97,5 +97,7 @@
 
         <?php endforeach; ?>
     </div> 
-
+  </div> 
 </section>
+
+  </div> 

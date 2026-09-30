@@ -1,4 +1,4 @@
-<form class="container" action="?p='enviado'" method="get">
+<form class="container " action="?p='enviado'" method="get">
     <?php
     if (isset($_GET['p']) && $_GET['p'] === 'contacto') {
         ?>

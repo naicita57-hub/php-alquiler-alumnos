@@ -4,7 +4,7 @@ require_once "clases/Producto.php";
 
 $destacados = Producto::destacados();
 ?>
-<div class="bg-formas-container py-10">
+<div class="bg-formas-container py-10 container-pad">
 
     <!-- Capa de luces??? -->
     <div class="formas-coloridas">
@@ -53,7 +53,7 @@ $destacados = Producto::destacados();
 </div>
 
 
-<section class="py-8 space-y-6">
+<section class="py-8 space-y-6 container-pad">
 
    
     <div class="text-center max-w-xl mx-auto">
