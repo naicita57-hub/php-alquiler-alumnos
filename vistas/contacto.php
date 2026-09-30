@@ -5,10 +5,17 @@ if (isset($_GET['p']) && $_GET['p'] === 'contacto') {
     <?php
 }
 
+$productoId = isset($_GET['producto_id']) ? $_GET['producto_id'] : null;
+
+require_once "clases/Producto.php";
+
+$productoSeleccionado = $productoId ? Producto::producto_id($productoId) : null;
+
 $mensajePredeterminado = "";
 if ($productoSeleccionado) {
     $mensajePredeterminado = "¡Hola! Quisiera consultar la disponibilidad del equipo '" . $productoSeleccionado->getNombre() . "' para alquilar proximamente.";
 }
+
 ?>
 <div class="bg-formas-container py-10 container-pad">
 

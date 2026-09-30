@@ -1,13 +1,31 @@
 <?php
     require_once "clases/Producto.php";
-    $carreraFiltro = $_GET['carrera'] ?? 'todos';
-    if ($carreraFiltro !== 'todos'){
-        $productos = Producto::catalogo_carrera($carreraFiltro);
-    }else {
+    
+    $filtroActual = $_GET['filtro'] ?? 'todos';
+
+    // Diccionario para traducir URLs limpias a los nombres reales del JSON
+    $categorias = [
+        'cine-y-nf' => 'Cine y NF',
+        'diseno-grafico' => 'Diseño Gráfico',
+        'programacion' => 'Programación',
+        'videojuegos' => 'Videojuegos'
+    ];
+
+    if (array_key_exists($filtroActual, $categorias)) {
+        $nombreCategoriaFiltro = $categorias[$filtroActual];
+        $productos = Producto::catalogo_carrera($nombreCategoriaFiltro);
+        
+    } elseif ($filtroActual === 'en-stock') {
+        $productos = Producto::catalogo_stock();
+        
+    } elseif ($filtroActual === '2026' || $filtroActual === '2025' || $filtroActual === '2024') { 
+        $productos = Producto::catalogo_fecha($filtroActual);
+        
+    } else {
         $productos = Producto::catalogo_completo();
     }
-   
 ?>
+
 <div class="bg-formas-container py-10 container-pad">
 
     <!-- Capa de luces??? -->
@@ -22,31 +40,49 @@
         <p class="text-slate-500 text-sm mt-1">Recordá que los precios son por día</p>
     </div>
 
-   
-    <div class=" items-center justify-center flex flex-wrap gap-3 py-2">
-        <a href="index.php?p=productos&carrera=todos" 
-           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
+    <div class="formas-coloridas">
+        <div class="forma-luz luz-roja"></div>
+        <div class="forma-luz luz-verde"></div>
+        <div class="forma-luz luz-azul"></div>
+    </div>   
+    <!-- Botonera de Filtros Unificados -->
+    <!-- Botonera de Filtros Unificados -->
+    <div class="items-center justify-center flex flex-wrap gap-3 py-4 relative z-10">
+        
+        <a href="index.php?p=productos&filtro=todos" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
              Todos
         </a>
 
-        <a href="index.php?p=productos&carrera=Cine y NF" 
-           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Cine y NF' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <!-- Filtros de Categoría con URLs limpias -->
+        <a href="index.php?p=productos&filtro=cine-y-nf" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'cine-y-nf' ? 'glass-pill-active' : 'glass-pill' ?>">
              Cine y NF
         </a>
-
-        <a href="index.php?p=productos&carrera=Diseño Gráfico" 
-           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Diseño Gráfico' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=diseno-grafico" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'diseno-grafico' ? 'glass-pill-active' : 'glass-pill' ?>">
              Diseño Gráfico
         </a>
-
-        <a href="index.php?p=productos&carrera=Programación" 
-           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $carreraFiltro === 'Programación' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=programacion" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'programacion' ? 'glass-pill-active' : 'glass-pill' ?>">
             Programación
         </a>
-
-        <a href="index.php?p=productos&carrera=Videojuegos" 
-           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?=  $carreraFiltro === 'Videojuegos' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=videojuegos" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'videojuegos' ? 'glass-pill-active' : 'glass-pill' ?>">
             Videojuegos
+        </a>
+
+        <!-- Divisor visual -->
+        <span class="w-px h-8 bg-slate-300 mx-1 hidden sm:block"></span>
+
+        <!-- Filtro de Stock y Fecha (se mantienen igual porque ya no tenían espacios) -->
+        <a href="index.php?p=productos&filtro=en-stock" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'en-stock' ? 'glass-pill-active' : 'glass-pill' ?>">
+            Solo en Stock
+        </a>
+        <a href="index.php?p=productos&filtro=2026" 
+           class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === '2026' ? 'glass-pill-active' : 'glass-pill' ?>">
+            Ingresos 2026
         </a>
     </div>
 
