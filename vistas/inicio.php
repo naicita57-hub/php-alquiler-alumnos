@@ -5,28 +5,34 @@ $destacados = Producto::destacados();
 ?>
 <div class="bg-formas-container py-10 container-pad">
 
+   
     <div class="formas-coloridas">
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
         <div class="forma-luz luz-azul"></div>
     </div>
 
+   
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
         <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
             <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
             <p class="text-slate-600 text-base md:text-lg max-w-2xl">Accedé a herramientas, accesorios y más de las
                 carreras disponibles en Da Vinci</p>
+           
+                <div class=" col-1 md:flex gap-6"> 
             <a href="index.php?p=productos"
-                class="mt-2 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver
-                catálogo</a>
+                class="mt-4 inline-block bg-pink-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver catálogo</a>
+                <a href="index.php?p=inicio#destacados" class="mt-4 inline-block bg-indigo-600 hover:bg-black-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver Destacados</a>
+            </div>
+        </div>
         </div>
 
 
         <div>
             <h2 class="text-2xl font-bold  text-center text-slate-800 mb-6"> Categorías por carrera</h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  md:mx-20">
 
 
                 <div
@@ -86,7 +92,7 @@ $destacados = Producto::destacados();
         </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <?php if (!empty($destacados)): ?>
 
@@ -129,7 +135,7 @@ $destacados = Producto::destacados();
                                 class="text-sm font-normal text-slate-500">/día</span>
                         </span>
                         <a href="index.php?p=detalle&id=<?= $producto->getId(); ?>"
-                            class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm">
+                            class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl md transition-colors shadow-sm">
                             Ver detalle ★
                         </a>
                     </div>

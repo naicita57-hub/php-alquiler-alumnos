@@ -33,9 +33,9 @@ if (array_key_exists($filtroActual, $categorias)) {
         <div class="forma-luz luz-azul"></div>
     </div>
 
-    <div class="relative z-10 items-center">
-        <h2 class="text-xl md:text-3xl font-black text-slate-800">Catálogo de Insumos</h2>
-        <p class="text-slate-500 text-sm md:text-m mt-1">Recordá que los precios son por día</p>
+ <div class="relative z-10 items-center md:text-center">
+        <h1 class="text-xl md:text-[40px] font-black text-slate-800">Catálogo de Insumos</h1>
+        <p class="text-slate-500 text-sm md:text-[20px] mt-8">Recordá que los precios son por día</p>
     </div>
 
     <div class="formas-coloridas">
@@ -44,37 +44,37 @@ if (array_key_exists($filtroActual, $categorias)) {
         <div class="forma-luz luz-azul"></div>
     </div>
     <div class="items-center justify-center flex flex-wrap gap-3 py-4 relative z-10">
-
-        <a href="index.php?p=productos&filtro=todos"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Todos
+        
+        <a href="index.php?p=productos&filtro=todos" 
+           class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Todos
         </a>
 
-        <a href="index.php?p=productos&filtro=cine-y-nf"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'cine-y-nf' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Cine y NF
+        <a href="index.php?p=productos&filtro=cine-y-nf" 
+           class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'cine-y-nf' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Cine y NF
         </a>
-        <a href="index.php?p=productos&filtro=diseno-grafico"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'diseno-grafico' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Diseño Gráfico
+        <a href="index.php?p=productos&filtro=diseno-grafico" 
+           class="px-5 py-2.5 rounded-full text-xs  md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'diseno-grafico' ? 'glass-pill-active' : 'glass-pill' ?>">
+             Diseño Gráfico
         </a>
-        <a href="index.php?p=productos&filtro=programacion"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'programacion' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=programacion" 
+           class="px-5 py-2.5 rounded-full text-xs  md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'programacion' ? 'glass-pill-active' : 'glass-pill' ?>">
             Programación
         </a>
-        <a href="index.php?p=productos&filtro=videojuegos"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'videojuegos' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=videojuegos" 
+           class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'videojuegos' ? 'glass-pill-active' : 'glass-pill' ?>">
             Videojuegos
         </a>
 
         <span class="w-px h-8 bg-slate-300 mx-1 hidden sm:block"></span>
 
-        <a href="index.php?p=productos&filtro=en-stock"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === 'en-stock' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=en-stock" 
+           class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'en-stock' ? 'glass-pill-active' : 'glass-pill' ?>">
             Solo en Stock
         </a>
-        <a href="index.php?p=productos&filtro=2026"
-            class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all <?= $filtroActual === '2026' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=2026" 
+           class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === '2026' ? 'glass-pill-active' : 'glass-pill' ?>">
             Ingresos 2026
         </a>
     </div>

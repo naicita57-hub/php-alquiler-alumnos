@@ -3,6 +3,7 @@
 
 *{
     font-family: 'Alata', sans-serif !important;
+    scroll-behavior: smooth;
     
 }
 
@@ -33,7 +34,7 @@
     opacity: 0.8;
 }
 
-/* 1. Luz Roja */
+
 .luz-roja {
     top: 10%;
     left: 10%;
@@ -43,7 +44,7 @@
     animation: lavaRoja 14s ease-in-out infinite alternate;
 }
 
-/* 2. Luz Verde */
+
 .luz-verde {
     top: 40%;
     right: 10%;
@@ -53,7 +54,7 @@
     animation: lavaVerde 18s ease-in-out infinite alternate;
 }
 
-/* 3. Luz Azul */
+
 .luz-azul {
     bottom: 10%;
     left: 25%;
