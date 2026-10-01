@@ -97,9 +97,7 @@ $producto = $id ? Producto::producto_id($id) : null;
 
        
         <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-slate-200/80 shadow-md text-center max-w-lg mx-auto py-12 space-y-4">
-            <div class="w-16 h-16 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
-                ⚠️
-            </div>
+                <img src="imagenes/warning.webp" alt="Warning símbolo" class="object-contain w-full h-20">
             <h2 class="text-2xl font-extrabold text-slate-800">Producto no encontrado</h2>
             <p class="text-slate-600 text-sm">El equipo que estás buscando no existe o fue retirado del catálogo.</p>
             <a href="index.php?p=productos" 

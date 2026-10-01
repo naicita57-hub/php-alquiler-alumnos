@@ -12,7 +12,7 @@
  
     <div class="border-b border-slate-200 pb-5 text-center">
         <h1 class="text-3xl font-black text-slate-800">Realizado por Funky Studios</h1>
-        <p class="text-slate-500 text-sm mt-1 md:text-[16px]">Integrantes del Proyecto - Parcial 1 | Programación II</p>
+        <p class="text-slate-500 text-sm mt-1 md:text-[20px]">Integrantes del Proyecto - Parcial 1 | Programación II</p>
     </div>
 
    
@@ -40,17 +40,17 @@
                 <div class=" bg-white/45 mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Email</span>
-                        <a href="mailto:andrea.portillo@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[16px]">
+                        <a href="mailto:andrea.portillo@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[18px]">
                             andrea.portillo@escueladavinci.edu.ar
                         </a>
                     </div>
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Carrera</span>
-                        <span class="md:text-[16px]">Diseño y Desarrollo Web</span>
+                        <span class="md:text-[18px]">Diseño y Desarrollo Web</span>
                     </div>
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Comisión</span>
-                        <span class="md:text-[16px]">DWM3AP </span>
+                        <span class="md:text-[18px]">DWM3AP </span>
                     </div>
                 </div>
             </details>
@@ -81,17 +81,17 @@
                 <div class="mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Email</span>
-                        <a href="mailto:naiara.tymkiw@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[16px]">
+                        <a href="mailto:naiara.tymkiw@escueladavinci.edu.ar" class="text-indigo-800 hover:underline md:text-[18px]">
                             naiara.tymkiw@escueladavinci.edu.ar
                         </a>
                     </div>
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Carrera</span>
-                        <span class="md:text-[16px]">Diseño y Desarrollo Web</span>
+                        <span class="md:text-[18px]">Diseño y Desarrollo Web</span>
                     </div>
                     <div>
                         <span class="font-bold text-slate-400 block text-[10px] uppercase tracking-wider md:text-[16px]">Comisión</span>
-                        <span class="md:text-[16px]">DWM3AP</span>
+                        <span class="md:text-[18px]">DWM3AP</span>
                     </div>
                 </div>
             </details>
