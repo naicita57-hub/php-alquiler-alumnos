@@ -16,9 +16,9 @@
     </div>
 
 
-        <div class="flex flex-col md:flex-row gap-7 justify-center items-center md:items-start max-w-4xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-7 justify-center items-center md:items-start max-w-4xl mx-auto px-4 md:w-fit">
             <div
-                class=" w-fit flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
+                class=" flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
 
 
                 <div class="w-full h-80  rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">

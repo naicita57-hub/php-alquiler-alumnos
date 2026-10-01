@@ -26,7 +26,7 @@ $producto = $id ? Producto::producto_id($id) : null;
             
             <div class="sm:hidden w-12 h-1.5 bg-slate-200 rounded-full mx-auto -mt-2 mb-2"></div>
 
-            <div class="w-full aspect-square bg-slate-100/70 rounded-2xl overflow-hidden border border-slate-100 p-6 flex items-center justify-center">
+            <div class="w-full aspect-square  rounded-2xl overflow-hidden border border-slate-100 p-6 flex items-center justify-center">
                 <img src="imagenes/<?= $producto->getImagen(); ?>" 
                      alt="<?= $producto->getNombre(); ?>" 
                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-300">
