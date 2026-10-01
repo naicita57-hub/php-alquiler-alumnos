@@ -37,49 +37,41 @@ $destacados = Producto::destacados();
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  md:mx-20">
 
-            <article>
-                <div
+                <article
                     class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                     <a href="index.php?p=productos&filtro=cine-y-nf">
                         <h3 class="font-bold text-lg text-slate-800 mb-2">Cine y Nuevos Formatos</h3>
                         <img src="imagenes/cine-portada.webp" alt="Cine y Nuevos Formatos"
                             class="object-cover w-full h-48 rounded-lg">
                     </a>
-                </div>
-            </article>
+                </article>
 
-            <article>
-                <div
+                <article
                     class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                     <a href="index.php?p=productos&filtro=diseno-grafico">
                         <h3 class="font-bold text-lg text-slate-800 mb-2">Diseño Gráfico</h3>
                         <img src="imagenes/diseno-portada.webp" alt="Diseño Gráfico"
                             class="object-cover w-full h-48 rounded-lg">
                     </a>
-                </div>
-            </article>
+                </article>
 
-            <article>
-                <div
+                <article
                     class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                     <a href="index.php?p=productos&filtro=programacion">
                         <h3 class="font-bold text-lg text-slate-800 mb-2">Programación</h3>
                         <img src="imagenes/programacion-portada.webp" alt="Programación"
                             class="object-cover w-full h-48 rounded-lg">
                     </a>
-                </div>
-            </article>
+                </article>
 
-            <article>
-                <div
+                <article
                     class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                     <a href="index.php?p=productos&filtro=videojuegos">
                         <h3 class="font-bold text-lg text-slate-800 mb-2">Videojuegos</h3>
                         <img src="imagenes/videojuegos-portada.webp" alt="Videojuegos"
                             class="object-cover w-full h-48 rounded-lg">
                     </a>
-                </div>
-            </article>
+                </article>
         </div>
     </div>
 
@@ -95,14 +87,13 @@ $destacados = Producto::destacados();
         </p>
     </div>
 
-    <article>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <?php if (!empty($destacados)): ?>
 
                 <?php foreach ($destacados as $producto): ?>
 
-                    <div
+                    <article
                         class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
                         <div>
 
@@ -142,7 +133,7 @@ $destacados = Producto::destacados();
                                 Ver detalle ★
                             </a>
                         </div>
-                    </div>
+                    </article>
 
                 <?php endforeach; ?>
 
@@ -152,6 +143,5 @@ $destacados = Producto::destacados();
                 </p>
             <?php endif; ?>
         </div>
-    </article>
 
 </section>
