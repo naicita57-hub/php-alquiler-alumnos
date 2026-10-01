@@ -26,7 +26,7 @@ if ($productoSeleccionado) {
     </div>
 
     <div class="relative z-10 max-w-2xl mx-auto text-center mb-8">
-        <h1 class="text-3xl font-black text-slate-800">Contacto</h1>
+        <h2 class="text-3xl font-black text-slate-800">Contacto</h2>
         <p class="text-slate-500 text-sm mt-1">Escribinos y te responderemos a la brevedad</p>
 
         <?php if ($productoSeleccionado): ?>

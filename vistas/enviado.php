@@ -12,7 +12,7 @@
     </div>
 
     <div class="relative z-10 max-w-2xl mx-auto text-center">
-        <h1 class="items-center text-3xl font-black text-slate-800">¡Consulta enviada!</h1>
+        <h2 class="items-center text-3xl font-black text-slate-800">¡Consulta enviada!</h2>
         <p class="text-slate-500 text-sm mt-1">Gracias por contactarnos. Hemos recibido tu mensaje con éxito.</p>
     </div>
 

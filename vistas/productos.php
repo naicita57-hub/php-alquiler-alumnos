@@ -34,7 +34,7 @@ if (array_key_exists($filtroActual, $categorias)) {
     </div>
 
  <div class="relative z-10 items-center md:text-center">
-        <h1 class="text-xl md:text-[40px] font-black text-slate-800">Catálogo de Insumos</h1>
+        <h2 class="text-xl md:text-[40px] font-black text-slate-800">Catálogo de Insumos</h2>
         <p class="text-slate-500 text-sm md:text-[20px] mt-8">Recordá que los precios son por día</p>
     </div>
 

@@ -11,7 +11,7 @@
 
  
     <div class="border-b border-slate-200 pb-5 text-center">
-        <h1 class="text-3xl font-black text-slate-800">Realizado por Funky Studios</h1>
+        <h2 class="text-3xl font-black text-slate-800">Realizado por Funky Studios</h2>
         <p class="text-slate-500 text-sm mt-1 md:text-[20px]">Integrantes del Proyecto - Parcial 1 | Programación II</p>
     </div>
 

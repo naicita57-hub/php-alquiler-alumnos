@@ -16,7 +16,7 @@ $destacados = Producto::destacados();
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
         <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
-            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h1>
+            <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">Alquiler de Equipos para estudiantes</h2>
             <p class="text-slate-600 text-base md:text-lg max-w-2xl">Accedé a herramientas, accesorios y más de las
                 carreras disponibles en Da Vinci</p>
            
