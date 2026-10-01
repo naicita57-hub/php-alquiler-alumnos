@@ -5,14 +5,12 @@ $destacados = Producto::destacados();
 ?>
 <div class="bg-formas-container py-10 container-pad">
 
-    <!-- Capa de luces??? -->
     <div class="formas-coloridas">
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
         <div class="forma-luz luz-azul"></div>
     </div>
 
-    <!-- Contenido  normal -->
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
         <div class=" text-black rounded-3xl text-center p-6 md:p-12 flex flex-col items-center gap-4">
@@ -78,10 +76,7 @@ $destacados = Producto::destacados();
 
 </div>
 
-</div>
-
-
-<section class=" space-y-9  md:mx-20 container-pad" id= destacados>
+<section class=" space-y-9  md:mx-20 container-pad" id=destacados>
 
 
     <div class="text-center max-w-xl mx-auto">
@@ -143,7 +138,6 @@ $destacados = Producto::destacados();
             <?php endforeach; ?>
 
         <?php else: ?>
-
             <p class="col-span-full text-center text-slate-400 py-8">
                 No hay productos destacados para mostrar en este momento.
             </p>

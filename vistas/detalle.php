@@ -41,9 +41,9 @@ $producto = $id ? Producto::producto_id($id) : null;
                     </span>
 
                   
-                    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-3 leading-tight">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-3 leading-tight">
                         <?= $producto->getNombre(); ?>
-                    </h1>
+                    </h2>
 
                  
                     <p class="text-slate-600 text-sm md:text-base leading-relaxed mt-4">

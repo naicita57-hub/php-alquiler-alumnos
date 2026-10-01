@@ -1,6 +1,5 @@
 </main>
 
-
 <footer class=" relative z-10 bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-6 pt-12 pb-8">
         
