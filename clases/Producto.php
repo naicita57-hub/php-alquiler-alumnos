@@ -5,12 +5,12 @@ class Producto
     private $id;
     private $nombre;
     private $categoria;
+    private $carrera;
     private $precio;
     private $descripcion;
     private $imagen;
     private $stock;
     private $fechaIngreso;
-    private $destacado;
 
     //GETTERS
 
@@ -76,14 +76,6 @@ class Producto
     public function getFechaIngreso(): string
     {
         return $this->fechaIngreso;
-    }
-
-    /**
-     * Obtiene el destacado de Producto
-     */
-    public function getDestacado(): bool
-    {
-        return $this->destacado;
     }
 
     //SETTERS
@@ -160,15 +152,6 @@ class Producto
         $this->fechaIngreso = $dato;
     }
 
-     /**
-     * Setea el destacado de Producto
-     * @param bool $dato destacado del producto
-     */
-    public function setDestacado(bool $dato)
-    {
-        $this->destacado = $dato;
-    }
-
     //Para que aparezcan los productos
 
     public static function catalogo_completo(): array
@@ -190,7 +173,6 @@ class Producto
             $producto->imagen = $value->imagen;
             $producto->stock = $value->stock;
             $producto->fechaIngreso = ($value->fechaIngreso);
-            $producto->destacado = $value->destacado;
 
             $catalogo[] = $producto;
         }
