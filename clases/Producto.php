@@ -10,7 +10,7 @@ class Producto
     private $descripcion;
     private $imagen;
     private $stock;
-    private $fechaIngreso;
+    private $fecha_ingreso;
 
     //GETTERS
 
@@ -36,6 +36,14 @@ class Producto
     public function getCategoria(): string
     {
         return $this->categoria;
+    }
+
+    /**
+     * Obtiene la carrera de Producto
+     */
+    public function getCarrera(): string
+    {
+        return $this->carrera;
     }
 
     /**
@@ -75,7 +83,7 @@ class Producto
      */
     public function getFechaIngreso(): string
     {
-        return $this->fechaIngreso;
+        return $this->fecha_ingreso;
     }
 
     //SETTERS
@@ -105,6 +113,15 @@ class Producto
     public function setCategoria(string $dato)
     {
         $this->categoria = $dato;
+    }
+
+    /**
+     * Setea la carrera de Producto
+     * @param string $dato carrera del producto
+     */
+    public function setCarrera(string $dato)
+    {
+        $this->carrera = $dato;
     }
 
     /**
@@ -149,34 +166,21 @@ class Producto
      */
     public function setFechaIngreso(string $dato)
     {
-        $this->fechaIngreso = $dato;
+        $this->fecha_ingreso = $dato;
     }
 
     //Para que aparezcan los productos
 
     public static function catalogo_completo(): array
     {
-        $catalogo = [];
-
-        $JSON = file_get_contents('data/productos.json');
-
-        $JSONData = json_decode($JSON);
-
-        foreach ($JSONData as $value) {
-            $producto = new self();
-
-            $producto->id = $value->id;
-            $producto->nombre = $value->nombre;
-            $producto->categoria = $value->categoria;
-            $producto->descripcion = $value->descripcion;
-            $producto->precio = $value->precio;
-            $producto->imagen = $value->imagen;
-            $producto->stock = $value->stock;
-            $producto->fechaIngreso = ($value->fechaIngreso);
-
-            $catalogo[] = $producto;
-        }
-        return $catalogo;
+        $connect = (new Conexion())->getDB();
+        $query = "SELECT * FROM producto";
+        $PDOStatement = $connect->prepare($query);
+        $PDOStatement->execute();
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $productos = $PDOStatement->fetchAll();
+        
+        return $productos;
     }
 
     public static function catalogo_carrera(string $categoria): array
@@ -184,9 +188,9 @@ class Producto
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $c){
-            if($c->categoria == $categoria){
-            $resultado[] = $c;
+        foreach ($catalogo as $c) {
+            if ($c->categoria == $categoria) {
+                $resultado[] = $c;
             }
         }
         return $resultado;
@@ -210,26 +214,26 @@ class Producto
         return $resultado;
     }
 
-    public static function catalogo_stock():array
+    public static function catalogo_stock(): array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
         foreach ($catalogo as $producto) {
-            if($producto->getStock() > 0){
+            if ($producto->getStock() > 0) {
                 $resultado[] = $producto;
             }
         }
         return $resultado;
     }
 
-    public static function destacados():array
+    public static function destacados(): array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
 
         foreach ($catalogo as $producto) {
-            if($producto->getDestacado() === true){
+            if ($producto->getDestacado() === true) {
                 $resultado[] = $producto;
             }
         }

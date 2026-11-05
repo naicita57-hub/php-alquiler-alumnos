@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2026 a las 14:56:06
+-- Tiempo de generación: 05-11-2026 a las 14:55:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `xdia`
 --
-CREATE DATABASE IF NOT EXISTS `xdia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `xdia`;
 
 -- --------------------------------------------------------
 
@@ -31,18 +29,19 @@ USE `xdia`;
 
 CREATE TABLE `carreras` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(100) NOT NULL
+  `nombre` varchar(100) NOT NULL,
+  `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `carreras`
 --
 
-INSERT INTO `carreras` (`id`, `nombre`) VALUES
-(1, 'Diseño Gráfico Artístico Digital'),
-(2, 'Diseño y Programación Web'),
-(3, 'Cine y Nuevos Formatos'),
-(4, 'Programación de Videojuegos');
+INSERT INTO `carreras` (`id`, `nombre`, `imagen`) VALUES
+(1, 'Diseño Gráfico Artístico Digital', NULL),
+(2, 'Diseño y Programación Web', NULL),
+(3, 'Cine y Nuevos Formatos', NULL),
+(4, 'Programación de Videojuegos', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,20 +51,21 @@ INSERT INTO `carreras` (`id`, `nombre`) VALUES
 
 CREATE TABLE `categorias` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(100) NOT NULL
+  `nombre` varchar(100) NOT NULL,
+  `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`id`, `nombre`) VALUES
-(1, 'Periféricos'),
-(2, 'Tabletas Gráficas'),
-(3, 'Cámaras'),
-(4, 'Iluminación'),
-(5, 'Sonido'),
-(6, 'Consolas');
+INSERT INTO `categorias` (`id`, `nombre`, `imagen`) VALUES
+(1, 'Periféricos', NULL),
+(2, 'Tabletas Gráficas', NULL),
+(3, 'Cámaras', NULL),
+(4, 'Iluminación', NULL),
+(5, 'Sonido', NULL),
+(6, 'Consolas', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,6 +109,14 @@ CREATE TABLE `producto` (
   `fecha_ingreso` date NOT NULL,
   `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `fecha_ingreso`, `imagen`) VALUES
+(1, 'sdasdasd', 'dasdasdafasf', 40000.00, '2026-11-04', 'hjbjbkjbjk.png'),
+(2, 'nvbnfgh', 'gjxzfgjhxfgh', 20000.00, '2026-11-01', 'czxczczxc.png');
 
 -- --------------------------------------------------------
 
@@ -261,7 +269,7 @@ ALTER TABLE `detalle_compra`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_x_carrera`
