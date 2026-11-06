@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2026 a las 14:55:00
+-- Tiempo de generación: 06-11-2026 a las 14:58:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `xdia`
 --
+CREATE DATABASE IF NOT EXISTS `xdia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `xdia`;
 
 -- --------------------------------------------------------
 
@@ -130,6 +132,14 @@ CREATE TABLE `producto_x_carrera` (
   `id_carrera` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto_x_carrera`
+--
+
+INSERT INTO `producto_x_carrera` (`id`, `id_producto`, `id_carrera`) VALUES
+(1, 1, 1),
+(2, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -141,6 +151,14 @@ CREATE TABLE `producto_x_categoria` (
   `id_producto` int(10) UNSIGNED NOT NULL,
   `id_categoria` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto_x_categoria`
+--
+
+INSERT INTO `producto_x_categoria` (`id`, `id_producto`, `id_categoria`) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -275,13 +293,13 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
