@@ -174,13 +174,31 @@ class Producto
     public static function catalogo_completo(): array
     {
         $connect = (new Conexion())->getDB();
-        $query = "SELECT * FROM producto";
+        $query =  "SELECT 
+                        p.id,
+                        p.nombre,
+                        p.descripcion,
+                        p.precio,
+                        p.fecha_ingreso,
+                        p.imagen, 
+                        c.nombre as categoria,
+                        car.nombre as carrera
+                    FROM producto as p
+                    LEFT JOIN categoria as c ON pxc.id_categoria = c.id_categoria
+                    LEFT JOIN producto_x_categoria as pxc ON p.id_producto = pxc.id_producto
+                    LEFT JOIN producto_x_carrera as pxcar ON p.id_producto = pxcar.id_producto
+                    LEFT JOIN carrera as car ON pxcar.id_carrera = car.id_carrera";
         $PDOStatement = $connect->prepare($query);
         $PDOStatement->execute();
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $productos = $PDOStatement->fetchAll();
         
         return $productos;
+    }
+
+    public static function get_x_id(int $id): ?Producto
+    {
+        
     }
 
     public static function catalogo_carrera(string $categoria): array

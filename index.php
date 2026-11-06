@@ -1,7 +1,6 @@
 <?php
 
 require_once "config.php";
-require_once "clases/Conexion.php";
 
 $seccion = isset($_GET['p']) ? $_GET['p'] : 'inicio';
 
