@@ -1,7 +1,13 @@
+<?php
+$producto = new Producto;
+$lista = $producto->catalogo_completo();
+
+?>
+
 <section class="relative z-10 py-6 space-y-8 md:mx-20 ">
         <article>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
-                <?php foreach ($productos as $item): ?>
+                <?php foreach ($lista as $item): ?>
 
 
                     <div
@@ -20,6 +26,11 @@
                                 <?= $item->getCategoria(); ?>
                             </span>
 
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                <?= $item->getCarrera(); ?>
+                            </span>
+
 
                             <h3 class="text-lg font-bold text-slate-800 mt-2">
                                 <?= $item->getNombre(); ?>
@@ -28,7 +39,6 @@
 
                             <div
                                 class="flex justify-between items-center text-[14px] text-slate-400 pt-2 border-t border-slate-100/80 mt-3">
-                                <span>Stock: <?= $item->getStock(); ?></span>
                                 <span>Ingreso: <?= $item->getFechaIngreso(); ?></span>
                             </div>
                         </div>

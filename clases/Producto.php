@@ -191,14 +191,9 @@ class Producto
         $PDOStatement = $connect->prepare($query);
         $PDOStatement->execute();
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $productos = $PDOStatement->fetchAll();
+        $lista = $PDOStatement->fetchAll();
         
-        return $productos;
-    }
-
-    public static function get_x_id(int $id): ?Producto
-    {
-        
+        return $lista;
     }
 
     public static function catalogo_carrera(string $categoria): array
