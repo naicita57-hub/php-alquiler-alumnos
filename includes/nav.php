@@ -4,7 +4,7 @@
     <h1 class="sr-only">Da Vinci x dia</h1>
    
     <a href="index.php?p=inicio" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
-        <img src="imagenes/logo-davinci-alquiler.webp" alt="Logo Davinci Alquiler" class="h-8 w-auto object-contain">
+        <img src="assets/imagenes/logo-davinci-alquiler.webp" alt="Logo Davinci Alquiler" class="h-8 w-auto object-contain">
     </a>
 
     <!-- btn hamburgyesa-->

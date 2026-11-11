@@ -2,15 +2,14 @@
 
 class Producto
 {
-    private $id;
-    private $nombre;
-    private $categoria;
-    private $carrera;
-    private $precio;
+    private $id;   
+    private $nombre;    
     private $descripcion;
-    private $imagen;
-    private $stock;
+    private $precio;    
     private $fecha_ingreso;
+    private $imagen;
+    private $categoria; 
+    private $carrera;
 
     //GETTERS
 
@@ -73,10 +72,10 @@ class Producto
     /**
      * Obtiene el stock de Producto
      */
-    public function getStock(): int
-    {
-        return $this->stock;
-    }
+    // public function getStock(): int
+    // {
+    //     return $this->stock;
+    // }
 
     /**
      * Obtiene la fecha de ingreso de Producto
@@ -155,10 +154,10 @@ class Producto
      * Setea el stock de Producto
      * @param int $dato stock del producto
      */
-    public function setStock(int $dato)
-    {
-        $this->stock = $dato;
-    }
+    // public function setStock(int $dato)
+    // {
+    //     $this->stock = $dato;
+    // }
 
     /**
      * Setea la fecha de ingreso de Producto
@@ -173,30 +172,116 @@ class Producto
 
     public static function catalogo_completo(): array
     {
-        $connect = (new Conexion())->getDB();
-        $query =  "SELECT 
-                        p.id,
-                        p.nombre,
-                        p.descripcion,
-                        p.precio,
-                        p.fecha_ingreso,
-                        p.imagen, 
-                        c.nombre as categoria,
-                        car.nombre as carrera
-                    FROM producto as p
-                    LEFT JOIN categoria as c ON pxc.id_categoria = c.id_categoria
-                    LEFT JOIN producto_x_categoria as pxc ON p.id_producto = pxc.id_producto
-                    LEFT JOIN producto_x_carrera as pxcar ON p.id_producto = pxcar.id_producto
-                    LEFT JOIN carrera as car ON pxcar.id_carrera = car.id_carrera";
-        $PDOStatement = $connect->prepare($query);
-        $PDOStatement->execute();
-        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $lista = $PDOStatement->fetchAll();
+        $conexion = (new Conexion())->getDB();
         
-        return $lista;
+        $query = "SELECT 
+                    p.id,
+                    p.nombre,
+                    p.descripcion,
+                    p.precio,
+                    p.fecha_ingreso,
+                    p.imagen,
+                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
+                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                  FROM producto AS p
+                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute();
+
+        return $PDOStatement->fetchAll();
     }
 
-    public static function catalogo_carrera(string $categoria): array
+    public static function get_x_id(int $id): ?Producto
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen,
+                  GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
+                  GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                  FROM producto AS p
+                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+                  WHERE p.id = :id
+                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
+                  LIMIT 1";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(["id" => $id]);
+
+        $lista = $PDOStatement->fetch();
+
+        return !empty($lista) ? $lista : null;
+    }
+
+    /**
+     * Obtiene productos filtrados por el nombre de la Categoría
+     */
+    public static function catalogo_por_categoria(string $nombreCategoria): array
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "SELECT 
+                    p.id,
+                    p.nombre,
+                    p.descripcion,
+                    p.precio,
+                    p.fecha_ingreso,
+                    p.imagen,
+                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
+                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                  FROM producto AS p
+                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
+                  HAVING FIND_IN_SET(:categoria, GROUP_CONCAT(cat.nombre)) > 0";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(['categoria' => $nombreCategoria]);
+
+        return $PDOStatement->fetchAll();
+    }
+
+    /**
+     * Obtiene productos filtrados por el nombre de la Carrera
+     */
+    public static function catalogo_por_carrera(string $nombreCarrera): array
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "SELECT 
+                    p.id,
+                    p.nombre,
+                    p.descripcion,
+                    p.precio,
+                    p.fecha_ingreso,
+                    p.imagen,
+                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
+                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                  FROM producto AS p
+                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
+                  HAVING FIND_IN_SET(:carrera, GROUP_CONCAT(car.nombre)) > 0";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(['carrera' => $nombreCarrera]);
+
+        return $PDOStatement->fetchAll();
+    }
+
+    /** public static function catalogo_carrera(string $categoria): array
     {
         $resultado = [];
         $catalogo = self::catalogo_completo();
@@ -263,5 +348,5 @@ class Producto
             }
         }
         return null;
-    }
+    } **/
 }
