@@ -26,6 +26,20 @@
         <li class="w-full md:w-auto  mt-3 text-center">
             <a href="index.php?p=alumnas" class=" px-4 py-2  transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? ' text-green-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
         </li>
+        <li class="w-full md:w-auto mt-3 text-center">
+  <a 
+    href="admin/index.php" 
+    class="px-4 py-2 transition-all inline-flex items-center justify-center gap-1.5 <?= ($seccion === 'admin') ? 'text-green-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>"
+    title="Panel de Administración"
+  >
+    <!-- Ícono Lucide User -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
+    </svg>
+    <span>Admin</span>
+  </a>
+</li>
     </ul>
 
 </nav>

@@ -24,7 +24,7 @@ class Producto
     /**
      * Obtiene el nombre de Producto
      */
-    public function getNombre(): string
+    public function getNombre(): ?string
     {
         return $this->nombre;
     }
@@ -32,7 +32,7 @@ class Producto
     /**
      * Obtiene la categoria de Producto
      */
-    public function getCategoria(): string
+    public function getCategoria(): ?string
     {
         return $this->categoria;
     }
@@ -40,7 +40,7 @@ class Producto
     /**
      * Obtiene la carrera de Producto
      */
-    public function getCarrera(): string
+    public function getCarrera(): ?string
     {
         return $this->carrera;
     }
@@ -56,7 +56,7 @@ class Producto
     /**
      * Obtiene la descripcion de Producto
      */
-    public function getDescripcion(): string
+    public function getDescripcion(): ?string
     {
         return $this->descripcion;
     }
@@ -64,7 +64,7 @@ class Producto
     /**
      * Obtiene la imagen de Producto
      */
-    public function getImagen(): string
+    public function getImagen(): ?string
     {
         return $this->imagen;
     }
@@ -80,7 +80,7 @@ class Producto
     /**
      * Obtiene la fecha de ingreso de Producto
      */
-    public function getFechaIngreso(): string
+    public function getFechaIngreso(): ?string
     {
         return $this->fecha_ingreso;
     }
