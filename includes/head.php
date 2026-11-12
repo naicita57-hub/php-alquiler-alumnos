@@ -1,4 +1,5 @@
 <?php
+require_once "funciones.php";
 require_once "clases/Conexion.php";
 require_once "clases/Producto.php";
 ?>

@@ -221,9 +221,6 @@ class Producto
         return !empty($lista) ? $lista : null;
     }
 
-    /**
-     * Obtiene productos filtrados por el nombre de la Categoría
-     */
     public static function catalogo_por_categoria(string $nombreCategoria): array
     {
         $conexion = (new Conexion())->getDB();
@@ -251,9 +248,6 @@ class Producto
         return $PDOStatement->fetchAll();
     }
 
-    /**
-     * Obtiene productos filtrados por el nombre de la Carrera
-     */
     public static function catalogo_por_carrera(string $nombreCarrera): array
     {
         $conexion = (new Conexion())->getDB();
@@ -281,72 +275,72 @@ class Producto
         return $PDOStatement->fetchAll();
     }
 
-    /** public static function catalogo_carrera(string $categoria): array
-    {
-        $resultado = [];
-        $catalogo = self::catalogo_completo();
+//    public static function catalogo_carrera(string $categoria): array
+//     {
+//         $resultado = [];
+//         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $c) {
-            if ($c->categoria == $categoria) {
-                $resultado[] = $c;
-            }
-        }
-        return $resultado;
-    }
+//         foreach ($catalogo as $c) {
+//             if ($c->categoria == $categoria) {
+//                 $resultado[] = $c;
+//             }
+//         }
+//         return $resultado;
+//     }
 
-    public static function catalogo_fecha(string $fechaFiltro): array
-    {
-        $resultado = [];
-        $catalogo = self::catalogo_completo();
+//     public static function catalogo_fecha(string $fechaFiltro): array
+//     {
+//         $resultado = [];
+//         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $producto) {
-            $date = $producto->getFechaIngreso();
+//         foreach ($catalogo as $producto) {
+//             $date = $producto->getFechaIngreso();
 
-            $fecha = substr($date, 0, 4);
+//             $fecha = substr($date, 0, 4);
 
-            if ($fecha === $fechaFiltro) {
-                $resultado[] = $producto;
-            }
-        }
+//             if ($fecha === $fechaFiltro) {
+//                 $resultado[] = $producto;
+//             }
+//         }
 
-        return $resultado;
-    }
+//         return $resultado;
+//     }
 
-    public static function catalogo_stock(): array
-    {
-        $resultado = [];
-        $catalogo = self::catalogo_completo();
+//     public static function catalogo_stock(): array
+//     {
+//         $resultado = [];
+//         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $producto) {
-            if ($producto->getStock() > 0) {
-                $resultado[] = $producto;
-            }
-        }
-        return $resultado;
-    }
+//         foreach ($catalogo as $producto) {
+//             if ($producto->getStock() > 0) {
+//                 $resultado[] = $producto;
+//             }
+//         }
+//         return $resultado;
+//     }
 
-    public static function destacados(): array
-    {
-        $resultado = [];
-        $catalogo = self::catalogo_completo();
+//     public static function destacados(): array
+//     {
+//         $resultado = [];
+//         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $producto) {
-            if ($producto->getDestacado() === true) {
-                $resultado[] = $producto;
-            }
-        }
-        return $resultado;
-    }
+//         foreach ($catalogo as $producto) {
+//             if ($producto->getDestacado() === true) {
+//                 $resultado[] = $producto;
+//             }
+//         }
+//         return $resultado;
+//     }
 
-    public static function producto_id(int $id): ?Producto
-    {
-        $catalogo = self::catalogo_completo();
+//     public static function producto_id(int $id): ?Producto
+//     {
+//         $catalogo = self::catalogo_completo();
 
-        foreach ($catalogo as $p) {
-            if ($p->id == $id) {
-                return $p;
-            }
-        }
-        return null;
-    } **/
+//         foreach ($catalogo as $p) {
+//             if ($p->id == $id) {
+//                 return $p;
+//             }
+//         }
+//         return null;
+//     }
 }

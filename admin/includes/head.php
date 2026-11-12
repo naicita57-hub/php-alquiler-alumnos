@@ -1,6 +1,7 @@
 <?php
-require_once "../clases/Conexion.php";
-require_once "../clases/Producto.php";
+require_once "clases/Conexion.php";
+require_once "clases/Producto.php";
+require_once "clases/Carrera.php"
 ?>
 <!DOCTYPE html>
 <html lang="es">

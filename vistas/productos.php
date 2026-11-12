@@ -103,7 +103,7 @@ if (array_key_exists($filtroActual, $categorias)) {
                                         class="w-full h-full object-contain">
                                 </div>
 
-                                <a href="index.php?p=productos&filtro=<?= urlencode(strtolower($item->getCategoria())); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                <a href="index.php?p=productos&filtro=<?= toURL($item->getCategoria()); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
                                     <?= ($item->getCategoria() ?? 'Sin categoría'); ?>
                                 </a>
 
