@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 11, 2026 at 03:41 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-11-2026 a las 15:01:23
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `xdia`
+-- Base de datos: `xdia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carreras`
+-- Estructura de tabla para la tabla `carreras`
 --
 
 CREATE TABLE `carreras` (
@@ -34,7 +34,7 @@ CREATE TABLE `carreras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `carreras`
+-- Volcado de datos para la tabla `carreras`
 --
 
 INSERT INTO `carreras` (`id`, `nombre`, `imagen`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `carreras` (`id`, `nombre`, `imagen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -58,7 +58,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `imagen`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `categorias` (`id`, `nombre`, `imagen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compra`
+-- Estructura de tabla para la tabla `compra`
 --
 
 CREATE TABLE `compra` (
@@ -90,7 +90,7 @@ CREATE TABLE `compra` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_compra`
+-- Estructura de tabla para la tabla `detalle_compra`
 --
 
 CREATE TABLE `detalle_compra` (
@@ -104,7 +104,7 @@ CREATE TABLE `detalle_compra` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -112,35 +112,36 @@ CREATE TABLE `producto` (
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `precio` decimal(10,2) UNSIGNED DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
   `fecha_ingreso` date NOT NULL,
   `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `fecha_ingreso`, `imagen`) VALUES
-(1, 'Cámara DSLR Canon EOS 6D Mark ii', 'Kit con lente 18-55mm, 2 baterías y cargador', 12500.00, '2026-02-13', 'canon-6d-mii.webp'),
-(2, 'Kit 2 Fresneles GODOX', 'Dos fresneles RGB regulables con dos trípode araña.', 9800.00, '2023-10-15', 'godox-fresneles.webp'),
-(3, 'Kit de 3 microfonos dji corbatero', 'Sistema de 3 microfonos inalámbricos para rodaje o entrevistas', 18000.00, '2026-04-17', 'dji-corbatero.webp'),
-(4, 'Estabilizador con discos', 'Estabilizador de cámara hasta 4kg con pesas en formato de discos. Incluye funda y manual.', 6000.00, '2026-01-08', 'estabilizador-discos.webp'),
-(5, 'Tableta Gráfica WACOM', 'Tableta gráfica con lápiz sensible a 8192 niveles de presión. Incluye funda y manual.', 4000.00, '2022-06-15', 'tg-wacom.webp'),
-(6, 'Pantalla Interactiva XP-Pen Artist 16', 'Monitor de dibujo HD de 15.6 pulgadas para ilustración digital y retoque fotográfico directo. Incluye manual de conexión y funda. ', 16000.00, '2025-06-23', 'interactiva-artist-16.webp'),
-(7, 'Guía de colores Pantome Formula Guide', 'Muestrario de colores impresos en papel brillante y mate. Incluye caja y funda.', 3000.00, '2022-03-14', 'pantome-guia.webp'),
-(8, 'Cortadora de papel rotativa A3', 'Guillotina de precisión para maquetación, armado de fanzines y corte de láminas de entrega. Incluye caja.', 2000.00, '2025-06-15', 'guillotina-a3.webp'),
-(9, 'Laptop Lenovo ThinkPad i7 16GB RAM', 'Computadora portátil con softwares de la carrera previamente instalados.', 18000.00, '2026-02-13', 'lenovo-thinkpad-16g.webp'),
-(10, 'Monitor secundario portátil 15.6 Full HD', 'Pantalla liviana conectable por USB-C para programar a doble monitor. Incluye cable de conexión, funda y manual.', 6000.00, '2025-02-15', 'monitor-portatil.webp'),
-(11, 'Teclado mecánico Keychron K2', 'Teclado compacto a Bluetooth. Incluye caja.', 4000.00, '2025-03-15', 'teclado-keychron.webp'),
-(12, 'Casco VR Meta Quest 2', 'Casco VR para testing de prototipos. Incluye caja con todos sus objetos originales.', 20000.00, '2026-02-12', 'meta-quest-2.webp'),
-(13, 'Playstation 5 con 2 controles', 'Consola para pruebas de rendimiento, testeos de UX. Incluy e caja con todos sus accesorios originales.', 25000.00, '2025-08-19', 'ps5-controles.webp'),
-(14, 'Joystick bluetooth Gamepad (PC/Android)', 'Control inalámbrico programable para mapeo e integración de mandos en Unity y Unreal Engine.', 3000.00, '2024-06-19', 'joystick-bt-gamepad.webp'),
-(15, 'Mouse ergonómico', '\"Mouse ergonómico e inalámbrico Logitech. NO incluye pilas extra.', 2000.00, '2025-09-05', 'mouse-erg-logitech.webp');
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `fecha_ingreso`, `imagen`) VALUES
+(1, 'Cámara DSLR Canon EOS 6D Mark ii', 'Kit con lente 18-55mm, 2 baterías y cargador', 12500.00, 5, '2026-02-13', 'canon-6d-mii.webp'),
+(2, 'Kit 2 Fresneles GODOX', 'Dos fresneles RGB regulables con dos trípode araña.', 9800.00, 4, '2023-10-15', 'godox-fresneles.webp'),
+(3, 'Kit de 3 microfonos dji corbatero', 'Sistema de 3 microfonos inalámbricos para rodaje o entrevistas', 18000.00, 2, '2026-04-17', 'dji-corbatero.webp'),
+(4, 'Estabilizador con discos', 'Estabilizador de cámara hasta 4kg con pesas en formato de discos. Incluye funda y manual.', 6000.00, 5, '2026-01-08', 'estabilizador-discos.webp'),
+(5, 'Tableta Gráfica WACOM', 'Tableta gráfica con lápiz sensible a 8192 niveles de presión. Incluye funda y manual.', 4000.00, 10, '2022-06-15', 'tg-wacom.webp'),
+(6, 'Pantalla Interactiva XP-Pen Artist 16', 'Monitor de dibujo HD de 15.6 pulgadas para ilustración digital y retoque fotográfico directo. Incluye manual de conexión y funda. ', 16000.00, 2, '2025-06-23', 'interactiva-artist-16.webp'),
+(7, 'Guía de colores Pantome Formula Guide', 'Muestrario de colores impresos en papel brillante y mate. Incluye caja y funda.', 3000.00, 8, '2022-03-14', 'pantome-guia.webp'),
+(8, 'Cortadora de papel rotativa A3', 'Guillotina de precisión para maquetación, armado de fanzines y corte de láminas de entrega. Incluye caja.', 2000.00, 8, '2025-06-15', 'guillotina-a3.webp'),
+(9, 'Laptop Lenovo ThinkPad i7 16GB RAM', 'Computadora portátil con softwares de la carrera previamente instalados.', 18000.00, 3, '2026-02-13', 'lenovo-thinkpad-16g.webp'),
+(10, 'Monitor secundario portátil 15.6 Full HD', 'Pantalla liviana conectable por USB-C para programar a doble monitor. Incluye cable de conexión, funda y manual.', 6000.00, 6, '2025-02-15', 'monitor-portatil.webp'),
+(11, 'Teclado mecánico Keychron K2', 'Teclado compacto a Bluetooth. Incluye caja.', 4000.00, 7, '2025-03-15', 'teclado-keychron.webp'),
+(12, 'Casco VR Meta Quest 2', 'Casco VR para testing de prototipos. Incluye caja con todos sus objetos originales.', 20000.00, 1, '2026-02-12', 'meta-quest-2.webp'),
+(13, 'Playstation 5 con 2 controles', 'Consola para pruebas de rendimiento, testeos de UX. Incluy e caja con todos sus accesorios originales.', 25000.00, 1, '2025-08-19', 'ps5-controles.webp'),
+(14, 'Joystick bluetooth Gamepad (PC/Android)', 'Control inalámbrico programable para mapeo e integración de mandos en Unity y Unreal Engine.', 3000.00, 4, '2024-06-19', 'joystick-bt-gamepad.webp'),
+(15, 'Mouse ergonómico', '\"Mouse ergonómico e inalámbrico Logitech. NO incluye pilas extra.', 2000.00, 2, '2025-09-05', 'mouse-erg-logitech.webp');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto_x_carrera`
+-- Estructura de tabla para la tabla `producto_x_carrera`
 --
 
 CREATE TABLE `producto_x_carrera` (
@@ -150,7 +151,7 @@ CREATE TABLE `producto_x_carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producto_x_carrera`
+-- Volcado de datos para la tabla `producto_x_carrera`
 --
 
 INSERT INTO `producto_x_carrera` (`id`, `id_producto`, `id_carrera`) VALUES
@@ -208,7 +209,7 @@ INSERT INTO `producto_x_carrera` (`id`, `id_producto`, `id_carrera`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto_x_categoria`
+-- Estructura de tabla para la tabla `producto_x_categoria`
 --
 
 CREATE TABLE `producto_x_categoria` (
@@ -218,7 +219,7 @@ CREATE TABLE `producto_x_categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producto_x_categoria`
+-- Volcado de datos para la tabla `producto_x_categoria`
 --
 
 INSERT INTO `producto_x_categoria` (`id`, `id_producto`, `id_categoria`) VALUES
@@ -248,7 +249,7 @@ INSERT INTO `producto_x_categoria` (`id`, `id_producto`, `id_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -264,7 +265,7 @@ CREATE TABLE `usuarios` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario_x_carrera`
+-- Estructura de tabla para la tabla `usuario_x_carrera`
 --
 
 CREATE TABLE `usuario_x_carrera` (
@@ -274,30 +275,30 @@ CREATE TABLE `usuario_x_carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `carreras`
+-- Indices de la tabla `carreras`
 --
 ALTER TABLE `carreras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `compra`
+-- Indices de la tabla `compra`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `detalle_compra`
+-- Indices de la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   ADD PRIMARY KEY (`id`),
@@ -305,13 +306,13 @@ ALTER TABLE `detalle_compra`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `producto_x_carrera`
+-- Indices de la tabla `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   ADD PRIMARY KEY (`id`),
@@ -319,7 +320,7 @@ ALTER TABLE `producto_x_carrera`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indexes for table `producto_x_categoria`
+-- Indices de la tabla `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   ADD PRIMARY KEY (`id`),
@@ -327,13 +328,13 @@ ALTER TABLE `producto_x_categoria`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario_x_carrera`
+-- Indices de la tabla `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   ADD PRIMARY KEY (`id`),
@@ -341,96 +342,96 @@ ALTER TABLE `usuario_x_carrera`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `carreras`
+-- AUTO_INCREMENT de la tabla `carreras`
 --
 ALTER TABLE `carreras`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `compra`
+-- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `detalle_compra`
+-- AUTO_INCREMENT de la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `producto`
+-- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `producto_x_carrera`
+-- AUTO_INCREMENT de la tabla `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `producto_x_categoria`
+-- AUTO_INCREMENT de la tabla `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `usuario_x_carrera`
+-- AUTO_INCREMENT de la tabla `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `compra`
+-- Filtros para la tabla `compra`
 --
 ALTER TABLE `compra`
   ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `detalle_compra`
+-- Filtros para la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   ADD CONSTRAINT `detalle_compra_ibfk_1` FOREIGN KEY (`id_compra`) REFERENCES `compra` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `detalle_compra_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `producto_x_carrera`
+-- Filtros para la tabla `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   ADD CONSTRAINT `producto_x_carrera_ibfk_1` FOREIGN KEY (`id_carrera`) REFERENCES `carreras` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_x_carrera_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `producto_x_categoria`
+-- Filtros para la tabla `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   ADD CONSTRAINT `producto_x_categoria_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_x_categoria_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `usuario_x_carrera`
+-- Filtros para la tabla `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   ADD CONSTRAINT `usuario_x_carrera_ibfk_1` FOREIGN KEY (`id_carrera`) REFERENCES `carreras` (`id`) ON UPDATE CASCADE,
