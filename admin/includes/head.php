@@ -1,7 +1,7 @@
 <?php
-require_once "clases/Conexion.php";
-require_once "clases/Producto.php";
-require_once "clases/Carrera.php"
+require_once("clases/Conexion.php");
+require_once("clases/Producto.php");
+require_once("clases/Carrera.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +15,7 @@ require_once "clases/Carrera.php"
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="../../assets/css/estilos.css">
 </head>
 
 <body>

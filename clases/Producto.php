@@ -2,13 +2,14 @@
 
 class Producto
 {
-    private $id;   
-    private $nombre;    
+    private $id;
+    private $nombre;
     private $descripcion;
-    private $precio;    
+    private $precio;
+    private $stock;
     private $fecha_ingreso;
     private $imagen;
-    private $categoria; 
+    private $categoria;
     private $carrera;
 
     //GETTERS
@@ -72,10 +73,10 @@ class Producto
     /**
      * Obtiene el stock de Producto
      */
-    // public function getStock(): int
-    // {
-    //     return $this->stock;
-    // }
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
 
     /**
      * Obtiene la fecha de ingreso de Producto
@@ -154,10 +155,10 @@ class Producto
      * Setea el stock de Producto
      * @param int $dato stock del producto
      */
-    // public function setStock(int $dato)
-    // {
-    //     $this->stock = $dato;
-    // }
+    public function setStock(int $dato)
+    {
+        $this->stock = $dato;
+    }
 
     /**
      * Setea la fecha de ingreso de Producto
@@ -179,6 +180,7 @@ class Producto
                     p.nombre,
                     p.descripcion,
                     p.precio,
+                    p.stock
                     p.fecha_ingreso,
                     p.imagen,
                     GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
@@ -200,7 +202,7 @@ class Producto
     public static function get_x_id(int $id): ?Producto
     {
         $conexion = (new Conexion())->getDB();
-        $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen,
+        $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.stock, p.fecha_ingreso, p.imagen,
                   GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
                   GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
                   FROM producto AS p
@@ -229,6 +231,7 @@ class Producto
                     p.nombre,
                     p.descripcion,
                     p.precio,
+                    p.stock,
                     p.fecha_ingreso,
                     p.imagen,
                     GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
@@ -256,6 +259,7 @@ class Producto
                     p.nombre,
                     p.descripcion,
                     p.precio,
+                    p.stock,
                     p.fecha_ingreso,
                     p.imagen,
                     GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
@@ -274,73 +278,4 @@ class Producto
 
         return $PDOStatement->fetchAll();
     }
-
-//    public static function catalogo_carrera(string $categoria): array
-//     {
-//         $resultado = [];
-//         $catalogo = self::catalogo_completo();
-
-//         foreach ($catalogo as $c) {
-//             if ($c->categoria == $categoria) {
-//                 $resultado[] = $c;
-//             }
-//         }
-//         return $resultado;
-//     }
-
-//     public static function catalogo_fecha(string $fechaFiltro): array
-//     {
-//         $resultado = [];
-//         $catalogo = self::catalogo_completo();
-
-//         foreach ($catalogo as $producto) {
-//             $date = $producto->getFechaIngreso();
-
-//             $fecha = substr($date, 0, 4);
-
-//             if ($fecha === $fechaFiltro) {
-//                 $resultado[] = $producto;
-//             }
-//         }
-
-//         return $resultado;
-//     }
-
-//     public static function catalogo_stock(): array
-//     {
-//         $resultado = [];
-//         $catalogo = self::catalogo_completo();
-
-//         foreach ($catalogo as $producto) {
-//             if ($producto->getStock() > 0) {
-//                 $resultado[] = $producto;
-//             }
-//         }
-//         return $resultado;
-//     }
-
-//     public static function destacados(): array
-//     {
-//         $resultado = [];
-//         $catalogo = self::catalogo_completo();
-
-//         foreach ($catalogo as $producto) {
-//             if ($producto->getDestacado() === true) {
-//                 $resultado[] = $producto;
-//             }
-//         }
-//         return $resultado;
-//     }
-
-//     public static function producto_id(int $id): ?Producto
-//     {
-//         $catalogo = self::catalogo_completo();
-
-//         foreach ($catalogo as $p) {
-//             if ($p->id == $id) {
-//                 return $p;
-//             }
-//         }
-//         return null;
-//     }
 }
