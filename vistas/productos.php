@@ -1,21 +1,19 @@
 <?php
-require_once ("clases/Producto.php");
 
 $filtroActual = $_GET['filtro'] ?? 'todos';
 
 $categorias = [
     'perifericos' => 'Periféricos',
-    'tabletas' => 'Tabletas Gráficas',
+    'tabletasgraficas' => 'Tabletas Gráficas',
     'camaras' => 'Cámaras',
     'iluminacion' => 'Iluminación',
     'sonido' => 'Sonido',
     'consolas' => 'Consolas',
-    'utensilios' => 'Utensilios Gráficos',
+    'utensiliosgraficos' => 'Utensilios Gráficos',
     'notebook' => 'Notebook',
     'informática' => 'Informática',
     'monitores' => 'Monitores'
 ];
-
 
 if (array_key_exists($filtroActual, $categorias)) {
     $nombreFiltro = $categorias[$filtroActual];
@@ -57,8 +55,8 @@ if (array_key_exists($filtroActual, $categorias)) {
             class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'camaras' ? 'glass-pill-active' : 'glass-pill' ?>">
             Cámaras
         </a>
-        <a href="index.php?p=productos&filtro=tabletas"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'tabletas' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=tabletasgraficas"
+            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'tabletasgraficas' ? 'glass-pill-active' : 'glass-pill' ?>">
             Tabletas Gráficas
         </a>
         <a href="index.php?p=productos&filtro=iluminacion"
@@ -73,8 +71,8 @@ if (array_key_exists($filtroActual, $categorias)) {
             class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'consolas' ? 'glass-pill-active' : 'glass-pill' ?>">
             Consolas
         </a>
-        <a href="index.php?p=productos&filtro=utensilios"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'utensilios' ? 'glass-pill-active' : 'glass-pill' ?>">
+        <a href="index.php?p=productos&filtro=utensiliosgraficos"
+            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'utensiliosgraficos' ? 'glass-pill-active' : 'glass-pill' ?>">
             Utensilios Gráficos
         </a>
         <a href="index.php?p=productos&filtro=notebook"
@@ -103,13 +101,21 @@ if (array_key_exists($filtroActual, $categorias)) {
                                         class="w-full h-full object-contain">
                                 </div>
 
-                                <a href="index.php?p=productos&filtro=<?= urlencode(strtolower($item->getCategoria())); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                <a href="index.php?p=productos&filtro=<?= toURL($item->getCategoria()); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
                                     <?= ($item->getCategoria() ?? 'Sin categoría'); ?>
+                                </a>
+
+                                <a href="index.php?p=productos&filtro=<?= toURL($item->getCarrera()); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                    <?= ($item->getCarrera() ?? 'Sin carrera'); ?>
                                 </a>
 
                                 <h3 class="text-lg font-bold text-slate-800 mt-2">
                                     <?= ($item->getNombre()); ?>
                                 </h3>
+
+                                <p class="text-lg font-bold text-slate-800 mt-2">
+                                    Stock: <?= ($item->getStock()); ?>
+                                </p>
 
                                 <div class="flex justify-between items-center text-[14px] text-slate-400 pt-2 border-t border-slate-100/80 mt-3">
                                     <span>Ingreso: <?= ($item->getFechaIngreso()); ?></span>

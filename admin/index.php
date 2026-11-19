@@ -1,22 +1,9 @@
 <?php
 require_once "../config.php";
 
-// Cargar las clases necesarias para el catálogo del admin
-require_once "../clases/Conexion.php";
-require_once "../clases/Producto.php";
+$seccion = isset($_GET['p']) ? $_GET['p'] : 'inicio';
 
-// 1. Capturamos la vista solicitada (acepta 'v' o 'p') y fijamos 'productos_lista' como valor por defecto
-$seccion = $_GET['v'] ?? $_GET['p'] ?? 'productos_lista';
-
-// 2. Definimos ÚNICAMENTE las secciones que existen dentro de la carpeta admin/vistas/
-$secciones_validas = [
-    "productos_lista",
-    "productos_crear",
-    "productos_editar",
-    "login"
-];
-
-// 3. Si la sección no existe en la lista, mostramos por defecto la lista de productos
+$secciones_validas = ["inicio", "productos", "carreras", "usuarios", "crear_carrera", "editar_carrera", "borrar_carrera", "borrar_carrera_acc", "crear_producto", "editar_producto", "borrar_producto", "borrar_producto_acc"];
 if (!in_array($seccion, $secciones_validas)) {
     $seccion = 'productos_lista';
 }
