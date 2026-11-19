@@ -1,7 +1,8 @@
 <?php
 require_once "funciones.php";
-require_once "clases/Conexion.php";
-require_once "clases/Producto.php";
+// require_once "clases/Conexion.php";
+// require_once "clases/Producto.php";
+require_once "functions/autoload.php"
 ?>
 <!DOCTYPE html>
 <html lang="es">

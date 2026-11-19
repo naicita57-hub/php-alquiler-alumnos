@@ -9,7 +9,7 @@ class Producto
     private $stock;
     private $fecha_ingreso;
     private $imagen;
-    private $categoria;
+    private $categoria; //[idcategorias]
     private $carrera;
 
     //GETTERS
@@ -180,7 +180,7 @@ class Producto
                     p.nombre,
                     p.descripcion,
                     p.precio,
-                    p.stock
+                    p.stock,
                     p.fecha_ingreso,
                     p.imagen,
                     GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
