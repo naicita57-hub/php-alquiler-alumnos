@@ -9,8 +9,8 @@ class Producto
     private $stock;
     private $fecha_ingreso;
     private $imagen;
-    private $categoria; //[idcategorias]
-    private $carrera;
+    private $categoria = [];
+    private $carrera = [];
 
     //GETTERS
 
@@ -33,7 +33,7 @@ class Producto
     /**
      * Obtiene la categoria de Producto
      */
-    public function getCategoria(): string
+    public function getCategoria(): array
     {
         return $this->categoria;
     }
@@ -41,7 +41,7 @@ class Producto
     /**
      * Obtiene la carrera de Producto
      */
-    public function getCarrera(): string
+    public function getCarrera(): array
     {
         return $this->carrera;
     }
@@ -107,21 +107,51 @@ class Producto
     }
 
     /**
-     * Setea la categoria de Producto
-     * @param string $dato categoria del producto
+     * Setea las categorías del Producto
+     * @param string|null $ids ids de las categorías separados por coma
+     * @param string|null $nombres nombres de las categorías separados por "||"
      */
-    public function setCategoria(string $dato)
+    public function setCategorias(?string $ids, ?string $nombres): void
     {
-        $this->categoria = $dato;
+        $this->categoria = [];
+
+        if (empty($ids)) {
+            return;
+        }
+
+        $listaIds = explode(',', $ids);
+        $listaNombres = explode('||', (string) $nombres);
+
+        foreach ($listaIds as $i => $id) {
+            $this->categoria[] = [
+                'id'     => (int) $id,
+                'nombre' => $listaNombres[$i] ?? ''
+            ];
+        }
     }
 
     /**
-     * Setea la carrera de Producto
-     * @param string $dato carrera del producto
+     * Setea las carreras del Producto
+     * @param string|null $ids ids de las carreras separados por coma
+     * @param string|null $nombres nombres de las carreras separados por "||"
      */
-    public function setCarrera(string $dato)
+    public function setCarrera(?string $ids, ?string $nombres): void
     {
-        $this->carrera = $dato;
+        $this->carrera = [];
+
+        if (empty($ids)) {
+            return;
+        }
+
+        $listaIds = explode(',', $ids);
+        $listaNombres = explode('||', (string) $nombres);
+
+        foreach ($listaIds as $i => $id) {
+            $this->carrera[] = [
+                'id'     => (int) $id,
+                'nombre' => $listaNombres[$i] ?? ''
+            ];
+        }
     }
 
     /**
@@ -174,7 +204,7 @@ class Producto
     public static function catalogo_completo(): array
     {
         $conexion = (new Conexion())->getDB();
-        
+
         $query = "SELECT 
                     p.id,
                     p.nombre,
