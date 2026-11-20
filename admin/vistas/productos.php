@@ -1,62 +1,49 @@
-<?php
-$producto = new Producto;
-$lista = $producto->catalogo_completo();
-
+<?php 
+$productos = Producto::catalogo_completo();
 ?>
 
-<section class="relative z-10 py-6 space-y-8 md:mx-20 ">
-        <article>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
-                <?php foreach ($lista as $item): ?>
+<div class="p-4">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Administración de Productos</h2>
+        <a href="index.php?p=crear_producto" class="bg-blue-600 text-white px-3 py-1 rounded">
+            + Crear Producto
+        </a>
+    </div>
 
-
-                    <div
-                        class="bg-white/80 backdrop-blur-md rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
-                        <div>
-
-                            <div
-                                class=" bg-white aspect-square w-full bg-slate-100/70 rounded-2xl overflow-hidden mb-4 flex items-center justify-center p-2">
-                                <img src="imagenes/<?= $item->getImagen(); ?>" alt="<?= $item->getNombre(); ?>"
-                                    class="w-full h-full object-contain">
-                            </div>
-
-
-                            <span
-                                class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
-                                <?= $item->getCategoria(); ?>
-                            </span>
-
-                            <span
-                                class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
-                                <?= $item->getCarrera(); ?>
-                            </span>
-
-
-                            <h3 class="text-lg font-bold text-slate-800 mt-2">
-                                <?= $item->getNombre(); ?>
-                            </h3>
-
-
-                            <div
-                                class="flex justify-between items-center text-[14px] text-slate-400 pt-2 border-t border-slate-100/80 mt-3">
-                                <span>Ingreso: <?= $item->getFechaIngreso(); ?></span>
-                            </div>
-                        </div>
-
-
-                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-sm font-black text-slate-900">
-                                $<?= number_format($item->getPrecio(), 0, ',', '.'); ?> <span
-                                    class="text-sm font-normal text-slate-500">/día</span>
-                            </span>
-                            <a href="index.php?p=detalle&id=<?= $item->getId(); ?>"
-                                class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-m font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm">
-                                Ver detalle ★
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach; ?>
-            </div>
-        </article>
-    </section>
+    <table class="w-full border-collapse border border-gray-300 text-left">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="p-2 border">ID</th>
+                <th class="p-2 border">Imagen</th>
+                <th class="p-2 border">Insumo</th>
+                <th class="p-2 border">Categoría</th>
+                <th class="p-2 border">Carrera</th>
+                <th class="p-2 border">Precio</th>
+                <th class="p-2 border text-center">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($productos as $item): ?>
+            <tr class="border-b">
+                <td class="p-2 border"><?= $item->getId(); ?></td> 
+                <td class="p-2 border">
+                    <img 
+                        src="../assets/imagenes/<?= $item->getImagen(); ?>" 
+                        alt="<?= $item->getNombre(); ?>" 
+                        class="w-10 h-10 object-contain"
+                        onerror="this.src='../assets/imagenes/logo-davinci-alquiler.webp'"
+                    >
+                </td>
+                <td class="p-2 border font-semibold"><?= $item->getNombre(); ?></td>
+                <td class="p-2 border"><?= $item->getCategoria(); ?></td>
+                <td class="p-2 border"><?= $item->getCarrera(); ?></td>
+                <td class="p-2 border">$<?= $item->getPrecio(); ?></td>
+                <td class="p-2 border text-center">
+                    <a href="index.php?p=editar_producto&id=<?= $item->getId(); ?>" class="mr-2">✏️</a>
+                    <a href="index.php?p=borrar_producto&id=<?= $item->getId(); ?>">🗑️</a>
+                </td>
+            </tr> 
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

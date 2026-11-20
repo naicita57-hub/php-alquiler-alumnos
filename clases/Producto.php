@@ -12,6 +12,11 @@ class Producto
     private $categoria = [];
     private $carrera = [];
 
+    public $id_categoria;
+    public $nombre_categoria;
+    public $id_carrera;
+    public $nombre_carrera;
+
     //GETTERS
 
     /**
@@ -111,7 +116,7 @@ class Producto
      * @param string|null $ids ids de las categorías separados por coma
      * @param string|null $nombres nombres de las categorías separados por "||"
      */
-    public function setCategorias(?string $ids, ?string $nombres): void
+    public function setCategoria(?string $ids, ?string $nombres): void
     {
         $this->categoria = [];
 
@@ -201,32 +206,49 @@ class Producto
 
     //Para que aparezcan los productos
 
+
     public static function catalogo_completo(): array
     {
         $conexion = (new Conexion())->getDB();
 
         $query = "SELECT 
-                    p.id,
-                    p.nombre,
-                    p.descripcion,
-                    p.precio,
-                    p.stock,
-                    p.fecha_ingreso,
-                    p.imagen,
-                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
-                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
-                  FROM producto AS p
-                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
-                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
-                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
-                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
-                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen";
+                p.id,
+                p.nombre,
+                p.descripcion,
+                p.precio,
+                p.stock,
+                p.fecha_ingreso,
+                p.imagen,
+                GROUP_CONCAT(DISTINCT cat.id ORDER BY cat.id SEPARATOR ',') AS id_catgoria,
+                GROUP_CONCAT(DISTINCT cat.nombre ORDER BY cat.id SEPARATOR '||') AS nombre_categoria,
+                GROUP_CONCAT(DISTINCT car.id ORDER BY car.id SEPARATOR ',') AS id_carrera,
+                GROUP_CONCAT(DISTINCT car.nombre ORDER BY car.id SEPARATOR '||') AS nombre_carrera
+              FROM producto AS p
+              LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+              LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+              LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+              LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+              GROUP BY p.id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute();
 
-        return $PDOStatement->fetchAll();
+        $productos = $PDOStatement->fetchAll();
+
+        foreach ($productos as $producto) {
+            $producto->setCategoria(
+                $producto->id_categoria,
+                $producto->nombre_categoria
+            );
+
+            $producto->setCarrera(
+                $producto->id_carrera,
+                $producto->nombre_carrera
+            );
+        }
+
+        return $productos;
     }
 
     public static function get_x_id(int $id): ?Producto

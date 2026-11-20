@@ -1,7 +1,6 @@
 <?php
 require_once "clases/Producto.php";
 
-$destacados = Producto::destacados();
 ?>
 <div class="bg-formas-container py-10 container-pad">
 
