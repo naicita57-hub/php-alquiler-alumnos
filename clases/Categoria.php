@@ -2,7 +2,8 @@
 class Categoria
 {
     private $id;	
-    private $nombre;	
+    private $nombre;
+    private $imagen;	
 
     public function getId()
     {
@@ -20,23 +21,23 @@ class Categoria
      */
     public static function todasCategorias():array
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = (new Conexion())->getDB();
         $query = "SELECT * FROM categorias";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute();
 
-        $lista = $PDOStatement->fetchAll();
+        $resultado = $PDOStatement->fetchAll();
 
-        return $lista;
+        return $resultado;
     }
     /**
      * Inserta una nueva marca en la base de datos
     */
     public static function insert(string $nombre)
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = (new Conexion())->getDB();
         $query = "INSERT INTO categorias (`nombre`) VALUES (:nombre)";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
@@ -52,7 +53,7 @@ class Categoria
     */
     public static function get_x_id(int $id): ?Categoria
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = (new Conexion())->getDB();
         $query = "SELECT * FROM categorias WHERE id = :id";
 
         $PDOStatement = $conexion->prepare($query);
@@ -68,7 +69,7 @@ class Categoria
      */
     public function edit($nombre)
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = (new Conexion())->getDB();
         $query = "UPDATE categorias SET nombre = :nombre
           WHERE id = :id";
         // print_r($this->id_marca);
@@ -85,7 +86,7 @@ class Categoria
      */
     public function delete()
     {
-        $conexion = (new Conexion())->getConexion();
+        $conexion = (new Conexion())->getDB();
         $query = "DELETE FROM categorias WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([

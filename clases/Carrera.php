@@ -3,6 +3,7 @@ class Carrera
 {
     private $id;
     private $nombre;
+    private $imagen;
 
     public function getId()
     {
@@ -18,7 +19,7 @@ class Carrera
      * 
      * Obtiene todas las carrera de la base de datos
      */
-    public function todasCarreras(): array
+    public static function todasCarreras(): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT * FROM carreras";
