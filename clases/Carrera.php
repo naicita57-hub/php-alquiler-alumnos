@@ -4,12 +4,12 @@ class Carrera
     private $id;
     private $nombre;
 
-    public function getIdCarrera()
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getNombreCarrera()
+    public function getNombre()
     {
         return $this->nombre;
     }
