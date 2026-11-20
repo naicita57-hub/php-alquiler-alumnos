@@ -15,6 +15,15 @@ class Carrera
         return $this->nombre;
     }
 
+    public function getIdCarrera()
+{
+    return $this->id;
+}
+
+public function getNombreCarrera()
+{
+    return $this->nombre;
+}
     /**
      * 
      * Obtiene todas las carrera de la base de datos

@@ -1,0 +1,44 @@
+[
+    {
+        "vinculo": "inicio",
+        "texto": "Inicio",
+        "title": "Alquiler de Equipos para estudiantes", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "productos",
+        "texto": "Productos",
+        "title": "Catálogo de Insumos", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "contacto",
+        "texto": "Contacto",
+        "title": "Contacto", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "detalle",
+        "texto": "Detalle",
+        "title": "Detalle", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "enviado",
+        "texto": "Formulario Enviado",
+        "title": "Formulario enviado con éxito", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "alumnas",
+        "texto": "Alumnas",
+        "title": "Datos del Alumnas", 
+        "inMenu": true
+    }, 
+    {
+        "vinculo": "404",
+        "texto": "Error 404",
+        "title": "Página no encontrada", 
+        "inMenu": false
+    }
+]

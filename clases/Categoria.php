@@ -2,8 +2,8 @@
 class Categoria
 {
     private $id;	
-    private $nombre;
-    private $imagen;	
+    private $nombre;	
+    private $imagen;
 
     public function getId()
     {
@@ -15,6 +15,15 @@ class Categoria
         return $this->nombre;
     }
     
+    public function getIdCategoria()
+    {
+        return $this->id;
+    }
+
+    public function getNombreCategoria()
+    {
+        return $this->nombre;
+    }
     /**
      * 
      * Obtiene todas las marcar de la base de datos
@@ -28,9 +37,9 @@ class Categoria
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute();
 
-        $resultado = $PDOStatement->fetchAll();
+        $lista = $PDOStatement->fetchAll();
 
-        return $resultado;
+        return $lista;
     }
     /**
      * Inserta una nueva marca en la base de datos

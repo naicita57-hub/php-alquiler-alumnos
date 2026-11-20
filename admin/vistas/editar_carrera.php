@@ -1,6 +1,5 @@
 <?php
-require_once("../../clases/Carrera.php");
-require_once("../../clases/Conexion.php");
+
 
 $id = $_GET['id'] ?? FALSE;
 $nombre = Carrera::get_x_id($id);
@@ -15,13 +14,13 @@ if(!is_null($nombre)){
         <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $nombre->getNombreCarrera(); ?>">
     </div>
     <input type="submit"  class="btn btn-warning" value="Editar">
-    <a href="?sec=carrera" class="btn btn-danger">Cancelar</a>
+    <a href="?p=carrera" class="btn btn-danger">Cancelar</a>
 </form>
 <?php 
 }else{
     ?>
     <h1>No encontramos la Carrera para editar</h1>
-    <p>Volver a <a href="?sec=carreras">editar Carrera</a></p>
+    <p>Volver a <a href="?p=carreras">editar Carrera</a></p>
     <?php
 }
 ?>

@@ -13,3 +13,4 @@ require_once "includes/head.php";
 require_once "includes/header.php";
 require_once "vistas/$seccion.php";
 require_once "includes/footer.php";
+require_once __DIR__ . '/functions/autoload.php'; 

@@ -1,4 +1,5 @@
 
+
 <nav class="nav-bar relative z-10 bg-white/90 backdrop-blur-md border border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between transition-all">
     
     <h1 class="sr-only">Da Vinci x dia ADMin</h1>
@@ -14,21 +15,17 @@
 
 
     <ul id="menu" class="hidden w-full md:flex md:w-auto items-center gap-2 md:gap-3 font-medium  md:text-[16px] text-sm mt-0 md:mt-0 flex-col md:flex-row">
-        <li class="w-full md:w-auto mt-3 text-center">
-            <a href="../index.php?p=inicio" class=" px-4 py-2  transition-all <?= ($seccion === 'inicio') ? 'text-pink-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Inicio</a>
-        <!-- </li>
-        <li class="w-full md:w-auto  mt-3 text-center">
-            <a href="index.php?p=productos" class=" px-4 py-2 transition-all <?= ($seccion === 'productos') ? ' text-indigo-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Productos</a>
-        </li>
-        <li class="w-full md:w-auto  mt-3 text-center">
-            <a href="index.php?p=contacto" class="px-4 py-2 transition-all <?= ($seccion === 'contacto') ? ' text-red-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Contacto</a>
-        </li>
-        <li class="w-full md:w-auto  mt-3 text-center">
-            <a href="index.php?p=alumnas" class=" px-4 py-2  transition-all <?= ($seccion === 'alumnas' || $seccion === 'alumno') ? ' text-green-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>">Alumnas</a>
-        </li>
-        <li class="w-full md:w-auto mt-3 text-center">
-  -->
-        
+        <?php
+        foreach ($secciones as $value) {
+            if ($value->getInMenu()) {
+        ?>
+                <li class="w-full md:w-auto mt-3 text-center">
+                    <a class="px-4 py-2  transition-all <?= ($seccion === $value->getVinculo()) ? 'text-pink-600 font-bold' : 'text-slate-600 hover:bg-slate-100' ?>" href="?p=<?= $value->getVinculo(); ?>"><?= $value->getTexto(); ?></a>
+                </li>
+        <?php
+            }
+        }
+        ?>
     </ul>
 
 </nav>

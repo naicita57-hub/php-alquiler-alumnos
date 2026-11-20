@@ -1,8 +1,24 @@
 <?php
 require_once "funciones.php";
-// require_once "clases/Conexion.php";
-// require_once "clases/Producto.php";
-require_once "functions/autoload.php"
+require_once "functions/autoload.php";
+
+$secciones_validas = Secciones::secciones_validas();
+$secciones_menu = Secciones::secciones_menu();
+
+$seccion = isset($_GET['p']) ? $_GET['p'] : 'inicio';
+if (!in_array($seccion, $secciones_validas)) {
+    $vista = '404';
+} else {
+    $vista = $seccion;
+}
+
+$secciones = Secciones::secciones_del_sitio();
+$title_seccion = "";
+foreach ($secciones as $value) {
+    if ($value->getVinculo() == $vista) {
+        $title_seccion = $value->getTitle();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

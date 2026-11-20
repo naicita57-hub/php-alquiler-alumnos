@@ -7,5 +7,5 @@
         <input type="text" class="form-control" id="categoria" name="categoria">
     </div>
     <input type="submit" value="Crear">
-    <a href="?sec=categorias" class="">Cancelar</a>
+    <a href="?p=categorias" class="">Cancelar</a>
 </form>

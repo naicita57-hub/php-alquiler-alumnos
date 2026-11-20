@@ -46,7 +46,7 @@ if(!is_null($item)){
         </select>    
     </div>
     <input type="submit"  class="btn btn-warning" value="Editar">
-    <a href="?sec=productos" class="btn btn-danger">Cancelar</a>
+    <a href="?p=productos" class="btn btn-danger">Cancelar</a>
 </form>
 <?php 
 }else{

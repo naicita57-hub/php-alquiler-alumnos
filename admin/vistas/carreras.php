@@ -1,6 +1,4 @@
 <?php 
-require_once("../clases/Carrera.php");
-require_once("../clases/Conexion.php");
 
 $nombre = new Carrera;
 

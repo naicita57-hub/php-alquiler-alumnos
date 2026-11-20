@@ -1,6 +1,5 @@
 <?php
-require_once("../../clases/Categoria.php");
-require_once("../../clases/Conexion.php");
+
 
 $id = $_GET['id'] ?? FALSE;
 $nombre = Categoria::get_x_id($id);
@@ -15,13 +14,13 @@ if(!is_null($nombre)){
         <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $nombre->getNombreCategoria(); ?>">
     </div>
     <input type="submit"  class="btn btn-warning" value="Editar">
-    <a href="?sec=categoria" class="btn btn-danger">Cancelar</a>
+    <a href="?p=categoria" class="btn btn-danger">Cancelar</a>
 </form>
 <?php 
 }else{
     ?>
     <h1>No encontramos la Categoría para editar</h1>
-    <p>Volver a <a href="?sec=categorias">editar Categoría</a></p>
+    <p>Volver a <a href="?p=categorias">editar Categoría</a></p>
     <?php
 }
 ?>

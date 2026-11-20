@@ -9,8 +9,13 @@ class Producto
     private $stock;
     private $fecha_ingreso;
     private $imagen;
-    private $categoria; //[idcategorias]
-    private $carrera;
+    private $categoria = [];
+    private $carrera = [];
+
+    public $id_categoria;
+    public $nombre_categoria;
+    public $id_carrera;
+    public $nombre_carrera;
 
     //GETTERS
 
@@ -25,7 +30,7 @@ class Producto
     /**
      * Obtiene el nombre de Producto
      */
-    public function getNombre(): ?string
+    public function getNombre(): string
     {
         return $this->nombre;
     }
@@ -33,7 +38,7 @@ class Producto
     /**
      * Obtiene la categoria de Producto
      */
-    public function getCategoria(): ?string
+    public function getCategoria(): array
     {
         return $this->categoria;
     }
@@ -41,7 +46,7 @@ class Producto
     /**
      * Obtiene la carrera de Producto
      */
-    public function getCarrera(): ?string
+    public function getCarrera(): array
     {
         return $this->carrera;
     }
@@ -57,7 +62,7 @@ class Producto
     /**
      * Obtiene la descripcion de Producto
      */
-    public function getDescripcion(): ?string
+    public function getDescripcion(): string
     {
         return $this->descripcion;
     }
@@ -65,7 +70,7 @@ class Producto
     /**
      * Obtiene la imagen de Producto
      */
-    public function getImagen(): ?string
+    public function getImagen(): string
     {
         return $this->imagen;
     }
@@ -81,7 +86,7 @@ class Producto
     /**
      * Obtiene la fecha de ingreso de Producto
      */
-    public function getFechaIngreso(): ?string
+    public function getFechaIngreso(): string
     {
         return $this->fecha_ingreso;
     }
@@ -107,21 +112,51 @@ class Producto
     }
 
     /**
-     * Setea la categoria de Producto
-     * @param string $dato categoria del producto
+     * Setea las categorías del Producto
+     * @param string|null $ids ids de las categorías separados por coma
+     * @param string|null $nombres nombres de las categorías separados por "||"
      */
-    public function setCategoria(string $dato)
+    public function setCategoria(?string $ids, ?string $nombres): void
     {
-        $this->categoria = $dato;
+        $this->categoria = [];
+
+        if (empty($ids)) {
+            return;
+        }
+
+        $listaIds = explode(',', $ids);
+        $listaNombres = explode('||', (string) $nombres);
+
+        foreach ($listaIds as $i => $id) {
+            $this->categoria[] = [
+                'id'     => (int) $id,
+                'nombre' => $listaNombres[$i] ?? ''
+            ];
+        }
     }
 
     /**
-     * Setea la carrera de Producto
-     * @param string $dato carrera del producto
+     * Setea las carreras del Producto
+     * @param string|null $ids ids de las carreras separados por coma
+     * @param string|null $nombres nombres de las carreras separados por "||"
      */
-    public function setCarrera(string $dato)
+    public function setCarrera(?string $ids, ?string $nombres): void
     {
-        $this->carrera = $dato;
+        $this->carrera = [];
+
+        if (empty($ids)) {
+            return;
+        }
+
+        $listaIds = explode(',', $ids);
+        $listaNombres = explode('||', (string) $nombres);
+
+        foreach ($listaIds as $i => $id) {
+            $this->carrera[] = [
+                'id'     => (int) $id,
+                'nombre' => $listaNombres[$i] ?? ''
+            ];
+        }
     }
 
     /**
@@ -171,32 +206,49 @@ class Producto
 
     //Para que aparezcan los productos
 
+
     public static function catalogo_completo(): array
     {
         $conexion = (new Conexion())->getDB();
-        
+
         $query = "SELECT 
-                    p.id,
-                    p.nombre,
-                    p.descripcion,
-                    p.precio,
-                    p.stock,
-                    p.fecha_ingreso,
-                    p.imagen,
-                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
-                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
-                  FROM producto AS p
-                  LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
-                  LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
-                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
-                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
-                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen";
+                p.id,
+                p.nombre,
+                p.descripcion,
+                p.precio,
+                p.stock,
+                p.fecha_ingreso,
+                p.imagen,
+                GROUP_CONCAT(DISTINCT cat.id ORDER BY cat.id SEPARATOR ',') AS id_categoria,
+                GROUP_CONCAT(DISTINCT cat.nombre ORDER BY cat.id SEPARATOR '||') AS nombre_categoria,
+                GROUP_CONCAT(DISTINCT car.id ORDER BY car.id SEPARATOR ',') AS id_carrera,
+                GROUP_CONCAT(DISTINCT car.nombre ORDER BY car.id SEPARATOR '||') AS nombre_carrera
+              FROM producto AS p
+              LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
+              LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
+              LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
+              LEFT JOIN carreras car ON pxcar.id_carrera = car.id
+              GROUP BY p.id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute();
 
-        return $PDOStatement->fetchAll();
+        $productos = $PDOStatement->fetchAll();
+
+        foreach ($productos as $producto) {
+            $producto->setCategoria(
+                $producto->id_categoria,
+                $producto->nombre_categoria
+            );
+
+            $producto->setCarrera(
+                $producto->id_carrera,
+                $producto->nombre_carrera
+            );
+        }
+
+        return $productos;
     }
 
     public static function get_x_id(int $id): ?Producto

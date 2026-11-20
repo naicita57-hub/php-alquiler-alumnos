@@ -1,5 +1,4 @@
 <?php
-require_once "../clases/Producto.php";
 
 //$destacados = Producto::destacados();
 ?>

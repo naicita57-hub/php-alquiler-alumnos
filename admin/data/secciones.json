@@ -1,0 +1,86 @@
+[
+    {
+        "vinculo": "inicio",
+        "texto": "Inicio",
+        "title": "Inicio", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "productos",
+        "texto": "Productos",
+        "title": "Productos", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "carreras",
+        "texto": "Carreras",
+        "title": "Carreras",
+        "inMenu": true
+    },
+    {
+        "vinculo": "categorias",
+        "texto": "Categorias",
+        "title": "Categorias", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "usuarios",
+        "texto": "Usuarios",
+        "title": "Usuarios", 
+        "inMenu": true
+    },
+    {
+        "vinculo": "crear_carrera",
+        "texto": "Crear carrera",
+        "title": "Crear carrera", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_carrera",
+        "texto": "Editar carrera",
+        "title": "Editar Carrera", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_carrera",
+        "texto": "Borrar carrera",
+        "title": "Borrar Carrera", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_carrera_acc",
+        "texto": "Borrar carrera acción",
+        "title": "Borrar Carrera acción", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "crear_producto",
+        "texto": "Crear producto",
+        "title": "Crear Producto", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_producto",
+        "texto": "Editar producto",
+        "title": "Editar Producto", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_producto",
+        "texto": "Borrar producto",
+        "title": "Borrar Producto", 
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_producto_acc",
+        "texto": "Borrar producto acción",
+        "title": "Borrar Producto acción", 
+        "inMenu": false
+    }, 
+    {
+        "vinculo": "404",
+        "texto": "Error 404",
+        "title": "Página no encontrada", 
+        "inMenu": false
+    }
+]

@@ -1,7 +1,6 @@
 <?php
 require_once "clases/Producto.php";
 
-$productos = Producto::catalogo_completo();
 ?>
 <div class="bg-formas-container py-10 container-pad">
 

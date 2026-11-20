@@ -21,5 +21,5 @@ try{
     //Vamos a modificar en el futuro este hermoso die
     die("No se pudo editar la marca");
 }
-header('Location: ../index.php?sec=carreras');
+header('Location: ../index.php?p=carreras');
 ?>

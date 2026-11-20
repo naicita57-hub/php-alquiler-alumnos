@@ -101,13 +101,17 @@ if (array_key_exists($filtroActual, $categorias)) {
                                         class="w-full h-full object-contain">
                                 </div>
 
-                                <a href="index.php?p=productos&filtro=<?= toURL($item->getCategoria()); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
-                                    <?= ($item->getCategoria() ?? 'Sin categoría'); ?>
-                                </a>
+                                <?php foreach ($item->getCategoria() as $categoria): ?>
+                                    <a href="index.php?p=productos&filtro=<?= $categoria['id']; ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                        <?= ($categoria['nombre']); ?>
+                                    </a>
+                                <?php endforeach; ?>
 
-                                <a href="index.php?p=productos&filtro=<?= toURL($item->getCarrera()); ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
-                                    <?= ($item->getCarrera() ?? 'Sin carrera'); ?>
-                                </a>
+                                <?php foreach ($item->getCarrera() as $carrera): ?>
+                                    <a href="index.php?p=productos&filtro=<?= $carrera['id']; ?>" class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full inline-block">
+                                        <?= ($carrera['nombre']); ?>
+                                    </a>
+                                <?php endforeach; ?>
 
                                 <h3 class="text-lg font-bold text-slate-800 mt-2">
                                     <?= ($item->getNombre()); ?>
