@@ -37,8 +37,8 @@ if ($filtroActual !== 'todos') {
 
         <?php foreach ($todasCategorias as $cat): ?>
             <?php 
-                $catId  = $cat->getId();
-                $catNombre = $cat->getNombre();  
+                $catId  = $cat->getIdCategoria();
+                $catNombre = $cat->getNombreCategoria();  
             ?>
             <a href="index.php?p=<?= $vista; ?>&filtro=<?= $catId; ?>"
                 class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= (string)$filtroActual === (string)$catId ? 'glass-pill-active' : 'glass-pill' ?>"

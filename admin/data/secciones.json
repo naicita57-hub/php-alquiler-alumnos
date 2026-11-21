@@ -2,13 +2,13 @@
     {
         "vinculo": "inicio",
         "texto": "Inicio",
-        "title": "Inicio", 
+        "title": "Inicio",
         "inMenu": true
     },
     {
         "vinculo": "productos",
         "texto": "Productos",
-        "title": "Productos", 
+        "title": "Productos",
         "inMenu": true
     },
     {
@@ -20,67 +20,127 @@
     {
         "vinculo": "categorias",
         "texto": "Categorias",
-        "title": "Categorias", 
+        "title": "Categorias",
         "inMenu": true
     },
     {
         "vinculo": "usuarios",
         "texto": "Usuarios",
-        "title": "Usuarios", 
+        "title": "Usuarios",
         "inMenu": true
     },
     {
         "vinculo": "crear_carrera",
         "texto": "Crear carrera",
-        "title": "Crear carrera", 
+        "title": "Crear carrera",
         "inMenu": false
     },
     {
         "vinculo": "editar_carrera",
         "texto": "Editar carrera",
-        "title": "Editar Carrera", 
+        "title": "Editar Carrera",
         "inMenu": false
     },
     {
         "vinculo": "borrar_carrera",
         "texto": "Borrar carrera",
-        "title": "Borrar Carrera", 
+        "title": "Borrar Carrera",
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_carrera_acc",
+        "texto": "Editar carrera acción",
+        "title": "Editar Carrera acción",
+        "inMenu": false
+    },
+    {
+        "vinculo": "crear_carrera_acc",
+        "texto": "Crear carrera acción",
+        "title": "Crear Carrera acción",
         "inMenu": false
     },
     {
         "vinculo": "borrar_carrera_acc",
         "texto": "Borrar carrera acción",
-        "title": "Borrar Carrera acción", 
+        "title": "Borrar Carrera acción",
         "inMenu": false
     },
     {
         "vinculo": "crear_producto",
         "texto": "Crear producto",
-        "title": "Crear Producto", 
+        "title": "Crear Producto",
         "inMenu": false
     },
     {
         "vinculo": "editar_producto",
         "texto": "Editar producto",
-        "title": "Editar Producto", 
+        "title": "Editar Producto",
         "inMenu": false
     },
     {
         "vinculo": "borrar_producto",
         "texto": "Borrar producto",
-        "title": "Borrar Producto", 
+        "title": "Borrar Producto",
         "inMenu": false
     },
     {
         "vinculo": "borrar_producto_acc",
         "texto": "Borrar producto acción",
-        "title": "Borrar Producto acción", 
+        "title": "Borrar Producto acción",
         "inMenu": false
-    }, 
+    },
+    {
+        "vinculo": "crear_producto_acc",
+        "texto": "Crear producto acción",
+        "title": "Crear Producto acción",
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_producto_acc",
+        "texto": "Editar producto acción",
+        "title": "Editar Producto acción",
+        "inMenu": false
+    },
+    {
+        "vinculo": "crear_categoria",
+        "texto": "Crear categoria",
+        "title": "Crear Categoria",
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_categoria",
+        "texto": "Editar categoria",
+        "title": "Editar Categoria",
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_categoria",
+        "texto": "Borrar categoria",
+        "title": "Borrar Categoria",
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_categoria_acc",
+        "texto": "Borrar categoria acción",
+        "title": "Borrar Categoria acción",
+        "inMenu": false
+    },
+    {
+        "vinculo": "crear_categoria_acc",
+        "texto": "Crear categoria acción",
+        "title": "Crear Categoria acción",
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_categoria_acc",
+        "texto": "Editar categoria acción",
+        "title": "Editar Categoria acción",
+        "inMenu": false
+    },
     {
         "vinculo": "404",
         "texto": "Error 404",
-        "title": "Página no encontrada", 
+        "title": "Página no encontrada",
         "inMenu": false
     }
 ]

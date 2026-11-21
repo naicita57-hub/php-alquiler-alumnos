@@ -2,20 +2,18 @@
 
 <footer class=" relative z-10 bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-6 pt-12 pb-8">
-        
        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           
             <div class="space-y-3">
                 <a href="index.php?p=inicio" class="inline-block">
-                    <img src="imagenes/logo-davinci-white.webp" alt="logo Davinci Alquiler" class="h-8 w-auto">
+                    <img src="assets/imagenes/logo-davinci-white.webp" alt="logo Davinci Alquiler" class="h-8 w-auto">
                 </a>
                 <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-xs">
                     Tu alquiler de confianza en la Da Vinci, de estudiantes para estudiantes.
                 </p>
             </div>
 
-         
             <div>
                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
                     Navegación
@@ -36,7 +34,6 @@
                 </ul>
             </div>
 
-        
             <div>
                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
                     Contacto
@@ -68,7 +65,6 @@
             </div>
 
         </div>
-
    
         <div class="border-t border-slate-800/80 pt-6 text-center text-xs text-slate-500">
             <p>&copy; 2026 Da Vinci x Funky Studios. Todos los derechos reservados.</p>

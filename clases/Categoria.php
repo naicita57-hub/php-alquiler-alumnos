@@ -1,23 +1,23 @@
 <?php
 class Categoria
 {
-    private $id;	
-    private $nombre;	
+    private $id;
+    private $nombre;
 
-    public function getId()
+    public function getIdCategoria()
     {
         return $this->id;
     }
-    
-    public function getNombre()
+
+    public function getNombreCategoria()
     {
         return $this->nombre;
     }
-    
+
     /**
      * Obtiene todas las marcar de la base de datos
      */
-    public static function todasCategorias():array
+    public static function todasCategorias(): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT * FROM categorias";
@@ -32,7 +32,7 @@ class Categoria
     }
     /**
      * Inserta una nueva marca en la base de datos
-    */
+     */
     public static function insert(string $nombre)
     {
         $conexion = (new Conexion())->getDB();
@@ -46,7 +46,7 @@ class Categoria
     /**
      * Obtiene una marca por id
      * 
-    */
+     */
     public static function get_x_id(int $id): ?Categoria
     {
         $conexion = (new Conexion())->getDB();
@@ -71,10 +71,10 @@ class Categoria
         // print_r($this->id_marca);
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-                        "nombre"   => $nombre, 
-                        "id"            => $this->id
-                        // "id"            => $id
-                    ]);
+            "nombre"   => $nombre,
+            "id"            => $this->id
+            // "id"            => $id
+        ]);
     }
 
     /**
@@ -86,9 +86,7 @@ class Categoria
         $query = "DELETE FROM categorias WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-                        "id"            => $this->id
-                    ]);
+            "id"            => $this->id
+        ]);
     }
 }
-
-?>
