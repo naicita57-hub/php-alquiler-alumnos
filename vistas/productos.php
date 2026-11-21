@@ -1,24 +1,11 @@
 <?php
-
 $filtroActual = $_GET['filtro'] ?? 'todos';
 
-$categorias = [
-    'perifericos' => 'Periféricos',
-    'tabletasgraficas' => 'Tabletas Gráficas',
-    'camaras' => 'Cámaras',
-    'iluminacion' => 'Iluminación',
-    'sonido' => 'Sonido',
-    'consolas' => 'Consolas',
-    'utensiliosgraficos' => 'Utensilios Gráficos',
-    'notebook' => 'Notebook',
-    'informática' => 'Informática',
-    'monitores' => 'Monitores'
-];
+$todasCategorias = Categoria::todasCategorias();
 
-if (array_key_exists($filtroActual, $categorias)) {
-    $nombreFiltro = $categorias[$filtroActual];
-    $productos = Producto::catalogo_por_categoria($nombreFiltro);
-} else {
+if ($filtroActual !== 'todos') {
+    $productos = Producto::catalogo_por_idcategoria((int)$filtroActual);
+}else {
     $productos = Producto::catalogo_completo();
 }
 ?>
@@ -47,46 +34,18 @@ if (array_key_exists($filtroActual, $categorias)) {
             class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'todos' ? 'glass-pill-active' : 'glass-pill' ?>">
             Todos
         </a>
-        <a href="index.php?p=productos&filtro=perifericos"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'perifericos' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Periféricos
-        </a>
-        <a href="index.php?p=productos&filtro=camaras"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'camaras' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Cámaras
-        </a>
-        <a href="index.php?p=productos&filtro=tabletasgraficas"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'tabletasgraficas' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Tabletas Gráficas
-        </a>
-        <a href="index.php?p=productos&filtro=iluminacion"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'iluminacion' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Iluminación
-        </a>
-        <a href="index.php?p=productos&filtro=sonido"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'sonido' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Sonido
-        </a>
-        <a href="index.php?p=productos&filtro=consolas"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'consolas' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Consolas
-        </a>
-        <a href="index.php?p=productos&filtro=utensiliosgraficos"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'utensiliosgraficos' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Utensilios Gráficos
-        </a>
-        <a href="index.php?p=productos&filtro=notebook"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'notebook' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Notebooks
-        </a>
-        <a href="index.php?p=productos&filtro=informatica"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'informatica' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Informática
-        </a>
-        <a href="index.php?p=productos&filtro=monitores"
-            class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= $filtroActual === 'monitores' ? 'glass-pill-active' : 'glass-pill' ?>">
-            Monitores
-        </a>
+
+        <?php foreach ($todasCategorias as $cat): ?>
+            <?php 
+                $catId  = $cat->getId();
+                $catNombre = $cat->getNombre();  
+            ?>
+            <a href="index.php?p=<?= $vista; ?>&filtro=<?= $catId; ?>"
+                class="px-5 py-2.5 rounded-full text-xs md:text-[16px] font-bold tracking-wide transition-all <?= (string)$filtroActual === (string)$catId ? 'glass-pill-active' : 'glass-pill' ?>"
+            >
+            <?= $catNombre; ?>
+            </a>
+        <?php endforeach; ?>
     </div>
 
     <section class="relative z-10 py-6 space-y-8 md:mx-20 ">

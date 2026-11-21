@@ -15,7 +15,6 @@ class Categoria
     }
     
     /**
-     * 
      * Obtiene todas las marcar de la base de datos
      */
     public static function todasCategorias():array
@@ -44,8 +43,6 @@ class Categoria
         ]);
     }
 
-
-
     /**
      * Obtiene una marca por id
      * 
@@ -66,7 +63,7 @@ class Categoria
     /**
      * Edita una instancia de marca
      */
-    public function edit($nombre)
+    public function edit(string $nombre)
     {
         $conexion = (new Conexion())->getDB();
         $query = "UPDATE categorias SET nombre = :nombre
