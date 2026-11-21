@@ -1,5 +1,5 @@
 <?php
-require_once("../../clases/Carrera.php");
+require_once __DIR__ . '/../../functions/autoload.php';
 
 $postData = $_POST;
 $nombre = Carrera::get_x_id($postData["id"]);
@@ -19,7 +19,7 @@ try{
     $nombre->edit($postData["nombre"]);
 }catch (Exception $e){
     //Vamos a modificar en el futuro este hermoso die
-    die("No se pudo editar la marca");
+    die("No se pudo editar la carrera");
 }
 header('Location: ../index.php?p=carreras');
 ?>

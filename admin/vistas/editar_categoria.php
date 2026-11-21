@@ -7,7 +7,7 @@ $nombre = Categoria::get_x_id($id);
 if(!is_null($nombre)){
 ?>
 <h2>Editar categoría</h2>
-<form action="actions/editar_categoría_acc.php" method="post" enctype="multipart/form-data">
+<form action="actions/editar_categoria_acc.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" class="form-control" id="id" value="<?= $nombre->getIdCategoria(); ?>" >
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre de categoría</label>
