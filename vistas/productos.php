@@ -86,10 +86,13 @@ if ($filtroActual !== 'todos') {
                             </div>
 
                             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                                <span class="text-sm font-black text-slate-900">
-                                    $<?= number_format($item->getPrecio(), 0, ',', '.'); ?>
-                                    <span class="text-sm font-normal text-slate-500">/día</span>
-                                </span>
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-slate-400">$<?= number_format($item->getSinIva()); ?> sin IVA</span>
+                                    <span class="text-md font-black text-slate-900">
+                                        $<?= number_format($item->getPrecio(), 0, ',', '.'); ?>
+                                        <span class="text-sm font-normal text-slate-500">/día</span>
+                                    </span>
+                                </div>
                                 <a href="index.php?p=detalle&id=<?= $item->getId(); ?>"
                                     class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm">
                                     Ver detalle ★

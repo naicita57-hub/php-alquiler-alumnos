@@ -11,11 +11,11 @@ class Producto
     private $imagen;
     private $categoria = [];
     private $carrera = [];
-
     public $id_categoria;
     public $nombre_categoria;
     public $id_carrera;
     public $nombre_carrera;
+    private $sin_iva;
 
     //GETTERS
 
@@ -57,6 +57,11 @@ class Producto
     public function getPrecio(): int
     {
         return $this->precio;
+    }
+
+    public function getSinIva(): float
+    {
+        return (float) $this->sin_iva;
     }
 
     /**
@@ -216,6 +221,7 @@ class Producto
                 p.nombre,
                 p.descripcion,
                 p.precio,
+                ROUND(p.precio / 1.21, 2) AS sin_iva,
                 p.stock,
                 p.fecha_ingreso,
                 p.imagen,
