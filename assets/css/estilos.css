@@ -108,6 +108,46 @@
     color: blue !important;
 }
 
+ @keyframes paso-in {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+}
+@keyframes dot-on {
+    from { border-color: #cbd5e1; color: #94a3b8; transform: scale(1); }
+    to   { border-color: #db2777; color: #db2777; transform: scale(1.12); }
+}
+@keyframes dot-on-last {
+    from { border-color: #cbd5e1; color: #94a3b8; transform: scale(1); }
+    to   { border-color: #4f46e5; color: #4f46e5; transform: scale(1.12); }
+}
+@keyframes linea-llena {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+}
+
+/* Solo si el navegador soporta animaciones atadas al scroll */
+@supports (animation-timeline: view()) {
+    .como-funciona .paso       { view-timeline-name: --paso; }
+    .como-funciona .lista-pasos { view-timeline-name: --lista; }
+
+    .como-funciona .paso-body,
+    .como-funciona .paso-dot {
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: --paso;
+        animation-range: entry 25% entry 90%;
+    }
+    .como-funciona .paso-body { animation-name: paso-in; }
+    .como-funciona .paso-dot  { animation-name: dot-on; }
+    .como-funciona .paso:last-child .paso-dot { animation-name: dot-on-last; }
+
+    .como-funciona .linea-progreso {
+        transform-origin: top;
+        animation: linea-llena linear both;
+        animation-timeline: --lista;
+        animation-range: cover 15% cover 75%;
+    }
+}
 @media (max-width: 767px) {
     .container-pad{
         padding: 10px !important;

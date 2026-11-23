@@ -3,42 +3,15 @@ $id = $_GET['id'] ?? false;
 $producto = $id ? Producto::get_x_id((int) $id) : null;
 $categorias = Categoria::todasCategorias();
 $carreras = Carrera::todasCarreras();
-// <!-- temporal para probar hasta q andre haga en producto --!>
 
-$catsActuales = [];
-$carrerasActuales = [];
+$catsActuales = $producto
+    ? array_map('intval', array_column($producto->getCategoria(), 'id'))
+    : [];
 
-if ($producto) {
-    if (method_exists($producto, 'getCategoriasIds')) {
-        $catsActuales = array_map('intval', (array) $producto->getCategoriasIds());
-    } elseif (method_exists($producto, 'getCategorias')) {
-        foreach ((array) $producto->getCategorias() as $item) {
-            if (is_object($item) && method_exists($item, 'getIdCategoria')) {
-                $catsActuales[] = (int) $item->getIdCategoria();
-            } elseif (is_array($item) && isset($item['id_categoria'])) {
-                $catsActuales[] = (int) $item['id_categoria'];
-            } else {
-                $catsActuales[] = (int) $item;
-            }
-        }
-    }
-
-    if (method_exists($producto, 'getCarrerasIds')) {
-        $carrerasActuales = array_map('intval', (array) $producto->getCarrerasIds());
-    } elseif (method_exists($producto, 'getCarreras')) {
-        foreach ((array) $producto->getCarreras() as $item) {
-            if (is_object($item) && method_exists($item, 'getIdCarrera')) {
-                $carrerasActuales[] = (int) $item->getIdCarrera();
-            } elseif (is_array($item) && isset($item['id_carrera'])) {
-                $carrerasActuales[] = (int) $item['id_carrera'];
-            } else {
-                $carrerasActuales[] = (int) $item;
-            }
-        }
-    }
-}
+$carrerasActuales = $producto
+    ? array_map('intval', array_column($producto->getCarrera(), 'id'))
+    : [];
 ?>
-
 <div class="max-w-3xl mx-auto my-6 bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-8">
     <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
         <div>
@@ -52,8 +25,8 @@ if ($producto) {
 
     <?php if ($producto): ?>
         <form action="actions/editar_producto_acc.php" method="post" enctype="multipart/form-data" class="space-y-5">
-            <input type="hidden" name="id" value="<?= htmlspecialchars((string) $producto->getId()); ?>">
-            <input type="hidden" name="imagen_og" value="<?= htmlspecialchars((string) $producto->getImagen()); ?>">
+            <input type="hidden" name="id" value="<?=  $producto->getId(); ?>">
+            <input type="hidden" name="imagen_og" value="<?=  $producto->getImagen(); ?>">
 
             <div>
                 <label for="nombre" class="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -63,7 +36,7 @@ if ($producto) {
                     type="text"
                     id="nombre"
                     name="nombre"
-                    value="<?= htmlspecialchars((string) $producto->getNombre()); ?>"
+                    value="<?=  $producto->getNombre(); ?>"
                     required
                     class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                 >
@@ -78,7 +51,7 @@ if ($producto) {
                     name="descripcion"
                     rows="3"
                     class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
-                ><?= htmlspecialchars((string) $producto->getDescripcion()); ?></textarea>
+                ><?=  $producto->getDescripcion(); ?></textarea>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -90,7 +63,7 @@ if ($producto) {
                         type="number"
                         id="precio"
                         name="precio"
-                        value="<?= htmlspecialchars((string) $producto->getPrecio()); ?>"
+                        value="<?=  $producto->getPrecio(); ?>"
                         min="0"
                         step="any"
                         required
@@ -106,7 +79,7 @@ if ($producto) {
                         type="number"
                         id="stock"
                         name="stock"
-                        value="<?= htmlspecialchars((string) $producto->getStock()); ?>"
+                        value="<?=  $producto->getStock(); ?>"
                         min="0"
                         required
                         class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
@@ -121,7 +94,7 @@ if ($producto) {
                         type="date"
                         id="fecha_ingreso"
                         name="fecha_ingreso"
-                        value="<?= htmlspecialchars((string) $producto->getFechaIngreso()); ?>"
+                        value="<?=  $producto->getFechaIngreso(); ?>"
                         class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                     >
                 </div>
@@ -132,8 +105,8 @@ if ($producto) {
                     <span class="block text-sm font-semibold text-slate-700 mb-2">Imagen actual</span>
                     <?php if ($producto->getImagen()): ?>
                         <img
-                            src="../assets/imagenes/<?= htmlspecialchars((string) $producto->getImagen()); ?>"
-                            alt="Imagen actual de <?= htmlspecialchars((string) $producto->getNombre()); ?>"
+                            src="../assets/imagenes/<?=  $producto->getImagen(); ?>"
+                            alt="Imagen actual de <?= $producto->getNombre(); ?>"
                             class="w-28 h-28 object-cover rounded-xl border border-slate-200 bg-white"
                         >
                     <?php else: ?>
@@ -159,53 +132,55 @@ if ($producto) {
             </div>
 
             <!-- Checkboxes de Categorías -->
-            <div>
-                <span class="block text-sm font-semibold text-slate-700 mb-2">Categorías</span>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 bg-slate-50 border border-slate-200/80 rounded-xl p-4">
-                    <?php foreach ($categorias as $cat): ?>
-                        <?php
-                        $idCat = (int) $cat->getIdCategoria();
-                        $checkedCat = in_array($idCat, $catsActuales, true) ? 'checked' : '';
-                        ?>
-                        <label class="flex items-center gap-2.5 p-2 rounded-lg bg-white border border-slate-200/70 hover:border-indigo-300 cursor-pointer transition">
-                            <input
-                                type="checkbox"
-                                name="categorias[]"
-                                value="<?= $idCat; ?>"
-                                <?= $checkedCat; ?>
-                                class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
-                            >
-                            <span class="text-sm text-slate-700 font-medium">
-                                <?= htmlspecialchars((string) $cat->getNombreCategoria()); ?>
-                            </span>
-                        </label>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+        <!-- Checkboxes de Categorías -->
+<div>
+    <span class="block text-sm font-semibold text-slate-700 mb-2">Categorías</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 bg-slate-50 border border-slate-200/80 rounded-xl p-4">
+        <?php foreach ($categorias as $cat): ?>
+            <?php
+            $idCat = (int) $cat->getId();
+            $checkedCat = in_array($idCat, $catsActuales, true) ? 'checked' : '';
+            ?>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-white border border-slate-200/70 hover:border-indigo-300 cursor-pointer transition">
+                <input
+                    type="checkbox"
+                    name="categorias[]"
+                    value="<?= $idCat; ?>"
+                    <?= $checkedCat; ?>
+                    class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
+                >
+                <span class="text-sm text-slate-700 font-medium">
+                    <?=  $cat->getNombre(); ?>
+                </span>
+            </label>
+        <?php endforeach; ?>
+    </div>
+</div>
 
-            <!-- Checkboxes de Carreras -->
-            <div>
-                <span class="block text-sm font-semibold text-slate-700 mb-2">Carreras</span>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 bg-slate-50 border border-slate-200/80 rounded-xl p-4">
-                    <?php foreach ($carreras as $carrera): ?>
-                        <?php
-                        $idCarrera = (int) $carrera->getIdCarrera();
-                        $checkedCarrera = in_array($idCarrera, $carrerasActuales, true) ? 'checked' : '';
-                        ?>
-                        <label class="flex items-center gap-2.5 p-2 rounded-lg bg-white border border-slate-200/70 hover:border-indigo-300 cursor-pointer transition">
-                            <input
-                                type="checkbox"
-                                name="carreras[]"
-                                value="<?= $idCarrera; ?>"
-                                <?= $checkedCarrera; ?>
-                                class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
-                            >
-                            <span class="text-sm text-slate-700 font-medium">
-                                <?= htmlspecialchars((string) $carrera->getNombreCarrera()); ?>
-                            </span>
-                        </label>
-                    <?php endforeach; ?>
-                </div>
+<!-- Checkboxes de Carreras -->
+<div>
+    <span class="block text-sm font-semibold text-slate-700 mb-2">Carreras</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 bg-slate-50 border border-slate-200/80 rounded-xl p-4">
+        <?php foreach ($carreras as $carrera): ?>
+            <?php
+            $idCarrera = (int) $carrera->getId();
+            $checkedCarrera = in_array($idCarrera, $carrerasActuales, true) ? 'checked' : '';
+            ?>
+            <label class="flex items-center gap-2.5 p-2 rounded-lg bg-white border border-slate-200/70 hover:border-indigo-300 cursor-pointer transition">
+                <input
+                    type="checkbox"
+                    name="carreras[]"
+                    value="<?= $idCarrera; ?>"
+                    <?= $checkedCarrera; ?>
+                    class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300"
+                >
+                <span class="text-sm text-slate-700 font-medium">
+                    <?=  $carrera->getNombre(); ?>
+                </span>
+            </label>
+        <?php endforeach; ?>
+    </div>
+</div>
             </div>
 
             <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">

@@ -11,12 +11,11 @@ class Producto
     private $imagen;
     private $categoria = [];
     private $carrera = [];
-
     public $id_categoria;
     public $nombre_categoria;
+    private $sin_iva;
     public $id_carrera;
     public $nombre_carrera;
-
     //GETTERS
 
     /**
@@ -57,6 +56,11 @@ class Producto
     public function getPrecio(): int
     {
         return $this->precio;
+    }
+
+    public function getSinIva(): float
+    {
+        return (float) $this->sin_iva;
     }
 
     /**
@@ -216,6 +220,7 @@ class Producto
                 p.nombre,
                 p.descripcion,
                 p.precio,
+                ROUND(p.precio / 1.21, 2) AS sin_iva,
                 p.stock,
                 p.fecha_ingreso,
                 p.imagen,
@@ -254,28 +259,52 @@ class Producto
     public static function get_x_id(int $id): ?Producto
     {
         $conexion = (new Conexion())->getDB();
-        $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.stock, p.fecha_ingreso, p.imagen,
-                  GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
-                  GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+        $query = "SELECT 
+                    p.id, 
+                    p.nombre, 
+                    p.descripcion, 
+                    p.precio,
+                    ROUND(p.precio / 1.21, 2) AS sin_iva,
+                    p.stock, 
+                    p.fecha_ingreso, 
+                    p.imagen,
+                    GROUP_CONCAT(DISTINCT cat.id ORDER BY cat.id SEPARATOR ',') AS id_categoria,
+                    GROUP_CONCAT(DISTINCT cat.nombre ORDER BY cat.id SEPARATOR '||') AS nombre_categoria,
+                    GROUP_CONCAT(DISTINCT car.id ORDER BY car.id SEPARATOR ',') AS id_carrera,
+                    GROUP_CONCAT(DISTINCT car.nombre ORDER BY car.id SEPARATOR '||') AS nombre_carrera
                   FROM producto AS p
                   LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
                   LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
                   LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
                   LEFT JOIN carreras car ON pxcar.id_carrera = car.id
                   WHERE p.id = :id
-                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
+                  GROUP BY p.id
                   LIMIT 1";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $PDOStatement->execute(["id" => $id]);
 
-        $lista = $PDOStatement->fetch();
+        $producto = $PDOStatement->fetch();
 
-        return !empty($lista) ? $lista : null;
+        if(!$producto) {
+            return null;
+        }
+
+        $producto->setCategoria(
+            $producto->id_categoria,
+            $producto->nombre_categoria
+        );
+
+        $producto->setCarrera(
+            $producto->id_carrera,
+            $producto->nombre_carrera
+        );
+
+        return $producto;
     }
 
-    public static function catalogo_por_categoria(string $nombreCategoria): array
+    public static function catalogo_x_idcategoria(int $idCategoria): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT 
@@ -284,26 +313,34 @@ class Producto
                     p.descripcion,
                     p.precio,
                     p.stock,
+                    ROUND(p.precio / 1.21, 2) AS sin_iva,
                     p.fecha_ingreso,
                     p.imagen,
-                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
-                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                    GROUP_CONCAT(DISTINCT cat.id ORDER BY cat.id SEPARATOR ',') AS id_categoria,
+                    GROUP_CONCAT(DISTINCT cat.nombre ORDER BY cat.id SEPARATOR '||') AS nombre_categoria
                   FROM producto AS p
                   LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
                   LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
-                  LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
-                  LEFT JOIN carreras car ON pxcar.id_carrera = car.id
-                  GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
-                  HAVING FIND_IN_SET(:categoria, GROUP_CONCAT(cat.nombre)) > 0";
+                  GROUP BY p.id
+                  HAVING FIND_IN_SET(:idCategoria, GROUP_CONCAT(cat.id)) > 0";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $PDOStatement->execute(['categoria' => $nombreCategoria]);
+        $PDOStatement->execute(['idCategoria' => $idCategoria]);
 
-        return $PDOStatement->fetchAll();
+        $productos = $PDOStatement->fetchAll();
+
+        foreach ($productos as $producto) {
+            $producto->setCategoria(
+                $producto->id_categoria,
+                $producto->nombre_categoria
+            );
+        }
+
+        return $productos;
     }
 
-    public static function catalogo_por_carrera(string $nombreCarrera): array
+    public static function catalogo_x_idcarrera(int $idCarrera): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT 
@@ -311,26 +348,37 @@ class Producto
                     p.nombre,
                     p.descripcion,
                     p.precio,
+                    ROUND(p.precio / 1.21, 2) AS sin_iva,
                     p.stock,
                     p.fecha_ingreso,
                     p.imagen,
-                    GROUP_CONCAT(DISTINCT cat.nombre SEPARATOR ', ') AS categoria,
-                    GROUP_CONCAT(DISTINCT car.nombre SEPARATOR ', ') AS carrera
+                    GROUP_CONCAT(DISTINCT cat.id ORDER BY cat.id SEPARATOR ',') AS id_categoria,
+                    GROUP_CONCAT(DISTINCT cat.nombre ORDER BY cat.id SEPARATOR '||') AS nombre_categoria
                   FROM producto AS p
                   LEFT JOIN producto_x_categoria pxc ON p.id = pxc.id_producto
                   LEFT JOIN categorias cat ON pxc.id_categoria = cat.id
                   LEFT JOIN producto_x_carrera pxcar ON p.id = pxcar.id_producto
                   LEFT JOIN carreras car ON pxcar.id_carrera = car.id
                   GROUP BY p.id, p.nombre, p.descripcion, p.precio, p.fecha_ingreso, p.imagen
-                  HAVING FIND_IN_SET(:carrera, GROUP_CONCAT(car.nombre)) > 0";
+                  HAVING FIND_IN_SET(:idCarrera, GROUP_CONCAT(car.id)) > 0";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $PDOStatement->execute(['carrera' => $nombreCarrera]);
+        $PDOStatement->execute(['idCarrera' => $idCarrera]);
 
-        return $PDOStatement->fetchAll();
+        $productos = $PDOStatement->fetchAll();
+
+        foreach ($productos as $producto) {
+            $producto->setCategoria(
+                $producto->id_categoria,
+                $producto->nombre_categoria
+            );
+        }
+
+        return $productos;
     }
-     public static function insert(
+
+    public static function insert(
         string $nombre,
         string $descripcion,
         int $precio,
@@ -340,7 +388,6 @@ class Producto
     ): int {
 
         $conexion = (new Conexion())->getDB();
-
         $query = "INSERT INTO producto
                 (nombre, descripcion, precio, stock, fecha_ingreso, imagen)
               VALUES
@@ -357,6 +404,32 @@ class Producto
         ]);
 
         return (int) $conexion->lastInsertId();
+    }
+
+    public static function guardar_categoria(int $idProducto, int $idCategoria): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "INSERT INTO producto_x_categoria (id_producto, id_categoria)
+                    VALUES (:id_producto, :id_categoria)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id_producto' => $idProducto,
+            'id_categoria' => $idCategoria
+        ]);
+    }
+
+    public static function guardar_carrera(int $id_producto, int $id_carrera): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "INSERT INTO producto_x_carrera (id_producto, id_carrera) 
+                    VALUES (:id_producto, :id_carrera)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id_producto' => $id_producto,
+            'id_carrera'  => $id_carrera
+        ]);
     }
 
     public function edit(
@@ -391,20 +464,10 @@ class Producto
         ]);
     }
 
-    public function delete(): void
+    public static function editar_categoria(int $idProducto, int $idCategoria): void
     {
         $conexion = (new Conexion())->getDB();
-        $query = "DELETE FROM producto WHERE id = :id";
-        $PDOStatement = $conexion->prepare($query);
-        $PDOStatement->execute([
-            'id' => $this->id
-        ]);
-    }
-
-    public static function guardar_categoria(int $idProducto, int $idCategoria): void
-    {
-        $conexion = (new Conexion())->getDB();
-        $query = "INSERT INTO producto_x_categoria (id_producto, id_categoria)
+        $query = "UPDATE SET producto_x_categoria (id_producto, id_categoria)
                     VALUES (:id_producto, :id_categoria)";
 
         $PDOStatement = $conexion->prepare($query);
@@ -414,16 +477,13 @@ class Producto
         ]);
     }
 
-    public static function add_carrera(int $id_producto, int $id_carrera): void
+    public function delete(): void
     {
         $conexion = (new Conexion())->getDB();
-        $query = "INSERT INTO producto_x_carrera (id_producto, id_carrera) 
-                    VALUES (:id_producto, :id_carrera)";
-
+        $query = "DELETE FROM producto WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-            'id_producto' => $id_producto,
-            'id_carrera'  => $id_carrera
+            'id' => $this->id
         ]);
     }
     public function clear_categorias(): void

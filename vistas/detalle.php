@@ -66,7 +66,7 @@ $producto = $id ? Producto::get_x_id($id) : null;
                         <div class="flex flex-wrap gap-3 text-xs font-semibold">
     
                             <div class="bg-slate-100 px-3 py-1.5 rounded-xl text-slate-700 flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full <?= $producto->getStock() > 0 ? 'bg-emerald-500' : 'bg-rose-500' ?>"></span>
+                                <span class="w-2 h-2 rounded-full <?= $producto->getStock() > 2 ? 'bg-emerald-500' : 'bg-rose-500' ?>"></span>
                                 <span>Stock: <strong><?= $producto->getStock(); ?> unidades</strong></span>
                             </div>
     

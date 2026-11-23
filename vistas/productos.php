@@ -117,13 +117,15 @@ if (array_key_exists($filtroActual, $categorias)) {
                                     <?= ($item->getNombre()); ?>
                                 </h3>
 
-                                <p class="text-lg font-bold text-slate-800 mt-2">
-                                    Stock: <?= ($item->getStock()); ?>
-                                </p>
-
                                 <div class="flex justify-between items-center text-[14px] text-slate-400 pt-2 border-t border-slate-100/80 mt-3">
                                     <span>Ingreso: <?= ($item->getFechaIngreso()); ?></span>
                                 </div>
+                                <div class="mt-2 flex items-center">
+    <div class="bg-slate-100 px-3 py-1.5 rounded-xl text-slate-700 flex items-center gap-1.5 text-sm">
+        <span class="w-2 h-2 rounded-full <?= $item->getStock() > 2 ? 'bg-emerald-500' : 'bg-rose-500'; ?>"></span>
+        <span>Stock: <strong><?= htmlspecialchars((string) $item->getStock()); ?> unidades</strong></span>
+    </div>
+</div>
                             </div>
 
                             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
@@ -133,7 +135,7 @@ if (array_key_exists($filtroActual, $categorias)) {
                                 </span>
                                 <a href="index.php?p=detalle&id=<?= $item->getId(); ?>"
                                     class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm">
-                                    Ver detalle ★
+                                    Ver detalle 
                                 </a>
                             </div>
                         </div>
