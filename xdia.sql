@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2026 a las 15:01:23
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Nov 23, 2026 at 08:32 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `xdia`
+-- Database: `xdia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carreras`
+-- Table structure for table `carreras`
 --
 
 CREATE TABLE `carreras` (
@@ -34,21 +34,21 @@ CREATE TABLE `carreras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `carreras`
+-- Dumping data for table `carreras`
 --
 
 INSERT INTO `carreras` (`id`, `nombre`, `imagen`) VALUES
-(1, 'Diseño Gráfico Artístico Digital', NULL),
-(2, 'Diseño y Programación Web', NULL),
-(3, 'Cine y Nuevos Formatos', NULL),
-(4, 'Programación de Videojuegos', NULL),
+(1, 'Diseño Gráfico Artístico Digital', 'diseno-portada.webp'),
+(2, 'Diseño y Programación Web', 'programacion-portada.webp'),
+(3, 'Cine y Nuevos Formatos', 'cine-portada.webp'),
+(4, 'Programación de Videojuegos', 'videojuegos-portada.webp'),
 (5, 'Diseño Multimedial', NULL),
 (6, 'Cine de Animación y Posproducción', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -58,7 +58,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `imagen`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `categorias` (`id`, `nombre`, `imagen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `compra`
+-- Table structure for table `compra`
 --
 
 CREATE TABLE `compra` (
@@ -90,7 +90,23 @@ CREATE TABLE `compra` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_compra`
+-- Table structure for table `consultas`
+--
+
+CREATE TABLE `consultas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefono` varchar(50) NOT NULL,
+  `motivo` int(10) UNSIGNED NOT NULL,
+  `comentario` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detalle_compra`
 --
 
 CREATE TABLE `detalle_compra` (
@@ -104,7 +120,7 @@ CREATE TABLE `detalle_compra` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -118,7 +134,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `fecha_ingreso`, `imagen`) VALUES
@@ -141,7 +157,7 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `fecha
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto_x_carrera`
+-- Table structure for table `producto_x_carrera`
 --
 
 CREATE TABLE `producto_x_carrera` (
@@ -151,7 +167,7 @@ CREATE TABLE `producto_x_carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `producto_x_carrera`
+-- Dumping data for table `producto_x_carrera`
 --
 
 INSERT INTO `producto_x_carrera` (`id`, `id_producto`, `id_carrera`) VALUES
@@ -209,7 +225,7 @@ INSERT INTO `producto_x_carrera` (`id`, `id_producto`, `id_carrera`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto_x_categoria`
+-- Table structure for table `producto_x_categoria`
 --
 
 CREATE TABLE `producto_x_categoria` (
@@ -219,7 +235,7 @@ CREATE TABLE `producto_x_categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `producto_x_categoria`
+-- Dumping data for table `producto_x_categoria`
 --
 
 INSERT INTO `producto_x_categoria` (`id`, `id_producto`, `id_categoria`) VALUES
@@ -249,7 +265,7 @@ INSERT INTO `producto_x_categoria` (`id`, `id_producto`, `id_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -265,7 +281,7 @@ CREATE TABLE `usuarios` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario_x_carrera`
+-- Table structure for table `usuario_x_carrera`
 --
 
 CREATE TABLE `usuario_x_carrera` (
@@ -275,30 +291,36 @@ CREATE TABLE `usuario_x_carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `carreras`
+-- Indexes for table `carreras`
 --
 ALTER TABLE `carreras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `compra`
+-- Indexes for table `compra`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `detalle_compra`
+-- Indexes for table `consultas`
+--
+ALTER TABLE `consultas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   ADD PRIMARY KEY (`id`),
@@ -306,13 +328,13 @@ ALTER TABLE `detalle_compra`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `producto_x_carrera`
+-- Indexes for table `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   ADD PRIMARY KEY (`id`),
@@ -320,7 +342,7 @@ ALTER TABLE `producto_x_carrera`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indices de la tabla `producto_x_categoria`
+-- Indexes for table `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   ADD PRIMARY KEY (`id`),
@@ -328,13 +350,13 @@ ALTER TABLE `producto_x_categoria`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuario_x_carrera`
+-- Indexes for table `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   ADD PRIMARY KEY (`id`),
@@ -342,96 +364,102 @@ ALTER TABLE `usuario_x_carrera`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `carreras`
+-- AUTO_INCREMENT for table `carreras`
 --
 ALTER TABLE `carreras`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `compra`
+-- AUTO_INCREMENT for table `compra`
 --
 ALTER TABLE `compra`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `detalle_compra`
+-- AUTO_INCREMENT for table `consultas`
+--
+ALTER TABLE `consultas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `producto_x_carrera`
+-- AUTO_INCREMENT for table `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT de la tabla `producto_x_categoria`
+-- AUTO_INCREMENT for table `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usuario_x_carrera`
+-- AUTO_INCREMENT for table `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `compra`
+-- Constraints for table `compra`
 --
 ALTER TABLE `compra`
   ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `detalle_compra`
+-- Constraints for table `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
   ADD CONSTRAINT `detalle_compra_ibfk_1` FOREIGN KEY (`id_compra`) REFERENCES `compra` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `detalle_compra_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `producto_x_carrera`
+-- Constraints for table `producto_x_carrera`
 --
 ALTER TABLE `producto_x_carrera`
   ADD CONSTRAINT `producto_x_carrera_ibfk_1` FOREIGN KEY (`id_carrera`) REFERENCES `carreras` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_x_carrera_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `producto_x_categoria`
+-- Constraints for table `producto_x_categoria`
 --
 ALTER TABLE `producto_x_categoria`
   ADD CONSTRAINT `producto_x_categoria_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_x_categoria_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `usuario_x_carrera`
+-- Constraints for table `usuario_x_carrera`
 --
 ALTER TABLE `usuario_x_carrera`
   ADD CONSTRAINT `usuario_x_carrera_ibfk_1` FOREIGN KEY (`id_carrera`) REFERENCES `carreras` (`id`) ON UPDATE CASCADE,

@@ -3,16 +3,21 @@ class Carrera
 {
     private $id;
     private $nombre;
+    private $imagen;
 
     public function getIdCarrera()
     {
         return $this->id;
     }
-
     public function getNombreCarrera()
     {
         return $this->nombre;
     }
+    public function getImagenCarrera()
+    {
+        return $this->imagen;
+    }
+
 
     /**
      * 
@@ -35,13 +40,14 @@ class Carrera
     /**
      * Inserta una nueva carrera en la base de datos
      */
-    public static function insert(string $nombre)
+    public static function insert(string $nombre, string $imagen)
     {
         $conexion = (new Conexion())->getDB();
-        $query = "INSERT INTO carreras (`nombre`) VALUES (:nombre)";
+        $query = "INSERT INTO carreras (nombre, imagen) VALUES (:nombre, :imagen)";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-            'nombre' => $nombre
+            'nombre' => $nombre,
+            'imagen' => $imagen
         ]);
     }
 
@@ -51,7 +57,7 @@ class Carrera
     public static function get_x_id(int $id): ?Carrera
     {
         $conexion = (new Conexion())->getDB();
-        $query = "SELECT id, nombre FROM carreras WHERE id = :id";
+        $query = "SELECT id, nombre, imagen FROM carreras WHERE id = :id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
