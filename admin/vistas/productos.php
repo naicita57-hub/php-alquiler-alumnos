@@ -3,7 +3,7 @@ $productos = Producto::catalogo_completo();
 ?>
 <?= Alerta::get_alertas(); ?>
 
-
+<section class="py-8">
 <div class="p-4 bg-gradient-to-b from-white to-indigo-50/60 rounded-3xl border border-slate-200 shadow-md">
     <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
         <h2 class="text-xl font-bold text-slate-800">Administración de Productos</h2>
@@ -49,3 +49,4 @@ $productos = Producto::catalogo_completo();
         </tbody>
     </table>
 </div>
+    </section>

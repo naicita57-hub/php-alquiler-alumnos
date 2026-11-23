@@ -19,7 +19,7 @@ if(!is_null($nombre)){
         </div>
         <div class="flex items-center gap-3">
             <input type="submit" value="Editar" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-xl hover:bg-indigo-700 transition cursor-pointer">
-            <a href="?p=carrera" class="bg-indigo-50 text-indigo-600 font-semibold px-5 py-2 rounded-xl hover:bg-indigo-100 transition">Cancelar</a>
+            <a href="?p=carreras" class="bg-indigo-50 text-indigo-600 font-semibold px-5 py-2 rounded-xl hover:bg-indigo-100 transition">Cancelar</a>
         </div>
     </form>
 
