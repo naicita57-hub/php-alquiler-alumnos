@@ -8,13 +8,13 @@ $pasos = [
      'texto'  => 'Elegí tu carrera en el <a href="index.php?p=inicio" class="text-indigo-600 hover:underline">inicio</a> para filtrar lo que te interesa ver. Podés elegir entre todas las carreras de la Escuela Da Vinci. También podés crearte un usuario para que tu/s carrera/s queden guardadas y los productos siempre estén filtrados.',
      'media'  => true],
     ['titulo' => 'Seleccioná el producto y la fecha deseada',
-     'texto'  => 'Texto del paso 2.',
+     'texto'  => 'Una vez dentro del catálogo, podes filtrar por categorías, o cambiar la carrera. Cuando encuentres un producto de tu interés, elegí ver más para poder ver la disponibilidad de las fechas.',
      'media'  => true],
     ['titulo' => 'Realizá el pago',
-     'texto'  => 'Texto del paso 3.',
+     'texto'  => 'Una vez que tengas tus fechas seleccionadas, vamos a pedirte que transfieras el monto correspondiente.',
      'media'  => true],
     ['titulo' => 'Acercate al departamento de alumnos el día de retiro',
-     'texto'  => 'Texto del paso 4.',
+     'texto'  => 'Por email te va a llegar un mail de confirmación con el monto que pagaste, los días, el horario de retiro y tu comprobante. Para retirar en el departamento de alumnos vas a mostrar el QR al final del email.',
      'media'  => false],
 ];
 $total = count($pasos);
@@ -105,7 +105,7 @@ $total = count($pasos);
 
     <ol class="lista-pasos relative max-w-3xl mx-auto">
 
-        <!-- Riel gris y línea que se llena con el scroll -->
+       
         <span class="absolute left-[17px] top-4 bottom-4 w-0.5 rounded-full bg-slate-200" aria-hidden="true"></span>
         <span class="linea-progreso absolute left-[17px] top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b from-pink-600 to-indigo-600" aria-hidden="true"></span>
 

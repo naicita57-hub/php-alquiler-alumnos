@@ -5,11 +5,8 @@ if (isset($_GET['p']) && $_GET['p'] === 'contacto') {
     <?php
 }
 
-$productoId = isset($_GET['producto_id']) ? $_GET['producto_id'] : null;
-
-require_once "clases/Producto.php";
-
-$productoSeleccionado = $productoId ? Producto::producto_id($productoId) : null;
+$id = $_GET['id'] ?? null;
+$productoSeleccionado = $id ? Producto::get_x_id((int)$id) : null;
 
 $mensajePredeterminado = "";
 if ($productoSeleccionado) {
@@ -33,7 +30,7 @@ if ($productoSeleccionado) {
             <div class="mb-6 p-4 bg-indigo-50/80 rounded-2xl border border-indigo-100 flex items-center gap-4">
                 <div
                     class="w-14 h-14 bg-white rounded-xl p-1 shrink-0 border border-indigo-100 flex items-center justify-center">
-                    <img src="imagenes/<?= $productoSeleccionado->getImagen(); ?>"
+                    <img src="assets/imagenes/<?= $productoSeleccionado->getImagen(); ?>"
                         alt="<?= $productoSeleccionado->getNombre(); ?>" class="w-full h-full object-contain">
                 </div>
                 <div>
@@ -127,7 +124,7 @@ if ($productoSeleccionado) {
             <div class="mt-4 pt-2 border-t border-slate-100/80">
                 <button type="submit"
                     class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold px-6 py-3.5 rounded-xl transition-colors shadow-sm flex justify-center items-center gap-2">
-                    Enviar Consulta ★
+                    Enviar Consulta 
                 </button>
             </div>
         </form>

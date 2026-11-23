@@ -125,7 +125,7 @@
     to   { transform: scaleY(1); }
 }
 
-/* Solo si el navegador soporta animaciones atadas al scroll */
+
 @supports (animation-timeline: view()) {
     .como-funciona .paso       { view-timeline-name: --paso; }
     .como-funciona .lista-pasos { view-timeline-name: --lista; }
