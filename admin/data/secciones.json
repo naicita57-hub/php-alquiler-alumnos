@@ -30,6 +30,18 @@
         "inMenu": true
     },
     {
+        "vinculo": "consultas",
+        "texto": "Consultas",
+        "title": "Consultas",
+        "inMenu": true
+    },
+    {
+        "vinculo": "crear_consulta_acc",
+        "texto": "Crear consulta",
+        "title": "Crear consulta",
+        "inMenu": false
+    },
+    {
         "vinculo": "crear_carrera",
         "texto": "Crear carrera",
         "title": "Crear carrera",

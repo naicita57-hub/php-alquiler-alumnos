@@ -6,9 +6,9 @@ $todasCategorias = Categoria::todasCategorias();
 $todasCarreras   = Carrera::todasCarreras();
 
 if ($idCarrera > 0) {
-    $productos = Producto::catalogo_por_idcarrera($idCarrera);
+    $productos = Producto::catalogo_x_idcarrera($idCarrera);
 } elseif ($filtroActual !== 'todos') {
-    $productos = Producto::catalogo_por_idcategoria((int) $filtroActual);
+    $productos = Producto::catalogo_x_idcategoria((int) $filtroActual);
 } else {
     $productos = Producto::catalogo_completo();
 }

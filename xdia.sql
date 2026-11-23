@@ -100,7 +100,8 @@ CREATE TABLE `consultas` (
   `email` varchar(100) NOT NULL,
   `telefono` varchar(50) NOT NULL,
   `motivo` int(10) UNSIGNED NOT NULL,
-  `comentario` varchar(500) NOT NULL
+  `comentario` varchar(500) NOT NULL,
+  `fecha_creacion` DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

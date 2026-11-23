@@ -303,7 +303,7 @@ class Producto
         return $producto;
     }
 
-    public static function catalogo_por_idcategoria(int $idCategoria): array
+    public static function catalogo_x_idcategoria(int $idCategoria): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT 
@@ -339,7 +339,7 @@ class Producto
         return $productos;
     }
 
-    public static function catalogo_por_idcarrera(int $idCarrera): array
+    public static function catalogo_x_idcarrera(int $idCarrera): array
     {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT 
@@ -460,6 +460,19 @@ class Producto
             'stock' => $stock,
             'fecha_ingreso' => $fecha_ingreso,
             'imagen' => $imagen
+        ]);
+    }
+
+    public static function editar_categoria(int $idProducto, int $idCategoria): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "UPDATE SET producto_x_categoria (id_producto, id_categoria)
+                    VALUES (:id_producto, :id_categoria)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id_producto' => $idProducto,
+            'id_categoria' => $idCategoria
         ]);
     }
 

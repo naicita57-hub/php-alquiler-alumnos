@@ -18,7 +18,6 @@ class Carrera
         return $this->imagen;
     }
 
-
     /**
      * 
      * Obtiene todas las carrera de la base de datos
