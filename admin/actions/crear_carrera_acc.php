@@ -12,8 +12,9 @@ try{
     Carrera::insert(
         $postData['carrera']
     );
+     Alerta::add_alerta('success', 'Carrera guardada correctamente.');
 }catch (Exception $e){
-    die("No se pudo cargar la carrera.");
+     Alerta::add_alerta('warning', 'No se pudo guardar la carrera.');
 }
 
 header('Location: ../index.php?p=carreras');

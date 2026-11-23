@@ -330,4 +330,119 @@ class Producto
 
         return $PDOStatement->fetchAll();
     }
+     public static function insert(
+        string $nombre,
+        string $descripcion,
+        int $precio,
+        int $stock,
+        string $fecha_ingreso,
+        string $imagen
+    ): int {
+
+        $conexion = (new Conexion())->getDB();
+
+        $query = "INSERT INTO producto
+                (nombre, descripcion, precio, stock, fecha_ingreso, imagen)
+              VALUES
+                (:nombre, :descripcion, :precio, :stock, :fecha_ingreso, :imagen)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio' => $precio,
+            'stock' => $stock,
+            'fecha_ingreso' => $fecha_ingreso,
+            'imagen' => $imagen
+        ]);
+
+        return (int) $conexion->lastInsertId();
+    }
+
+    public function edit(
+        string $nombre,
+        string $descripcion,
+        int $precio,
+        int $stock,
+        string $fecha_ingreso,
+        string $imagen
+    ): void {
+
+        $conexion = (new Conexion())->getDB();
+
+        $query = "UPDATE producto
+              SET nombre = :nombre,
+                  descripcion = :descripcion,
+                  precio = :precio,
+                  stock = :stock,
+                  fecha_ingreso = :fecha_ingreso,
+                  imagen = :imagen
+              WHERE id = :id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id,
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio' => $precio,
+            'stock' => $stock,
+            'fecha_ingreso' => $fecha_ingreso,
+            'imagen' => $imagen
+        ]);
+    }
+
+    public function delete(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM producto WHERE id = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id
+        ]);
+    }
+
+    public static function guardar_categoria(int $idProducto, int $idCategoria): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "INSERT INTO producto_x_categoria (id_producto, id_categoria)
+                    VALUES (:id_producto, :id_categoria)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id_producto' => $idProducto,
+            'id_categoria' => $idCategoria
+        ]);
+    }
+
+    public static function add_carrera(int $id_producto, int $id_carrera): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "INSERT INTO producto_x_carrera (id_producto, id_carrera) 
+                    VALUES (:id_producto, :id_carrera)";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id_producto' => $id_producto,
+            'id_carrera'  => $id_carrera
+        ]);
+    }
+    public function clear_categorias(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM producto_x_categoria WHERE id_producto = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id
+        ]);
+    }
+
+    public function clear_carreras(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM producto_x_carrera WHERE id_producto = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id
+        ]);
+    }
 }

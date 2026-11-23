@@ -17,9 +17,10 @@ $postData["nombre"];
 //El Objeto Categoria $categoria tiene metodos propios
 try{
     $nombre->edit($postData["nombre"]);
+     Alerta::add_alerta('success', 'Categoria guardada correctamente.');
 }catch (Exception $e){
     //Vamos a modificar en el futuro este hermoso die
-    die("No se pudo editar la categoria");
+     Alerta::add_alerta('success', 'No se pudo editar la categoría.');
 }
 header('Location: ../index.php?p=categorias');
 ?>

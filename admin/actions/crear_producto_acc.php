@@ -1,51 +1,45 @@
 <?php
-require_once("../functions/autoload.php");
+
+
+require_once __DIR__ . '/../../functions/autoload.php';
 
 $postData = $_POST;
 $datosArchivo = $_FILES['foto'];
 
-echo "<pre>";
-print_r($postData);
-echo "</pre>";
+try {
+    $imagen = Imagen::subirImagen(__DIR__ . "/../../assets/imagenes", $datosArchivo);
 
-echo "<pre>";
-print_r($datosArchivo);
-echo "</pre>";
-// Debemos rescatar el archivo que está en la carpeta temporal del servido.
-// 1. Obtener la extensión del archivo original.
-// 2. Obtener el nombre del archivo o crear uno nuevo.
-// 3. Usar PHP para mover el archivo temporal a su nueva ubicación y utilizando los valores adquiridos en los primeros dos pasos.
-// 4. Guardar el nuevo nombre (y extensión) en una variable para subsecuentemente insertarlo en la BBDD.
-
-// $nombreOriginal = (explode(".", $datosArchivo['name']));
-// $extension = end($nombreOriginal);
-// $nombreNuevo = time() . ".$extension";
-
-// $archivoSubido = move_uploaded_file($datosArchivo['tmp_name'], "../../img/productos/$nombreNuevo");
-
-// if($archivoSubido){
-//     $foto = $nombreNuevo;
-//     var_dump($foto);
-// }else{
-//     die("No se pudo subir la foto");
-// }
-
-//Creamos una clase Imagen y luego la instanciamos dentro del try catch
-
-
-try{
- $imagen = Imagen::subirImagen("../../img/productos", $datosArchivo);
     $idProducto = Producto::insert(
-        $postData['id'], 
-        $postData['nombre'], 
-        $postData['imagen'],
-        $postData['precio'],
+        $postData['nombre'],
+        $postData['descripcion'] ?? $postData['presentacion'] ?? '',
+        (int) $postData['precio'],
+        (int) ($postData['stock'] ?? 1),
+        $postData['fecha_ingreso'] ?? date('Y-m-d'),
         $imagen
     );
-}catch (Exception $e){
-    die("No se pudo cargar el producto .");
+
+    if (!empty($postData['categorias'])) {
+        foreach ($postData['categorias'] as $idCategoria) {
+            Producto::guardar_categoria($idProducto, (int) $idCategoria);
+        }
+    }
+
+    if (!empty($postData['carreras'])) {
+        foreach ($postData['carreras'] as $idCarrera) {
+            Producto::add_carrera($idProducto, (int) $idCarrera);
+        }
+       
+    }
+    Alerta::add_alerta('success', 'Producto guardado correctamente.');
+
+
+} catch (Exception $e) {
+  Alerta::add_alerta('error', 'No se pudo cargar el producto.');
+   
+
 }
 
-header('Location: ../index.php?sec=productos');
 
-?>
+
+header('Location: ../index.php?p=productos');
+exit;

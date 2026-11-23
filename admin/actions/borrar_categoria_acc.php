@@ -13,8 +13,9 @@ try{
     echo "</pre>";
 
     $categoria->delete();
+     Alerta::add_alerta('success', 'Categoria eliminada correctamente.');
 }catch (Exception $e){
-    die("No se pudo borrar la categoria.");
+    Alerta::add_alerta('warning', 'No se pudo eliminar la categoría.');
 }
 
 header('Location: ../index.php?p=categorias');

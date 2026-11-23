@@ -1,46 +1,39 @@
 <?php
-require_once("../functions/autoload.php");
+require_once __DIR__ . '/../../functions/autoload.php';
 
 $postData = $_POST;
-$datosArchivo = $_FILES['foto'];
+$datosArchivo = $_FILES['imagen'];
 
-// echo "<pre>";
-// print_r($postData);
-// echo "</pre>";
-
-// echo "<pre>";
-// print_r($datosArchivo);
-// echo "</pre>";
 
 try{
-    $producto = Producto::get_x_id($postData['id_producto']);
+    $producto = Producto::get_x_id($postData['id']);
     
-// echo "<pre>";
-// print_r($producto);
-// echo "</pre>";
 
     if(!empty($datosArchivo['tmp_name'])){
         //El usuario decidió reemplazar la imágen
 
         //borramos la foto anterior.
-        Imagen::borrarImagen("../../img/productos/" . $producto->getFoto());
+        Imagen::borrarImagen("../../assets/imagenes/" . $producto->getFoto());
         //actualizamos por la nueva foto.
-        $imagen = Imagen::subirImagen("../../img/productos", $datosArchivo);
+        $imagen = Imagen::subirImagen("../../assets/imagenes/", $datosArchivo);
     }else{
         //El usuario decidió quedarse con la foto original
         $imagen = $postData['imagen_og'];
     }
-    $producto->edit(
-        $postData['id'],
-        $postData['nombre'],
-        $postData['presentacion'],
-        $postData['precio'],
-        $imagen
-    );
+$producto->edit(
+    $postData['nombre'],
+    $postData['descripcion'],
+    (int) $postData['precio'],
+    (int) ($postData['stock'] ?? $producto->getStock()),
+    $postData['fecha_ingreso'] ?? $producto->getFechaIngreso(),
+    $imagen
+);
+Alerta::add_alerta('success', 'Producto editado correctamente.');
+
 }catch (Exception $e){
-    die("No se pudo editar el prodcuto.");
+    Alerta::add_alerta('warning', 'No se pudieron guardar los cambios.');
 }
 
-header('Location: ../index.php?sec=productos');
+header('Location: ../index.php?p=productos');
 
 ?>

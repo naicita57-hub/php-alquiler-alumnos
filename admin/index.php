@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '../../functions/autoload.php';
 
 require_once "../config.php";
 
@@ -8,7 +9,7 @@ $secciones_validas = ["inicio", "productos", "carreras", "usuarios", "crear_carr
 if (!in_array($seccion, $secciones_validas)) {
     $seccion = '404';
 }
-
+ 
 require_once "includes/head.php";
 require_once "includes/header.php";
 require_once "vistas/$seccion.php";

@@ -1,8 +1,8 @@
 <?php
-require_once "clases/Producto.php";
+require_once "functions/autoload.php";
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
-$producto = $id ? Producto::producto_id($id) : null;
+$producto = $id ? Producto::get_x_id($id) : null;
 ?>
 
 <div class="container mx-auto px-4 py-6 max-w-5xl">
