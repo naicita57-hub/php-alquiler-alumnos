@@ -77,6 +77,7 @@ $productos = Producto::catalogo_completo();
                     <a href="index.php?p=crear_categoria" class="bg-indigo-50 text-indigo-600 text-center font-semibold px-4 py-2.5 rounded-xl h ">+ Nueva Categoría</a>
                 </div>
             </div>
+            
 
             </div>
 

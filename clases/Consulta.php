@@ -10,6 +10,9 @@ class Consulta
     private $motivo;
     private $comentario;
     private $fecha_creacion;
+    private $id_motivo;
+    private $nombre_motivo;
+    private $nombre_producto;
 
     //GETTERS
 
@@ -219,6 +222,75 @@ class Consulta
             'id_motivo'   => $id_motivo,
             'comentario'  => $comentario
         ]);
+ 
+        }
+        public static function get_x_id(int $id): ?Consulta
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "SELECT
+                    c.id,
+                    c.nombre,
+                    c.apellido,
+                    c.email,
+                    c.telefono,
+                    c.id_producto,
+                    c.id_motivo,
+                    m.nombre AS nombre_motivo,
+                    c.comentario,
+                    c.fecha_creacion,
+                    p.nombre as nombre_producto
+                  FROM consultas AS c
+                  LEFT JOIN producto AS p ON c.id_producto = p.id
+                  LEFT JOIN motivo AS m ON c.id_motivo = m.id
+                  WHERE c.id = :id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(['id' => $id]);
+
+        return $PDOStatement->fetch() ?: null;
+    }
+
+    public function update(
+        string $nombre,
+        string $apellido,
+        string $email,
+        string $telefono,
+        ?int $id_producto,
+        int $id_motivo,
+        string $comentario
+    ): void {
+        $conexion = (new Conexion())->getDB();
+        $query = "UPDATE consultas
+                  SET nombre = :nombre,
+                      apellido = :apellido,
+                      email = :email,
+                      telefono = :telefono,
+                      id_producto = :id_producto,
+                      id_motivo = :id_motivo,
+                      comentario = :comentario
+                  WHERE id = :id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id'          => $this->id,
+            'nombre'      => $nombre,
+            'apellido'    => $apellido,
+            'email'       => $email,
+            'telefono'    => $telefono,
+            'id_producto' => $id_producto,
+            'id_motivo'   => $id_motivo,
+            'comentario'  => $comentario,
+        ]);
+    }
+
+    public function delete(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM consultas WHERE id = :id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute(['id' => $this->id]);
     }
 }
 ?>
