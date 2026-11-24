@@ -292,5 +292,14 @@ class Consulta
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute(['id' => $this->id]);
     }
+
+public function getIdMotivoConsulta(): ?int
+{
+    return $this->id_motivo !== null ? (int) $this->id_motivo : null;
 }
+
+
+
+    }
+
 ?>

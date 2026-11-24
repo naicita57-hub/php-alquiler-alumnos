@@ -37,13 +37,6 @@ $producto = $id ? Producto::get_x_id((int)$id) : null;
                             </a>
                         <?php endforeach; ?>
 
-                        <?php foreach ($producto->getCarrera() as $carrera): ?>
-                            <a href="index.php?p=productos&filtro=<?= $carrera['id']; ?>"
-                                class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full inline-block">
-                                <?= ($carrera['nombre']); ?>
-                            </a>
-                        <?php endforeach; ?>
-
                         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-3 leading-tight">
                             <?= $producto->getNombre(); ?>
                         </h2>

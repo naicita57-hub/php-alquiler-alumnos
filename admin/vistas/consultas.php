@@ -16,13 +16,13 @@ $consultas = Consulta::todasConsultas();
     <table class="w-full border-collapse text-left text-slate-700">
         <thead>
             <tr class="border-b border-slate-200">
-                <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">ID</th>
+                <th class="hidden sm:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">ID</th>
                 <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Fecha</th>
                 <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Nombre</th>
                 <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Contacto</th>
-                <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Motivo</th>
-                <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Insumo</th>
-                <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Comentario</th>
+                <th class="hidden md:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Motivo</th>
+                <th class="hidden lg:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Insumo</th>
+                <th class="hidden md:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Comentario</th>
                 <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500 text-center">Acciones</th>
             </tr>
         </thead>
@@ -34,7 +34,7 @@ $consultas = Consulta::todasConsultas();
         <?php else: ?>
             <?php foreach ($consultas as $item): ?>
                 <tr class="border-b border-slate-100 hover:bg-indigo-50/50 transition">
-                    <td class="p-2 text-slate-400">
+                    <td class="hidden sm:table-cell p-2 text-slate-400">
                         <?= $item->getIdConsulta(); ?>
                     </td>
                     <td class="p-2 text-xs text-slate-500 whitespace-nowrap">
@@ -42,6 +42,9 @@ $consultas = Consulta::todasConsultas();
                     </td>
                     <td class="p-2 font-semibold text-slate-800 min-w-[8rem]">
                         <?= $item->getNombreConsulta() . ' ' . $item->getApellidoConsulta(); ?>
+                        <span class="block md:hidden text-xs font-normal text-slate-400">
+                            <?= $item->nombre_motivo ?? ''; ?>
+                        </span>
                     </td>
                     <td class="p-2 text-xs">
                         <div>
@@ -53,10 +56,10 @@ $consultas = Consulta::todasConsultas();
                             <?= $item->getTelefonoConsulta(); ?>
                         </div>
                     </td>
-                    <td class="p-2 text-xs font-semibold text-slate-700 whitespace-nowrap">
+                    <td class="hidden md:table-cell p-2 text-xs font-semibold text-slate-700 whitespace-nowrap">
                         <?= $item->nombre_motivo ?? ''; ?>
                     </td>
-                    <td class="p-2 text-xs whitespace-nowrap">
+                    <td class="hidden lg:table-cell p-2 text-xs whitespace-nowrap">
                         <?php if (!empty($item->nombre_producto)): ?>
                             <span class="bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-full text-[10px]">
                                 <?= $item->nombre_producto; ?>
@@ -67,7 +70,7 @@ $consultas = Consulta::todasConsultas();
                             </span>
                         <?php endif; ?>
                     </td>
-                    <td class="p-2 text-sm text-slate-500 max-w-xs" title="<?= $item->getComentarioConsulta(); ?>">
+                    <td class="hidden md:table-cell p-2 text-sm text-slate-500 max-w-xs" title="<?= $item->getComentarioConsulta(); ?>">
                         <p class="line-clamp-2"><?= $item->getComentarioConsulta(); ?></p>
                     </td>
                     <td class="p-2 text-center whitespace-nowrap">

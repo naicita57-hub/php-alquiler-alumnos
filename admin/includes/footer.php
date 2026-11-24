@@ -8,7 +8,7 @@
           
             <div class="space-y-3">
                 <a href="index.php?p=inicio" class="inline-block">
-                    <img src="imagenes/logo-davinci-white.webp" alt="logo Davinci Alquiler" class="h-8 w-auto">
+                    <img src="../assets/imagenes/logo-davinci-white.webp" alt="logo Davinci Alquiler" class="h-8 w-auto">
                 </a>
                 <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-xs">
                     Tu alquiler de confianza en la Da Vinci, de estudiantes para estudiantes.

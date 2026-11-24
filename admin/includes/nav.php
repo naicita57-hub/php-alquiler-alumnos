@@ -2,10 +2,10 @@
 
 <nav class="nav-bar relative z-10 bg-white/90 backdrop-blur-md border border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between transition-all">
     
-    <h1 class="sr-only">Da Vinci x dia ADMin</h1>
+    <h1 class="sr-only">Da Vinci x dia Admin</h1>
    
     <a href="index.php?p=inicio" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
-        <img src="imagenes/logo-davinci-alquiler.webp" alt="Logo Davinci Alquiler" class="h-8 w-auto object-contain">
+        <img src="../assets/imagenes/logo-davinci-alquiler.webp" alt="Logo Davinci Alquiler" class="h-8 w-auto object-contain">
     </a>
 
     <!-- btn hamburgyesa-->
