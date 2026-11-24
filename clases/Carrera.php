@@ -24,7 +24,12 @@ public function getNombreCarrera()
 {
     return $this->nombre;
 }
-    /**
+   
+ public function getImagenCarrera()
+ {
+        return $this->imagen;
+    }
+/**
      * 
      * Obtiene todas las carrera de la base de datos
      */

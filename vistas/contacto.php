@@ -1,11 +1,9 @@
 <?php
 if (isset($_GET['p']) && $_GET['p'] === 'contacto') {
-    ?>
-    <input type="hidden" name="p" value="enviado" />
-    <?php
 }
 
 $id = $_GET['id'] ?? null;
+$motivos = Motivo::todosMotivos();
 $productoSeleccionado = $id ? Producto::get_x_id((int)$id) : null;
 
 $mensajePredeterminado = "";
@@ -47,7 +45,7 @@ if ($productoSeleccionado) {
     </div>
 
     <section class="relative z-10 max-w-2xl mx-auto">
-        <form action="index.php" method="GET"
+        <form action="admin/actions/crear_consulta_acc.php" method="POST"
             class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-slate-200/80 shadow-sm flex flex-col gap-5 hover:shadow-md transition-all">
 
             <input type="hidden" name="p" value="enviado" />
@@ -97,17 +95,16 @@ if ($productoSeleccionado) {
             </div>
 
             <div class="flex flex-col gap-1.5">
-                <label for="motivo"
+                <label for="id_motivo"
                     class="text-[11px] font-bold uppercase tracking-wider text-slate-600 after:ml-0.5 after:text-red-500 after:content-['*']">
                     Motivo de la consulta
                 </label>
-                <select id="motivo" name="motivo" required
+                <select id="id_motivo" name="id_motivo" required
                     class="w-full bg-white/50 border border-slate-300 text-slate-700 text-sm rounded-xl p-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all appearance-none cursor-pointer">
-                    <option value="" disabled selected>Seleccioná una opción...</option>
-                    <option value="Disponibilidad">Consultar disponibilidad de equipos</option>
-                    <option value="Presupuesto">Pedir presupuesto por varios días</option>
-                    <option value="Soporte">Soporte técnico</option>
-                    <option value="Otro">Otro motivo</option>
+                    <option value="" disabled selected>Seleccioná un motivo</option>
+                    <?php foreach ($motivos as $m): ?>
+                        <option value="<?= $m->getIdMotivo(); ?>"><?= $m->getNombreMotivo(); ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
@@ -124,7 +121,7 @@ if ($productoSeleccionado) {
             <div class="mt-4 pt-2 border-t border-slate-100/80">
                 <button type="submit"
                     class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold px-6 py-3.5 rounded-xl transition-colors shadow-sm flex justify-center items-center gap-2">
-                    Enviar Consulta 
+                    Enviar Consulta ★
                 </button>
             </div>
         </form>

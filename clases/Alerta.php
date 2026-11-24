@@ -41,7 +41,7 @@ class Alerta
 
         $html = "<div class='flex items-center justify-between gap-4 mb-4 px-5 py-3 rounded-2xl border shadow-sm font-semibold {$clases}' role='alert'>";
         $html .= "<span>" . $alerta['mensaje'] . "</span>";
-        $html .= "<button type='button' class='text-xl leading-none opacity-60 hover:opacity-100 transition cursor-pointer' data-bs-dismiss='alert' aria-label='Cerrar'>&times;</button>";
+        $html .= "<button type='button' class='text-xl leading-none opacity-60 hover:opacity-100 transition cursor-pointer' onclick=\"this.closest('[role=alert]').remove()\" aria-label='Cerrar'>&times;</button>";
         $html .= "</div>";
         return $html;
     }

@@ -34,7 +34,7 @@ try {
 
 
 } catch (Exception $e) {
-  Alerta::add_alerta('error', 'No se pudo cargar el producto.');
+  Alerta::add_alerta('danger', 'No se pudo cargar el producto.');
    
 
 }

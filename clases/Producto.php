@@ -16,6 +16,7 @@ class Producto
     private $sin_iva;
     public $id_carrera;
     public $nombre_carrera;
+
     //GETTERS
 
     /**
