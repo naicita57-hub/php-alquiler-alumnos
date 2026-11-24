@@ -1,5 +1,6 @@
 <?php
-class Motivo {
+class Motivo
+{
     private $id;
     private $nombre;
 
@@ -41,7 +42,8 @@ class Motivo {
         $this->nombre = $dato;
     }
 
-    public static function todosMotivos(): array{
+    public static function todosMotivos(): array
+    {
         $conexion = (new Conexion())->getDB();
         $query = "SELECT id, nombre FROM motivo ORDER BY nombre ASC";
 
@@ -51,5 +53,16 @@ class Motivo {
 
         return $PDOStatement->fetchAll();
     }
+
+    public static function get_x_id(int $id): ?Motivo
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "SELECT id, nombre FROM motivo WHERE id = :id";
+
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatement->execute(['id' => $id]);
+
+        return $PDOStatement->fetch() ?: null;
+    }
 }
-?>

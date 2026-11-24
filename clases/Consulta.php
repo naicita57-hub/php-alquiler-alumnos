@@ -1,5 +1,6 @@
 <?php
-class Consulta {
+class Consulta
+{
     private $id;
     private $nombre;
     private $apellido;
@@ -15,7 +16,7 @@ class Consulta {
     /**
      * Obtiene el id de Consulta
      */
-    public function getIdConstula(): int
+    public function getIdConsulta(): int
     {
         return $this->id;
     }
@@ -23,7 +24,7 @@ class Consulta {
     /**
      * Obtiene el nombre de Consulta
      */
-    public function getNombreConstula(): string
+    public function getNombreConsulta(): string
     {
         return $this->nombre;
     }
@@ -31,7 +32,7 @@ class Consulta {
     /**
      * Obtiene el apellido de Consulta
      */
-    public function getApellidoConstula(): string
+    public function getApellidoConsulta(): string
     {
         return $this->apellido;
     }
@@ -39,7 +40,7 @@ class Consulta {
     /**
      * Obtiene el email de Consulta
      */
-    public function getEmailConstula(): string
+    public function getEmailConsulta(): string
     {
         return $this->email;
     }
@@ -47,7 +48,7 @@ class Consulta {
     /**
      * Obtiene el telefono de Consulta
      */
-    public function getTelefonoConstula(): string
+    public function getTelefonoConsulta(): string
     {
         return $this->telefono;
     }
@@ -55,7 +56,7 @@ class Consulta {
     /**
      * Obtiene el id_producto de Consulta
      */
-    public function getIdPConstula(): string
+    public function getIdPConsulta(): string
     {
         return $this->id_producto;
     }
@@ -63,7 +64,7 @@ class Consulta {
     /**
      * Obtiene el motivo de Consulta
      */
-    public function getMotivoConstula(): string
+    public function getMotivoConsulta(): string
     {
         return $this->motivo;
     }
@@ -71,7 +72,7 @@ class Consulta {
     /**
      * Obtiene el comentario de Consulta
      */
-    public function getComentarioConstula(): string
+    public function getComentarioConsulta(): string
     {
         return $this->comentario;
     }
@@ -79,10 +80,9 @@ class Consulta {
     /**
      * Obtiene el fecha de creación de Consulta
      */
-    public function getCreacionConstula(): string
+    public function getCreacionConsulta(): string
     {
-        $timestamp = strtotime($this->fecha_creacion); 
-        return date('d/m/Y \a \l\a\s H:i', $timestamp) . ' hs';
+        return $this->fecha_creacion;
     }
 
     //SETTERS
@@ -100,7 +100,7 @@ class Consulta {
      * Setea el nombre de Consulta
      * @param string $dato nombre de la consulta
      */
-    public function setNombreConstula(string $dato)
+    public function setNombreConsulta(string $dato)
     {
         $this->nombre = $dato;
     }
@@ -109,7 +109,7 @@ class Consulta {
      * Setea el apellido de Consulta
      * @param string $dato apellido de la consulta
      */
-    public function setApellidoConstula(string $dato)
+    public function setApellidoConsulta(string $dato)
     {
         $this->apellido = $dato;
     }
@@ -118,7 +118,7 @@ class Consulta {
      * Setea el email de Consulta
      * @param string $dato email de la consulta
      */
-    public function setEmailConstula(string $dato)
+    public function setEmailConsulta(string $dato)
     {
         $this->email = $dato;
     }
@@ -127,7 +127,7 @@ class Consulta {
      * Setea el telefono de Consulta
      * @param string $dato telefono de la consulta
      */
-    public function setTelefonoConstula(string $dato)
+    public function setTelefonoConsulta(string $dato)
     {
         $this->telefono = $dato;
     }
@@ -136,7 +136,7 @@ class Consulta {
      * Setea el id_producto de Consulta
      * @param int $dato id_producto de la consulta
      */
-    public function setIdPConstula(int $dato)
+    public function setIdPConsulta(int $dato)
     {
         $this->id_producto = $dato;
     }
@@ -145,7 +145,7 @@ class Consulta {
      * Setea el motivo de Consulta
      * @param string $dato motivo de la consulta
      */
-    public function setMotivoConstula(string $dato)
+    public function setMotivoConsulta(string $dato)
     {
         $this->motivo = $dato;
     }
@@ -154,7 +154,7 @@ class Consulta {
      * Setea el comentario de Consulta
      * @param string $dato comentario de la consulta
      */
-    public function setComentarioConstula(string $dato)
+    public function setComentarioConsulta(string $dato)
     {
         $this->comentario = $dato;
     }
@@ -163,14 +163,15 @@ class Consulta {
      * Setea el fecha de creación de Consulta
      * @param string $dato fecha de creación de la consulta
      */
-    public function setCreacionConstula(string $dato)
+    public function setCreacionConsulta(string $dato)
     {
         $this->fecha_creacion = $dato;
     }
 
-    public static function todasConsultas(): array {
+    public static function todasConsultas(): array
+    {
 
-        $conexion =(new Conexion())->getDB();
+        $conexion = (new Conexion())->getDB();
         $query = "SELECT 
                 c.id,
                 c.nombre,
@@ -179,6 +180,7 @@ class Consulta {
                 c.telefono,
                 c.id_producto,
                 c.id_motivo,
+                m.nombre AS nombre_motivo,
                 c.comentario,
                 c.fecha_creacion,
                 p.nombre as nombre_producto
@@ -200,22 +202,22 @@ class Consulta {
         string $email,
         string $telefono,
         ?int $id_producto,
-        string $id_motivo,
-        string $comentario,
+        int $id_motivo,
+        string $comentario
     ): void {
         $conexion = (new Conexion())->getDB();
-        $query = "INSERT INTO contacto (nombre, apellido, email, telefono, id_producto, id_motivo, comentario)
-        VALUES (:nombre, :apellido, :email, :telefono, :id_producto, :id_motivo, :comentario, NOW())";
+        $query = "INSERT INTO consultas (nombre, apellido, email, telefono, id_producto, id_motivo, comentario)
+              VALUES (:nombre, :apellido, :email, :telefono, :id_producto, :id_motivo, :comentario)";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'email' => $email,
-            'telefono' => $telefono,
+            'nombre'      => $nombre,
+            'apellido'    => $apellido,
+            'email'       => $email,
+            'telefono'    => $telefono,
             'id_producto' => $id_producto,
-            'id_motivo' => $id_motivo,
-            'comentario' => $comentario
+            'id_motivo'   => $id_motivo,
+            'comentario'  => $comentario
         ]);
     }
 }
