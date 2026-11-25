@@ -63,7 +63,7 @@ $carrerasActuales = $producto
 
             <div class="mb-6">
                 <label for="imagen" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Cambiar foto (opcional)</label>
-                <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="imagen" name="imagen" accept="image/*">
+                <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="imagen" name="imagen" accept=".jpg, .jpeg, .png, .webp">
                 <p class="text-xs text-slate-400 mt-2" required>Si no elegís un archivo nuevo, se conserva la imagen actual.</p>
             </div>
 
@@ -92,7 +92,7 @@ $carrerasActuales = $producto
                         $checkedCat = in_array($idCat, $catsActuales, true) ? 'checked' : '';
                         ?>
                         <label class="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
-                            <input type="checkbox" name="categorias[]" value="<?= $idCat; ?>" <?= $checkedCat; ?> requiredclass="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                            <input type="checkbox" name="categorias[]" value="<?= $idCat; ?>" <?= $checkedCat; ?> required class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
                             <span><?= $cat->getNombre(); ?></span>
                         </label>
                     <?php endforeach; ?>

@@ -10,6 +10,12 @@
             <label for="carrera" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de la carrera</label>
             <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="carrera" name="carrera" required>
         </div>
+        <div class="mb-6">
+        <label for="imagen" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
+            Foto de la carrera
+        </label>
+        <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="imagen" name="imagen" accept=".jpg, .jpeg, .png, .webp">
+    </div>
         <div class="flex items-center gap-3">
             <input type="submit" value="Crear" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-xl hover:bg-indigo-700 transition cursor-pointer">
             <a href="?p=carreras" class="bg-indigo-50 text-indigo-600 font-semibold px-5 py-2 rounded-xl hover:bg-indigo-100 transition">Cancelar</a>

@@ -50,13 +50,14 @@ public function getNombreCarrera()
     /**
      * Inserta una nueva carrera en la base de datos
      */
-    public static function insert(string $nombre)
+    public static function insert(string $nombre, $imagen)
     {
         $conexion = (new Conexion())->getDB();
-        $query = "INSERT INTO carreras (`nombre`) VALUES (:nombre)";
+        $query = "INSERT INTO carreras (`nombre`, `imagen`) VALUES (:nombre, :imagen)";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
-            'nombre' => $nombre
+            'nombre' => $nombre,
+            'imagen' => $imagen
         ]);
     }
 
@@ -66,7 +67,7 @@ public function getNombreCarrera()
     public static function get_x_id(int $id): ?Carrera
     {
         $conexion = (new Conexion())->getDB();
-        $query = "SELECT id, nombre FROM carreras WHERE id = :id";
+        $query = "SELECT id, nombre, imagen FROM carreras WHERE id = :id";
 
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
@@ -81,14 +82,14 @@ public function getNombreCarrera()
      * Edita una instancia de carrera
      * @param mixed $nombre Nombre de la carrera
      */
-    public function edit($nombre)
+    public function edit($nombre, $imagen)
     {
         $conexion = (new Conexion())->getDB();
-        $query = "UPDATE carreras SET nombre = :nombre
-          WHERE id = :id";
+        $query = "UPDATE carreras SET nombre = :nombre, imagen = :imagen WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             "nombre"   => $nombre,
+            "imagen"   => $imagen,
             "id"            => $this->id
         ]);
     }
