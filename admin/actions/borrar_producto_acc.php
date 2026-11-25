@@ -1,20 +1,17 @@
 <?php
-require_once("../functions/autoload.php");
+require_once("../../functions/autoload.php");
 
 $id = $_GET['id'] ?? FALSE;
-echo "<pre>";
-print_r($id);
-echo "</pre>";
 
 try{
     $producto = Producto::get_x_id($id);
     $producto->delete();
-    Imagen::borrarImagen("../../img/productos/" . $producto->getFoto());
+    Imagen::borrarImagen("../../assets/imagenes/" . $producto->getImagen());
 
-}catch (Exception $e){
-    die("No se pudo borrar el producto.");
+Alerta::add_alerta('success', "El producto <strong>{$producto->getNombre()}</strong> fue borrado correctamente.");
+} catch (Exception $e) {
+    Alerta::add_alerta('danger', "No se pudo borrar el producto: " . $e->getMessage());
 }
 
 header('Location: ../index.php?p=productos');
-
 ?>

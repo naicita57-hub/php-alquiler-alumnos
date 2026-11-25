@@ -19,7 +19,7 @@ $lista = $nombre->todasCategorias();
                 <thead>
                     <tr class="border-b border-slate-200">
                         <th class="py-3 px-3 w-16 text-xs font-semibold uppercase tracking-wide text-slate-500">ID</th>
-                        <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wide text-slate-500">Carrera</th>
+                        <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wide text-slate-500">Categoria</th>
                         <th class="py-3 px-3 w-32 text-xs font-semibold uppercase tracking-wide text-slate-500 text-center">Opciones</th>
                     </tr>
                 </thead>

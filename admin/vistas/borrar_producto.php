@@ -1,9 +1,11 @@
 <?php
+
 $id = $_GET['id'] ?? FALSE;
 $producto = Producto::get_x_id($id);
 
+
 ?>
-<h2 class="text-xl font-bold text-slate-800 mb-4 pb-3 border-b border-slate-100">Borrar Cproducto</h2>
+<h2 class="text-xl font-bold text-slate-800 mb-4 pb-3 border-b border-slate-100">Borrar producto</h2>
 <div class="row">
     <div class="mb-6">
         <h3 class= "block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de producto</h3>

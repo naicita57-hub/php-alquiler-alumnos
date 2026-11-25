@@ -12,7 +12,7 @@
  
     <div class="border-b border-slate-200 pb-5 text-center">
         <h2 class="text-3xl font-black text-slate-800">Realizado por Funky Studios</h2>
-        <p class="text-slate-500 text-sm mt-1 md:text-[20px]">Integrantes del Proyecto - Parcial 1 | Programación II</p>
+        <p class="text-slate-500 text-sm mt-1 md:text-[20px]">Integrantes del Proyecto - Parcial 2 | Programación II</p>
     </div>
 
 
@@ -22,7 +22,7 @@
 
 
                 <div class="w-full h-80  rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
-                    <img src="imagenes/andrea-foto.webp" alt="Foto Andrea Portillo"
+                    <img src="assets/imagenes/andrea-foto.webp" alt="Foto Andrea Portillo"
                         class="w-full h-full object-contain rounded-xl">
                 </div>
 
@@ -66,7 +66,7 @@
 
                 <div
                     class=" bg-white/45 w-full h-80 rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
-                    <img src="imagenes/nai-foto.webp" alt="Foto Naiara Tymkiw"
+                    <img src="assets/imagenes/nai-foto.webp" alt="Foto Naiara Tymkiw"
                         class="w-full h-full object-contain rounded-xl">
                 </div>
 

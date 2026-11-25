@@ -15,7 +15,7 @@ class Categoria
     }
 
     /**
-     * Obtiene todas las marcar de la base de datos
+     * Obtiene todas las categorias de la base de datos
      */
     public static function todasCategorias(): array
     {
@@ -31,7 +31,7 @@ class Categoria
         return $lista;
     }
     /**
-     * Inserta una nueva marca en la base de datos
+     * Inserta una nueva categoria en la base de datos
      */
     public static function insert(string $nombre)
     {
@@ -44,7 +44,7 @@ class Categoria
     }
 
     /**
-     * Obtiene una marca por id
+     * Obtiene una categoria por id
      * 
      */
     public static function get_x_id(int $id): ?Categoria
@@ -61,14 +61,13 @@ class Categoria
         return !empty($resultado) ? $resultado : null;
     }
     /**
-     * Edita una instancia de marca
+     * Edita una instancia de categotia
      */
     public function edit(string $nombre)
     {
         $conexion = (new Conexion())->getDB();
         $query = "UPDATE categorias SET nombre = :nombre
           WHERE id = :id";
-        // print_r($this->id_marca);
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             "nombre"   => $nombre,
@@ -78,7 +77,7 @@ class Categoria
     }
 
     /**
-     * Borra una instancia de marca
+     * Borra una instancia de categoria
      */
     public function delete()
     {

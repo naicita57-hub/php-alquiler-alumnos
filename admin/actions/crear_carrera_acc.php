@@ -1,20 +1,21 @@
 <?php
-require_once("../functions/autoload.php");
+require_once("../../functions/autoload.php");
 
-$id = $_GET['id'] ?? FALSE;
+$postData = $_POST;
+
 echo "<pre>";
-print_r($id);
+print_r($postData);
 echo "</pre>";
 
 try{
-    $producto = Producto::get_x_id($id);
-    $producto->delete();
-    Imagen::borrarImagen("../../assets/imagenes/productos" . $producto->getFoto());
-
+    Carrera::insert(
+        $postData['carrera']
+    );
+     Alerta::add_alerta('success', 'Carrera guardada correctamente.');
 }catch (Exception $e){
-    die("No se pudo borrar el producto.");
+     Alerta::add_alerta('warning', 'No se pudo guardar la carrera.');
 }
 
-header('Location: ../index.php?p=productos');
+header('Location: ../index.php?p=carreras');
 
 ?>

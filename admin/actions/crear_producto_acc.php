@@ -1,29 +1,40 @@
 <?php
-require_once("../functions/autoload.php");
+require_once ("../../functions/autoload.php");
 
 $postData = $_POST;
 $datosArchivo = $_FILES['foto'];
 
-echo "<pre>";
-print_r($postData);
-echo "</pre>";
+try {
+    $imagen = Imagen::subirImagen(__DIR__ . "/../../assets/imagenes", $datosArchivo);
 
-echo "<pre>";
-print_r($datosArchivo);
-echo "</pre>";
-try{
- $imagen = Imagen::subirImagen("../../assets/imagenes/productos", $datosArchivo);
     $idProducto = Producto::insert(
-        $postData['id'], 
-        $postData['nombre'], 
-        $postData['imagen'],
-        $postData['precio'],
+        $postData['nombre'],
+        $postData['descripcion'] ?? $postData['descripcion'] ?? '',
+        (int) $postData['precio'],
+        (int) ($postData['stock'] ?? 1),
+        $postData['fecha_ingreso'] ?? date('Y-m-d'),
         $imagen
     );
-}catch (Exception $e){
-    die("No se pudo cargar el producto .");
+
+    if (!empty($postData['categorias'])) {
+        foreach ($postData['categorias'] as $idCategoria) {
+            Producto::guardar_categoria($idProducto, (int) $idCategoria);
+        }
+    }
+
+    if (!empty($postData['carreras'])) {
+        foreach ($postData['carreras'] as $idCarrera) {
+            Producto::add_carrera($idProducto, (int) $idCarrera);
+        }
+       
+    }
+    Alerta::add_alerta('success', 'Producto guardado correctamente.');
+
+
+} catch (Exception $e) {
+  Alerta::add_alerta('danger', 'No se pudo cargar el producto.');
+
 }
 
 header('Location: ../index.php?p=productos');
-
-?>
+exit;

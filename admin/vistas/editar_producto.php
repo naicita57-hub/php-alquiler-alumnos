@@ -1,81 +1,115 @@
 <?php
 $id = $_GET['id'] ?? false;
-$carreras = new Carrera;
-$lista = $carreras->todasCarreras();
+$producto = $id ? Producto::get_x_id((int) $id) : null;
+$categorias = Categoria::todasCategorias();
+$carreras = Carrera::todasCarreras();
 
-$id = $_GET['id'] ?? false;
-$categorias = new Categoria;
-$lista = $categorias->todasCategorias();
+$catsActuales = $producto
+    ? array_map('intval', array_column($producto->getCategoria(), 'id'))
+    : [];
 
-$id = $_GET['id'] ?? FALSE;
-$producto = Producto::get_x_id($id);
+$carrerasActuales = $producto
+    ? array_map('intval', array_column($producto->getCarrera(), 'id'))
+    : [];
 ?>
 
-<h2>Editar producto</h2>
+<section class="py-8">
+    <div class="max-w-xl mx-auto bg-gradient-to-b from-white to-indigo-50/60 p-6 rounded-3xl border border-slate-200 shadow-md">
 
-<?php if ($producto): ?>
-    <form action="actions/editar_producto_acc.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $producto->getId(); ?>">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-3 border-b border-slate-100">Editar producto</h2>
 
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre de Producto</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $producto->getNombre(); ?>">
-        </div>
+        <?php if ($producto): ?>
+            <form action="actions/editar_producto_acc.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $producto->getId(); ?>">
+                <input type="hidden" name="imagen_og" value="<?= $producto->getImagen(); ?>">
 
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción</label>
-            <textarea class="form-control" id="descripcion" name="descripcion"><?= $producto->getDescripcion(); ?></textarea>
-        </div>
+                <div class="mb-4">
+                    <label for="nombre" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de Producto</label>
+                    <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre" value="<?= $producto->getNombre(); ?>" required>
+                </div>
 
-        <div class="mb-3">
-            <label for="precio" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precio" name="precio" value="<?= $producto->getPrecio(); ?>">
-        </div>
+                <div class="mb-4">
+                    <label for="descripcion" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Descripción</label>
+                    <textarea class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="descripcion" name="descripcion" rows="3"><?= $producto->getDescripcion(); ?></textarea>
+                </div>
 
-        <div class="mb-3">
-            <label for="stock" class="form-label">Stock</label>
-            <input type="number" class="form-control" id="stock" name="stock" value="<?= $producto->getStock(); ?>">
-        </div>
+                <div class="mb-4">
+                    <label for="precio" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Precio</label>
+                    <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="precio" name="precio" value="<?= $producto->getPrecio(); ?>" min="0" step="any" required>
+                </div>
 
-        <div class="mb-3">
-            <label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
-            <input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" value="<?= $producto->getFechaIngreso(); ?>">
-        </div>
+                <div class="mb-4">
+                    <label for="stock" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Stock</label>
+                    <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="stock" name="stock" value="<?= $producto->getStock(); ?>" min="0" required>
+                </div>
 
-        <div class="mb-3">
-            <label class="form-label">Imagen actual</label><br>
-            <img src="../assets/imagenes/<?= $producto->getImagen(); ?>" alt="Imagen actual" width="100">
-            <input type="hidden" name="imagen_og" value="<?= $producto->getImagen(); ?>">
-        </div>
+                <div class="mb-4">
+                    <label for="fecha_ingreso" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Fecha de ingreso</label>
+                    <input type="date" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="fecha_ingreso" name="fecha_ingreso" value="<?= $producto->getFechaIngreso(); ?>">
+                </div>
 
-        <div class="mb-3">
-            <label for="imagen" class="form-label">Nueva imagen</label>
-            <input class="form-control" type="file" id="imagen" name="imagen">
-        </div>
+                <div class="mb-4">
+                    <span class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Imagen actual</span>
+                    <?php if ($producto->getImagen()): ?>
+                        <div class="bg-white w-28 h-28 border border-slate-200 rounded-xl overflow-hidden flex items-center justify-center p-2">
+                            <img src="../assets/imagenes/<?= $producto->getImagen(); ?>" alt="Imagen actual de <?= $producto->getNombre(); ?>" class="w-full h-full object-contain">
+                        </div>
+                    <?php else: ?>
+                        <div class="w-28 h-28 bg-white border border-dashed border-slate-300 rounded-xl flex items-center justify-center text-xs text-slate-400">
+                            Sin imagen
+                        </div>
+                    <?php endif; ?>
+                </div>
 
-        <div class="mb-3">
-            <label for="id_categoria" class="form-label">Categoría</label>
-            <select class="form-select" id="id_categoria" name="id_categoria" multiple>
-                <?php foreach ($categorias as $cat): ?>
-                    <option value="<?= $cat->getIdCategoria(); ?>"><?= $cat->getNombreCategoria(); ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+                <div class="mb-6">
+                    <label for="imagen" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Cambiar foto (opcional)</label>
+                    <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="imagen" name="imagen" accept="image/*">
+                    <p class="text-xs text-slate-400 mt-2">Si no elegís un archivo nuevo, se conserva la imagen actual.</p>
+                </div>
 
-        <div class="mb-3">
-            <label for="id_carrera" class="form-label">Carrera</label>
-            <select class="form-select" name="id_carrera" id="id_carrera" multiple>
-                <option value="" selected disabled>Seleccione una carrera</option>
-                <?php foreach ($carreras as $carrera): ?>
-                    <option value="<?= $carrera->getIdCarrera(); ?>"><?= $carrera->getNombreCarrera(); ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+                <div class="mb-6">
+                    <span class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Carreras</span>
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <?php foreach ($carreras as $carrera): ?>
+                            <?php
+                            $idCarrera = (int) $carrera->getIdCarrera();
+                            $checkedCarrera = in_array($idCarrera, $carrerasActuales, true) ? 'checked' : '';
+                            ?>
+                            <label class="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="carreras[]" value="<?= $idCarrera; ?>" <?= $checkedCarrera; ?> class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                                <span><?= $carrera->getNombreCarrera(); ?></span>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 
-        <input type="submit" class="btn btn-warning" value="Editar">
-        <a href="?p=productos" class="btn btn-danger">Cancelar</a>
-    </form>
-<?php else: ?>
-    <p>No se encontró el producto seleccionado.</p>
-    <a href="?p=productos" class="btn btn-primary">Volver</a>
-<?php endif; ?>
+                <div class="mb-6">
+                    <span class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Categorías</span>
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <?php foreach ($categorias as $cat): ?>
+                            <?php
+                            $idCat = (int) $cat->getIdCategoria();
+                            $checkedCat = in_array($idCat, $catsActuales, true) ? 'checked' : '';
+                            ?>
+                            <label class="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="categorias[]" value="<?= $idCat; ?>" <?= $checkedCat; ?> class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                                <span><?= $cat->getNombreCategoria(); ?></span>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <input type="submit" value="Guardar cambios" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-xl hover:bg-indigo-700 transition cursor-pointer">
+                    <a href="?p=productos" class="bg-indigo-50 text-indigo-600 font-semibold px-5 py-2 rounded-xl hover:bg-indigo-100 transition">Cancelar</a>
+                </div>
+            </form>
+        <?php else: ?>
+            <div class="text-center py-6">
+                <p class="text-slate-600 mb-4">No se encontró el producto seleccionado.</p>
+                <a href="?p=productos" class="bg-indigo-50 text-indigo-600 font-semibold px-5 py-2 rounded-xl hover:bg-indigo-100 transition">Volver</a>
+            </div>
+        <?php endif; ?>
+
+    </div>
+</section>
