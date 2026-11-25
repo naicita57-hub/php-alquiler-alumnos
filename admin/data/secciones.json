@@ -36,9 +36,32 @@
         "inMenu": true
     },
     {
+        "vinculo": "editar_consulta",
+        "texto": "Editar consulta",
+        "title": "Editar consulta",
+        "inMenu": false
+    },{
+        "vinculo": "borrar_consulta",
+        "texto": "Borrar consulta",
+        "title": "Borrar consulta",
+        "inMenu": false
+    },
+    {
         "vinculo": "crear_consulta_acc",
         "texto": "Crear consulta",
         "title": "Crear consulta",
+        "inMenu": false
+    },
+    {
+        "vinculo": "editar_consulta_acc",
+        "texto": "Editar consulta",
+        "title": "Editar consulta",
+        "inMenu": false
+    },
+    {
+        "vinculo": "borrar_consulta_acc",
+        "texto": "Borrar consulta",
+        "title": "Borrar consulta",
         "inMenu": false
     },
     {

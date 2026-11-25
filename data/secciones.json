@@ -15,7 +15,7 @@
         "vinculo": "contacto",
         "texto": "Contacto",
         "title": "Contacto", 
-        "inMenu": false
+        "inMenu": true
     },
     {
         "vinculo": "detalle",

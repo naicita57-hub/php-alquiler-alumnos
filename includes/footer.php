@@ -19,18 +19,17 @@
                     Navegación
                 </h3>
                 <ul class="space-y-2 text-xs md:text-sm">
-                    <li>
-                        <a href="index.php?p=inicio" class="hover:text-white transition-colors">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="index.php?p=productos" class="hover:text-white transition-colors">Productos</a>
-                    </li>
-                    <li>
-                        <a href="index.php?p=contacto" class="hover:text-white transition-colors">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="index.php?p=alumnas" class="hover:text-white transition-colors">Alumnas</a>
-                    </li>
+                    <?php
+                    foreach ($secciones as $value) {
+                        if ($value->getInMenu()) {
+                    ?>
+                            <li>
+                                <a href="?p=<?= $value->getVinculo(); ?>" class="hover:text-white transition-colors"><?= $value->getTexto(); ?></a>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
 

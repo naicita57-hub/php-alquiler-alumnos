@@ -1,4 +1,7 @@
 <?php
+require_once "functions/autoload.php";
+
+
 $id = $_GET['id'] ?? null;
 $producto = $id ? Producto::get_x_id((int)$id) : null;
 ?>
@@ -34,13 +37,6 @@ $producto = $id ? Producto::get_x_id((int)$id) : null;
                             </a>
                         <?php endforeach; ?>
 
-                        <?php foreach ($producto->getCarrera() as $carrera): ?>
-                            <a href="index.php?p=productos&filtro=<?= $carrera['id']; ?>"
-                                class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full inline-block">
-                                <?= ($carrera['nombre']); ?>
-                            </a>
-                        <?php endforeach; ?>
-
                         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-3 leading-tight">
                             <?= $producto->getNombre(); ?>
                         </h2>
@@ -72,7 +68,7 @@ $producto = $id ? Producto::get_x_id((int)$id) : null;
                         <div class="flex flex-wrap gap-3 text-xs font-semibold">
 
                             <div class="bg-slate-100 px-3 py-1.5 rounded-xl text-slate-700 flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full <?= $producto->getStock() > 0 ? 'bg-emerald-500' : 'bg-rose-500' ?>"></span>
+                                <span class="w-2 h-2 rounded-full <?= $producto->getStock() > 2 ? 'bg-emerald-500' : 'bg-rose-500' ?>"></span>
                                 <span>Stock: <strong><?= $producto->getStock(); ?> unidades</strong></span>
                             </div>
 
@@ -96,7 +92,7 @@ $producto = $id ? Producto::get_x_id((int)$id) : null;
         </article>
     <?php else: ?>
         <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-slate-200/80 shadow-md text-center max-w-lg mx-auto py-12 space-y-4">
-            <img src="assets/imagenes/warning.webp" alt="Warning símbolo" class="object-contain w-full h-20">
+            <img src="imagenes/warning.webp" alt="Warning símbolo" class="object-contain w-full h-20">
             <h2 class="text-2xl font-extrabold text-slate-800">Producto no encontrado</h2>
             <p class="text-slate-600 text-sm">El equipo que estás buscando no existe o fue retirado del catálogo.</p>
             <a href="index.php?p=productos"
