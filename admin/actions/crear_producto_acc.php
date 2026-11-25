@@ -26,7 +26,7 @@ try {
 
     if (!empty($postData['carreras'])) {
         foreach ($postData['carreras'] as $idCarrera) {
-            Producto::add_carrera($idProducto, (int) $idCarrera);
+            Producto:: guardar_carrera($idProducto, (int) $idCarrera);
         }
        
     }

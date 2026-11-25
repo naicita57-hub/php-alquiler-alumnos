@@ -21,7 +21,7 @@ $carrerasActuales = $producto
     <?php if ($producto): ?>
         <form action="actions/editar_producto_acc.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $producto->getId(); ?>">
-            <input type="hidden" name="imagen_og" value="<?= $producto->getImagen(); ?>">
+            <input type="hidden" name="imagen_og" value="<?= $producto->getImagen(); ?>" required>
 
             <div class="mb-4">
                 <label for="nombre" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de Producto</label>
@@ -45,14 +45,14 @@ $carrerasActuales = $producto
 
             <div class="mb-4">
                 <label for="fecha_ingreso" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Fecha de ingreso</label>
-                <input type="date" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="fecha_ingreso" name="fecha_ingreso" value="<?= $producto->getFechaIngreso(); ?>">
+                <input type="date" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="fecha_ingreso" name="fecha_ingreso" value="<?= $producto->getFechaIngreso(); ?>" required>
             </div>
 
             <div class="mb-4">
                 <span class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Imagen actual</span>
                 <?php if ($producto->getImagen()): ?>
                     <div class="bg-white w-28 h-28 border border-slate-200 rounded-xl overflow-hidden flex items-center justify-center p-2">
-                        <img src="../assets/imagenes/<?= $producto->getImagen(); ?>" alt="Imagen actual de <?= $producto->getNombre(); ?>" class="w-full h-full object-contain">
+                        <img src="../assets/imagenes/<?= $producto->getImagen(); ?>" alt="Imagen actual de <?= $producto->getNombre(); ?>" class="w-full h-full object-contain" >
                     </div>
                 <?php else: ?>
                     <div class="w-28 h-28 bg-white border border-dashed border-slate-300 rounded-xl flex items-center justify-center text-xs text-slate-400">
@@ -64,7 +64,7 @@ $carrerasActuales = $producto
             <div class="mb-6">
                 <label for="imagen" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Cambiar foto (opcional)</label>
                 <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="imagen" name="imagen" accept="image/*">
-                <p class="text-xs text-slate-400 mt-2">Si no elegís un archivo nuevo, se conserva la imagen actual.</p>
+                <p class="text-xs text-slate-400 mt-2" required>Si no elegís un archivo nuevo, se conserva la imagen actual.</p>
             </div>
 
             <div class="mb-6">
@@ -92,7 +92,7 @@ $carrerasActuales = $producto
                         $checkedCat = in_array($idCat, $catsActuales, true) ? 'checked' : '';
                         ?>
                         <label class="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
-                            <input type="checkbox" name="categorias[]" value="<?= $idCat; ?>" <?= $checkedCat; ?> class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                            <input type="checkbox" name="categorias[]" value="<?= $idCat; ?>" <?= $checkedCat; ?> requiredclass="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
                             <span><?= $cat->getNombre(); ?></span>
                         </label>
                     <?php endforeach; ?>

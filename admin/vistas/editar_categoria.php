@@ -15,7 +15,7 @@ if(!is_null($nombre)){
         <input type="hidden" name="id" id="id" value="<?= $nombre->getIdCategoria(); ?>" >
         <div class="mb-4">
             <label for="nombre" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de categoría</label>
-            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre" value="<?= $nombre->getNombreCategoria(); ?>">
+            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre" value="<?= $nombre->getNombreCategoria(); ?>" required>
         </div>
         <div class="flex items-center gap-3">
             <input type="submit" value="Editar" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-xl hover:bg-indigo-700 transition cursor-pointer">

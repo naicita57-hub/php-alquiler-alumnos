@@ -14,7 +14,7 @@ $listaCategorias = $categoria->todasCategorias();
     <form action="actions/crear_producto_acc.php" method="post" enctype="multipart/form-data">
         <div class="mb-4">
             <label for="nombre" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de Producto</label>
-            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre">
+            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre" required>
         </div>
         <div class="mb-4">
             <label for="presentacion" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Descripción</label>
@@ -22,11 +22,11 @@ $listaCategorias = $categoria->todasCategorias();
         </div>
         <div class="mb-4">
             <label for="precio" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Precio</label>
-            <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="precio" name="precio">
+            <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="precio" name="precio" required>
         </div>
         <div class="mb-4">
             <label for="foto" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Foto</label>
-            <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="foto" name="foto">
+            <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="foto" name="foto" required>
         </div>
         <div class="mb-6">
             <span class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Carreras</span>

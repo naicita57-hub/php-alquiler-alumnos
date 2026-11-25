@@ -39,7 +39,7 @@ $productos = Producto::catalogo_completo();
                     </label>
                     <input type="text" id="nombre" name="nombre" required
                         value="<?= $consulta->getNombreConsulta(); ?>"
-                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none">
+                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none" >
                 </div>
 
                 <div>
@@ -48,7 +48,7 @@ $productos = Producto::catalogo_completo();
                     </label>
                     <input type="text" id="apellido" name="apellido" required
                         value="<?= $consulta->getApellidoConsulta(); ?>"
-                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none">
+                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none" >
                 </div>
             </div>
 
@@ -66,9 +66,9 @@ $productos = Producto::catalogo_completo();
                     <label for="telefono" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1">
                         Teléfono
                     </label>
-                    <input type="text" id="telefono" name="telefono"
+                    <input type="text" id="telefono" name="telefono" required
                         value="<?= $consulta->getTelefonoConsulta(); ?>"
-                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none">
+                        class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none" >
                 </div>
             </div>
 

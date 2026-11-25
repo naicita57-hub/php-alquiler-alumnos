@@ -8,7 +8,7 @@
     <form action="actions/crear_carrera_acc.php" method="post" enctype="multipart/form-data">
         <div class="mb-4">
             <label for="carrera" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Nombre de la carrera</label>
-            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="carrera" name="carrera">
+            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="carrera" name="carrera" required>
         </div>
         <div class="flex items-center gap-3">
             <input type="submit" value="Crear" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-xl hover:bg-indigo-700 transition cursor-pointer">
