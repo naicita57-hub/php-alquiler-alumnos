@@ -26,17 +26,13 @@ $todasCarreras = Carrera::todasCarreras();
 ];
 $total = count($pasos);
 ?>
-
-
 <div class="bg-formas-container py-10 container-pad">
-
 
     <div class="formas-coloridas">
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
         <div class="forma-luz luz-azul"></div>
     </div>
-
 
     <div class="relative z-10 container mx-auto px-4 space-y-8 ">
 
@@ -48,7 +44,10 @@ $total = count($pasos);
             <div class=" col-1 md:flex gap-6">
                 <a href="index.php?p=productos"
                     class="mt-4 inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver
+                    class="mt-4 inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">Ver
                     catálogo</a>
+                <a href="index.php?p=inicio#como-alquilar"
+                    class="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">¿Cómo se alquila?</a>
                 <a href="index.php?p=inicio#como-alquilar"
                     class="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow transition-colors">¿Cómo se alquila?</a>
             </div>
@@ -70,17 +69,35 @@ $total = count($pasos);
             </article>
         <?php endforeach; ?>
         </section>
+            </article>
+        </section>
     </div>
 
 </div>
 
 <section id="como-alquilar" class="como-funciona md:mx-20 container-pad py-16">
+<section id="como-alquilar" class="como-funciona md:mx-20 container-pad py-16">
 
+    <div class="relative z-10 text-center max-w-xl mx-auto mb-12">
+        <h2 class="text-3xl font-black text-slate-800">¿Cómo alquilar?</h2>
+        <p class="text-slate-600 text-sm md:text-[20px] mt-4">En cuatro pasos tenés tu equipo</p>
     <div class="relative z-10 text-center max-w-xl mx-auto mb-12">
         <h2 class="text-3xl font-black text-slate-800">¿Cómo alquilar?</h2>
         <p class="text-slate-600 text-sm md:text-[20px] mt-4">En cuatro pasos tenés tu equipo</p>
     </div>
 
+    <div class="relative z-10 max-w-5xl mx-auto bg-white/70 backdrop-blur-md border border-white/70 rounded-3xl shadow-sm p-6 md:p-12">
+        <ol class="lista-pasos relative">
+
+            <span class="absolute left-[17px] top-4 bottom-4 w-0.5 rounded-full bg-slate-200" aria-hidden="true"></span>
+            <span class="linea-progreso absolute left-[17px] top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b from-pink-600 to-indigo-600" aria-hidden="true"></span>
+
+            <?php foreach ($pasos as $i => $paso): ?>
+            <li class="paso relative pl-14 pb-16 last:pb-0">
+
+                <span class="paso-dot absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-300 bg-white text-sm font-bold text-slate-400">
+                    <?= $i + 1; ?>
+                </span>
     <div class="relative z-10 max-w-5xl mx-auto bg-white/70 backdrop-blur-md border border-white/70 rounded-3xl shadow-sm p-6 md:p-12">
         <ol class="lista-pasos relative">
 
@@ -107,10 +124,27 @@ $total = count($pasos);
                         >
                     <?php endif; ?>
                 </div>
+                <h3 class="pt-1 text-xl md:text-2xl font-bold text-slate-800"><?= $paso['titulo']; ?></h3>
+
+                <?php $tieneGif = !empty($paso['gif']); ?>
+                <div class="paso-body grid gap-6 pt-4 <?= $tieneGif ? 'md:grid-cols-[2fr_3fr] items-start' : ''; ?>">
+                    <p class="text-base md:text-lg leading-relaxed text-slate-700"><?= $paso['texto']; ?></p>
+                    <?php if ($tieneGif): ?>
+                        <img
+                            src="assets/imagenes/<?= $paso['gif']; ?>"
+                            alt="Demostración: <?= $paso['titulo']; ?>"
+                            class="w-full h-auto max-h-[520px] object-cover rounded-3xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:scale-105 hover:shadow-xl hover:z-10 relative"
+                        >
+                    <?php endif; ?>
+                </div>
 
             </li>
             <?php endforeach; ?>
+            </li>
+            <?php endforeach; ?>
 
+        </ol>
+    </div>
         </ol>
     </div>
 

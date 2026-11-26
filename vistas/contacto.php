@@ -127,7 +127,7 @@ if ($productoSeleccionado) {
             <div class="mt-4 pt-2 border-t border-slate-100/80">
                 <button type="submit"
                     class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold px-6 py-3.5 rounded-xl transition-colors shadow-sm flex justify-center items-center gap-2">
-                    Enviar Consulta ★
+                    Enviar Consulta 
                 </button>
             </div>
         </form>

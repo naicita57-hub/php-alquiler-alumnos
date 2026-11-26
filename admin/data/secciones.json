@@ -24,12 +24,6 @@
         "inMenu": true
     },
     {
-        "vinculo": "usuarios",
-        "texto": "Usuarios",
-        "title": "Usuarios",
-        "inMenu": true
-    },
-    {
         "vinculo": "consultas",
         "texto": "Consultas",
         "title": "Consultas",

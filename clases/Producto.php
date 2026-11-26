@@ -14,8 +14,6 @@ class Producto
     private $sin_iva;
     public $id_categoria;
     public $nombre_categoria;
-    public $id_carrera;
-    public $nombre_carrera;
 
     //GETTERS
 
@@ -117,12 +115,26 @@ class Producto
     }
 
     /**
-     * Setea las categorías del Producto
      * @param string|null $ids ids de las categorías separados por coma
      * @param string|null $nombres nombres de las categorías separados por "||"
      */
     public function setCategoria(?string $ids, ?string $nombres): void
     {
+        $this->categoria = [];
+
+        if (empty($ids)) {
+            return;
+        }
+
+        $listaIds = explode(',', $ids);
+        $listaNombres = explode('||', (string) $nombres);
+
+        foreach ($listaIds as $i => $id) {
+            $this->categoria[] = [
+                'id'     => (int) $id,
+                'nombre' => $listaNombres[$i] ?? ''
+            ];
+        }
         $this->categoria = [];
 
         if (empty($ids)) {
@@ -288,7 +300,7 @@ class Producto
 
         $producto = $PDOStatement->fetch();
 
-        if (!$producto) {
+        if(!$producto) {
             return null;
         }
 
@@ -379,14 +391,6 @@ class Producto
         return $productos;
     }
 
-    public static function filtrar(array $productos, array $categorias, array $carreras): array
-    {
-        return array_values(array_filter($productos, function ($p) use ($categorias, $carreras) {
-            $okCat = empty($categorias) || array_intersect($categorias, array_column($p->getCategoria(), 'id'));
-            $okCar = empty($carreras)   || array_intersect($carreras,   array_column($p->getCarrera(), 'id'));
-            return $okCat && $okCar;
-        }));
-    }
     public static function insert(
         string $nombre,
         string $descripcion,
@@ -490,6 +494,25 @@ class Producto
     {
         $conexion = (new Conexion())->getDB();
         $query = "DELETE FROM producto WHERE id = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id
+        ]);
+    }
+    public function clear_categorias(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM producto_x_categoria WHERE id_producto = :id";
+        $PDOStatement = $conexion->prepare($query);
+        $PDOStatement->execute([
+            'id' => $this->id
+        ]);
+    }
+
+    public function clear_carreras(): void
+    {
+        $conexion = (new Conexion())->getDB();
+        $query = "DELETE FROM producto_x_carrera WHERE id_producto = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             'id' => $this->id

@@ -5,19 +5,19 @@ class Carrera
     private $nombre;
     private $imagen;
 
-    public function getIdCarrera()
-    {
-        return $this->id;
-    }
     public function getNombreCarrera()
     {
         return $this->nombre;
+    }
+
+    public function getIdCarrera()
+    {
+        return $this->id;
     }
     public function getImagenCarrera()
     {
         return $this->imagen;
     }
-
     /**
      * 
      * Obtiene todas las carrera de la base de datos
@@ -71,14 +71,14 @@ class Carrera
      * Edita una instancia de carrera
      * @param mixed $nombre Nombre de la carrera
      */
-    public function edit($nombre)
+    public function edit($nombre, $imagen)
     {
         $conexion = (new Conexion())->getDB();
-        $query = "UPDATE carreras SET nombre = :nombre
-          WHERE id = :id";
+        $query = "UPDATE carreras SET nombre = :nombre, imagen = :imagen WHERE id = :id";
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
             "nombre"   => $nombre,
+            "imagen"   => $imagen,
             "id"            => $this->id
         ]);
     }

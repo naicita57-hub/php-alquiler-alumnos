@@ -1,11 +1,6 @@
 <?php
 require_once ("../../functions/autoload.php");
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../index.php?p=consultas');
-    exit();
-}
-
 $postData   = $_POST;
 $idConsulta = (int) ($postData['id'] ?? 0);
 $idProducto = !empty($postData['id_producto']) ? (int) $postData['id_producto'] : null;

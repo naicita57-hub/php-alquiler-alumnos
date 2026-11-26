@@ -1,6 +1,6 @@
 <div class="bg-formas-container py-10">
 
-    <!-- Capa de luces??? -->
+ 
     <div class="formas-coloridas">
         <div class="forma-luz luz-roja"></div>
         <div class="forma-luz luz-verde"></div>
@@ -17,7 +17,7 @@
 
 
         <div class="flex flex-col md:flex-row gap-7 justify-center items-center md:items-start max-w-4xl mx-auto px-4 w-full">
-            <div
+            <article
                 class=" w-full flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
 
                 <div class="w-full h-80  rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
@@ -54,8 +54,15 @@
                 </div>
             </details>
 
+<<<<<<< HEAD
             </div>
             <div
+=======
+            </article>
+
+
+            <article
+>>>>>>> origin/naiara
                 class=" w-full bg-white/45 backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
                 <div
                     class=" bg-white/45 w-full h-80 rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
@@ -89,7 +96,7 @@
                 </div>
             </details>
 
-            </div>
+            </article>
 
         </div>
     </section>

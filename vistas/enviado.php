@@ -40,7 +40,7 @@
             <div class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-center">
                 <a href="index.php?p=inicio" 
                    class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-m font-bold px-6 py-2.5 rounded-xl transition-colors shadow-sm">
-                    Volver al inicio ★
+                    Volver al inicio 
                 </a>
             </div>
         </div> 
