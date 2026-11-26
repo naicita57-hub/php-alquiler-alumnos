@@ -62,7 +62,7 @@ $total = count($pasos);
         <?php foreach ($todasCarreras as $carrera):?>
             <article
                 class="bg-white/45 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-                    <a href="index.php?p=productos&carrera=<?= $carrera->getIdCarrera(); ?>">
+                    <a href="index.php?p=productos&car<?= $carrera->getIdCarrera(); ?>=on">
                         <h3><?= $carrera->getNombreCarrera(); ?></h3>
                         <img src="assets/imagenes/<?= $carrera->getImagenCarrera(); ?>" alt="<?= $carrera->getNombreCarrera(); ?>"
                             class="object-cover w-full h-48 rounded-lg mt-4">

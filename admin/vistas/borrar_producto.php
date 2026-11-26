@@ -1,8 +1,6 @@
 <?php
-
 $id = $_GET['id'] ?? FALSE;
 $producto = Producto::get_x_id($id);
-
 
 ?>
 <h2 class="text-xl font-bold text-slate-800 mb-4 pb-3 border-b border-slate-100">Borrar producto</h2>

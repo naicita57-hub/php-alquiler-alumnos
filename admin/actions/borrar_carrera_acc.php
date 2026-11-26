@@ -1,22 +1,16 @@
 <?php
-require_once __DIR__ . '/../../functions/autoload.php';
+require_once ("../../functions/autoload.php");
 $id = $_GET['id'] ?? FALSE;
-echo "<pre>";
-print_r($id);
-echo "</pre>";
 
 try{
-    $carrera = Carrera::get_x_id($id);
+    $categoria = Categoria::get_x_id($id);
 
-    echo "<pre>";
-    print_r($carrera);
-    echo "</pre>";
-
-    $carrera->delete();
+    $categoria->delete();
+     Alerta::add_alerta('success', 'Categoria eliminada correctamente.');
 }catch (Exception $e){
-    die("No se pudo borrar la carrera.");
+    Alerta::add_alerta('warning', 'No se pudo eliminar la categoría.');
 }
 
-header('Location: ../index.php?p=carreras');
+header('Location: ../index.php?p=categorias');
 
 ?>

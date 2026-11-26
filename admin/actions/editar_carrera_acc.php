@@ -4,14 +4,6 @@ require_once ("../../functions/autoload.php");
 $postData = $_POST;
 $nombre = Carrera::get_x_id($postData["id"]);
 
-echo "<pre>";
-print_r($postData);
-echo "</pre>";
-
-echo "<pre>";
-print_r($nombre);
-echo "</pre>";
-
 $postData["id"]  ;
 $postData["nombre"];
 try{

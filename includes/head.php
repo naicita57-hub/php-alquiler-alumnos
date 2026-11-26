@@ -1,5 +1,4 @@
 <?php
-require_once "funciones.php";
 require_once "functions/autoload.php";
 
 $secciones_validas = Secciones::secciones_validas();

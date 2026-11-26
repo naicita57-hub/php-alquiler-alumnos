@@ -1,5 +1,5 @@
 <?php
-require_once("../../functions/autoload.php");
+require_once ("../../functions/autoload.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../../index.php?p=contacto');
@@ -24,11 +24,9 @@ try {
     $motivo   = Motivo::get_x_id($idMotivo);
     $producto = $idProducto ? Producto::get_x_id($idProducto) : null;
 } catch (Exception $e) {
-    // Mientras depurás: die($e->getMessage());
     die("No se pudo cargar la consulta.");
 }
 
-// Datos que muestra enviado.php (con el nombre del motivo, no el id)
 $resumen = [
     'p'        => 'enviado',
     'nombre'   => $postData['nombre'],

@@ -11,6 +11,7 @@ class Consulta
     private $comentario;
     private $fecha_creacion;
     public $nombre_producto;
+    public $nombre_motivo;
 
     //GETTERS
 

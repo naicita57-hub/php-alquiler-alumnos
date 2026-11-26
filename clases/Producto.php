@@ -11,9 +11,11 @@ class Producto
     private $imagen;
     private $categoria = [];
     private $carrera = [];
+    private $sin_iva;
     public $id_categoria;
     public $nombre_categoria;
-    private $sin_iva;
+    public $id_carrera;
+    public $nombre_carrera;
 
     //GETTERS
 
@@ -286,7 +288,7 @@ class Producto
 
         $producto = $PDOStatement->fetch();
 
-        if(!$producto) {
+        if (!$producto) {
             return null;
         }
 
@@ -377,6 +379,14 @@ class Producto
         return $productos;
     }
 
+    public static function filtrar(array $productos, array $categorias, array $carreras): array
+    {
+        return array_values(array_filter($productos, function ($p) use ($categorias, $carreras) {
+            $okCat = empty($categorias) || array_intersect($categorias, array_column($p->getCategoria(), 'id'));
+            $okCar = empty($carreras)   || array_intersect($carreras,   array_column($p->getCarrera(), 'id'));
+            return $okCat && $okCar;
+        }));
+    }
     public static function insert(
         string $nombre,
         string $descripcion,

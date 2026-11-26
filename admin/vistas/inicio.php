@@ -4,7 +4,7 @@ $productos = Producto::catalogo_completo();
 <section class="py-6">
 
     <div class="mb-8">
-        <h1 class="text-3xl font-bold text-slate-800">Panel de Administración</h1>
+        <h2 class="text-3xl font-bold text-slate-800">Panel de Administración</h2>
         <p class="text-slate-500 mt-1">Seleccioná una sección para gestionar las tablas del sistema.</p>
     </div>
 

@@ -1,7 +1,5 @@
 <?php
-
 $nombre = new Carrera;
-
 $lista = $nombre->todasCarreras();
 ?>
 <section class="py-8">

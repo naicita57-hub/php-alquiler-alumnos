@@ -1,7 +1,5 @@
 <?php
-
 $nombre = new Categoria;
-
 $lista = $nombre->todasCategorias();
 ?>
 <section class="py-8">

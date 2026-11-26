@@ -1,11 +1,7 @@
 <?php
-require_once("../../functions/autoload.php");
+require_once ("../../functions/autoload.php");
 
 $postData = $_POST;
-
-echo "<pre>";
-print_r($postData);
-echo "</pre>";
 
 try{
     Carrera::insert(

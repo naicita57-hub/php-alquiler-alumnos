@@ -20,12 +20,10 @@
             <div
                 class=" w-full flex flex-center bg-white/45  backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
 
-
                 <div class="w-full h-80  rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
                     <img src="assets/imagenes/andrea-foto.webp" alt="Foto Andrea Portillo"
                         class="w-full h-full object-contain rounded-xl">
                 </div>
-
 
                 <details class="group cursor-pointer">
                     <summary
@@ -37,7 +35,6 @@
                             ✭
                         </span>
                     </summary>
-
 
                 <div class=" bg-white/45 mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>
@@ -58,19 +55,13 @@
             </details>
 
             </div>
-
-
             <div
                 class=" w-full bg-white/45 backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col hover:shadow-md transition-all">
-
-
                 <div
                     class=" bg-white/45 w-full h-80 rounded-2xl overflow-hidden mb-4  flex items-center justify-center p-2">
                     <img src="assets/imagenes/nai-foto.webp" alt="Foto Naiara Tymkiw"
                         class="w-full h-full object-contain rounded-xl">
                 </div>
-
-           
             <details class="group cursor-pointer">
                 <summary class="list-none flex items-center justify-between font-bold text-slate-800 hover:text-purple-600 transition-colors py-2 px-1 select-none border-t border-slate-100">
                     <span class="text-lg">Naiara Tymkiw</span>
@@ -79,7 +70,6 @@
                         ✭
                     </span>
                 </summary>
-                
                 
                 <div class="mt-3 pt-3 border-t border-slate-100 text-xs space-y-2 text-slate-600 bg-slate-50/80 p-4 rounded-2xl text-left">
                     <div>

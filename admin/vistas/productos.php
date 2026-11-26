@@ -48,7 +48,7 @@ $productos = Producto::catalogo_completo();
                             </td>
                             <td class="hidden lg:table-cell p-2"><?= str_replace('||', ', ', $item->nombre_categoria ?? ''); ?></td>
                             <td class="hidden lg:table-cell p-2"><?= str_replace('||', ', ', $item->nombre_carrera ?? ''); ?></td>
-                            <td class="p-2 font-semibold text-slate-800 whitespace-nowrap"><?= $item->getPrecio(); ?></td>
+                            <td class="p-2 font-semibold text-slate-800 whitespace-nowrap">$<?= $item->getPrecio(); ?></td>
                             <td class="p-2 text-center whitespace-nowrap">
                                 <a href="index.php?p=editar_producto&id=<?= $item->getId(); ?>" class="mr-2 inline-block hover:scale-125 transition">✏️</a>
                                 <a href="index.php?p=borrar_producto&id=<?= $item->getId(); ?>" class="inline-block hover:scale-125 transition">🗑️</a>

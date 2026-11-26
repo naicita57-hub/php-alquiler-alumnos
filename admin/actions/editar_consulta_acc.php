@@ -1,5 +1,5 @@
 <?php
-require_once("../../functions/autoload.php");
+require_once ("../../functions/autoload.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../index.php?p=consultas');
