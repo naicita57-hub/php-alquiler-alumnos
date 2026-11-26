@@ -17,8 +17,8 @@ $listaCategorias = $categoria->todasCategorias();
             <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="nombre" name="nombre" required>
         </div>
         <div class="mb-4">
-            <label for="presentacion" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Descripción</label>
-            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="presentacion" name="presentacion">
+            <label for="descripcion" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Descripción</label>
+            <input type="text" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="descripcion" name="descripcion">
         </div>
         <div class="mb-4">
             <label for="precio" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Precio</label>
