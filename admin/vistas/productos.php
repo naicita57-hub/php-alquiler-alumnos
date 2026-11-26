@@ -1,7 +1,7 @@
 <?php
 $productos = Producto::catalogo_completo();
+echo Alerta::get_alertas();
 ?>
-<?= Alerta::get_alertas(); ?>
 
 <section class="py-8">
     <div class="p-4 bg-gradient-to-b from-white to-indigo-50/60 rounded-3xl border border-slate-200 shadow-md">

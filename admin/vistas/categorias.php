@@ -1,6 +1,7 @@
 <?php
 $nombre = new Categoria;
 $lista = $nombre->todasCategorias();
+echo Alerta::get_alertas();
 ?>
 <section class="py-8">
     <div class="max-w-4xl mx-auto bg-gradient-to-b from-white to-indigo-50/60 p-6 rounded-3xl border border-slate-200 shadow-md">
