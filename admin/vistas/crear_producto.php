@@ -33,7 +33,7 @@ $listaCategorias = $categoria->todasCategorias();
             <div class="bg-white border border-slate-200 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <?php foreach ($listaCarreras as $carrera): ?>
                     <label class="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
-                        <input type="checkbox" name="carreras[]" value="<?= $carrera->getIdCarrera(); ?>" class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                        <input type="checkbox" name="carreras[]"  value="<?= $carrera->getIdCarrera(); ?>" class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" >
                         <span><?= $carrera->getNombreCarrera(); ?></span>
                     </label>
                 <?php endforeach; ?>
