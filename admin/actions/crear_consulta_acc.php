@@ -1,5 +1,6 @@
 <?php
-require_once ("../../functions/autoload.php");
+require_once("../../functions/autoload.php");
+
 $postData   = $_POST;
 $idProducto = !empty($postData['id_producto']) ? (int) $postData['id_producto'] : null;
 $idMotivo   = (int) ($postData['id_motivo'] ?? 0);

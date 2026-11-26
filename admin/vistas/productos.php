@@ -23,6 +23,7 @@ $productos = Producto::catalogo_completo();
                         <th class="hidden lg:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Categoría</th>
                         <th class="hidden lg:table-cell p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Carrera</th>
                         <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Precio</th>
+                        <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Stock</th>
                         <th class="p-2 text-xs font-semibold uppercase tracking-wide text-slate-500 text-center">Opciones</th>
                     </tr>
                 </thead>
@@ -49,6 +50,7 @@ $productos = Producto::catalogo_completo();
                             <td class="hidden lg:table-cell p-2"><?= str_replace('||', ', ', $item->nombre_categoria ?? ''); ?></td>
                             <td class="hidden lg:table-cell p-2"><?= str_replace('||', ', ', $item->nombre_carrera ?? ''); ?></td>
                             <td class="p-2 font-semibold text-slate-800 whitespace-nowrap">$<?= $item->getPrecio(); ?></td>
+                            <td class="p-2 font-semibold text-slate-800 whitespace-nowrap"><?= $item->getStock(); ?></td>
                             <td class="p-2 text-center whitespace-nowrap">
                                 <a href="index.php?p=editar_producto&id=<?= $item->getId(); ?>" class="mr-2 inline-block hover:scale-125 transition">✏️</a>
                                 <a href="index.php?p=borrar_producto&id=<?= $item->getId(); ?>" class="inline-block hover:scale-125 transition">🗑️</a>

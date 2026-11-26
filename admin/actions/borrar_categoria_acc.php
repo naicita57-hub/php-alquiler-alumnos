@@ -4,15 +4,15 @@ $id = $_GET['id'] ?? FALSE;
 
 
 try{
-    $carrera = Carrera::get_x_id($id);
-    $carrera->delete();
-    Alerta::add_alerta('success', 'Carrera borrada correctamente.');
+    $categoria = Categoria::get_x_id($id);
+    $categoria->delete();
+    Alerta::add_alerta('success', 'Categoria borrada correctamente.');
 
 }catch (Exception $e){
-    Alerta::add_alerta('warning', 'No se pudo borrar la carrera.');
+    Alerta::add_alerta('warning', 'No se pudo borrar la categoria.');
 
 }
 
-header('Location: ../index.php?p=carreras');
+header('Location: ../index.php?p=categorias');
 
 ?>

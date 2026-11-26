@@ -518,4 +518,13 @@ class Producto
             'id' => $this->id
         ]);
     }
+
+    public static function filtrar(array $productos, array $categorias, array $carreras): array
+    {
+        return array_values(array_filter($productos, function ($p) use ($categorias, $carreras) {
+            $okCat = empty($categorias) || array_intersect($categorias, array_column($p->getCategoria(), 'id'));
+            $okCar = empty($carreras)   || array_intersect($carreras,   array_column($p->getCarrera(), 'id'));
+            return $okCat && $okCar;
+        }));
+    }
 }
