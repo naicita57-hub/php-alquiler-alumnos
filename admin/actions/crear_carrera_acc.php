@@ -17,6 +17,7 @@ try{
             __DIR__ . "/../../assets/imagenes",
             $datosArchivo
         );
+          
     }
     Carrera::insert(
         $postData['carrera'],

@@ -2,9 +2,9 @@
 class Alerta
 {
     /**
-     * Regitra una alerta en el sistema, guardandola en la sesión.
+     *
      * @param string $tipo primary | secondary | success | danger | warning | info | light | dark
-     * @param string $mensaje Mensaje que quiere que aparezca
+     * @param string $mensaje 
      */
     public static function add_alerta(string $tipo, string $mensaje)
     {
@@ -14,17 +14,13 @@ class Alerta
         ];
     }
 
-    /**
-     * Vacía la lista de alertas
-     */
+ 
     public static function clear_alertas()
     {
         $_SESSION['alertas'] = [];
     }
 
-    /**
-     * Imprime las alertas en la sesión
-     */
+  
     public static function print_alerta($alerta) :string
     {
         $estilos = [
@@ -46,9 +42,7 @@ class Alerta
         return $html;
     }
 
-    /**
-     * Obtiene las alertas
-     */
+
     public static function get_alertas()
     {
         if (!empty($_SESSION['alertas'])){

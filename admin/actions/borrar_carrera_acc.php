@@ -6,11 +6,9 @@ $id = $_GET['id'] ?? FALSE;
 try{
     $carrera = Carrera::get_x_id($id);
 
-    echo "<pre>";
-    print_r($carrera);
-    echo "</pre>";
-
+   
     $carrera->delete();
+    Imagen::borrarImagen("../../assets/imagenes/" . $carrera->getImagenCarrera());
     Alerta::add_alerta('success', 'Carrera borrada correctamente.');
 
 }catch (Exception $e){

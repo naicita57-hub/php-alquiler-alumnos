@@ -1,9 +1,7 @@
 <?php
 class Imagen
 {   
-    /**
-     * Método que obtiene los datos de la imágen y los concatena para ubicarlos en un directorio del servidor.
-     */
+    
     public static function subirImagen($directorio, $datosArchivo): string
     {
         $nombreOriginal = (explode(".", $datosArchivo['name']));
@@ -18,9 +16,7 @@ class Imagen
             return $nombreNuevo;
         }
     }
-    /**
-     * Método que borra un archivo de imágen que se ubique en una ruta determinada
-     */
+   
     public static function borrarImagen($archivo): bool
     {
         if(file_exists($archivo)){

@@ -24,6 +24,10 @@ $listaCategorias = $categoria->todasCategorias();
             <label for="precio" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Precio</label>
             <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="precio" name="precio" required>
         </div>
+         <div class="mb-4">
+            <label for="stock" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Stock</label>
+            <input type="number" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition" id="stock" name="stock" required>
+        </div>
         <div class="mb-4">
             <label for="foto" class="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Foto</label>
             <input class="w-full bg-white border border-slate-200 rounded-xl px-2 py-2 text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-1.5 file:font-semibold file:text-indigo-600 hover:file:bg-indigo-100" type="file" id="foto" name="foto" required>

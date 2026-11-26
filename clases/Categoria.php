@@ -3,7 +3,7 @@ class Categoria
 {
     private $id;	
     private $nombre;	
-    private $imagen;
+  
 
     public function getId()
     {
@@ -73,15 +73,13 @@ class Categoria
 
         return !empty($resultado) ? $resultado : null;
     }
-    /**
-     * Edita una instancia de marca
-     */
+   
     public function edit($nombre)
     {
         $conexion = (new Conexion())->getDB();
         $query = "UPDATE categorias SET nombre = :nombre
           WHERE id = :id";
-        // print_r($this->id_marca);
+        
         $PDOStatement = $conexion->prepare($query);
         $PDOStatement->execute([
                         "nombre"   => $nombre, 
@@ -90,9 +88,6 @@ class Categoria
                     ]);
     }
 
-    /**
-     * Borra una instancia de marca
-     */
     public function delete()
     {
         $conexion = (new Conexion())->getDB();
