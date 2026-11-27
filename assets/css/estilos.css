@@ -1,12 +1,16 @@
-* {
+
+
+
+*{
     font-family: 'Alata', sans-serif !important;
     scroll-behavior: smooth;
-
+    
 }
+
 
 .bg-formas-container {
     position: relative !important;
-    background-color: #ffffff !important;
+    background-color: #ffffff !important; 
     overflow: hidden !important;
     min-height: 100vh !important;
 }
@@ -18,9 +22,10 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 0;
+    z-index: 0; 
     overflow: hidden;
 }
+
 
 .forma-luz {
     position: absolute;
@@ -28,6 +33,7 @@
     filter: blur(70px);
     opacity: 0.8;
 }
+
 
 .luz-roja {
     top: 10%;
@@ -38,6 +44,7 @@
     animation: lavaRoja 14s ease-in-out infinite alternate;
 }
 
+
 .luz-verde {
     top: 40%;
     right: 10%;
@@ -46,6 +53,7 @@
     background-color: #22c55e86;
     animation: lavaVerde 18s ease-in-out infinite alternate;
 }
+
 
 .luz-azul {
     bottom: 10%;
@@ -57,33 +65,18 @@
 }
 
 @keyframes lavaRoja {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(140px, 160px) scale(1.2);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(140px, 160px) scale(1.2); }
 }
 
 @keyframes lavaVerde {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(-150px, -120px) scale(1.15);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-150px, -120px) scale(1.15); }
 }
 
 @keyframes lavaAzul {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(110px, -130px) scale(0.9);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(110px, -130px) scale(0.9); }
 }
 
 .glass-pill {
@@ -92,9 +85,10 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    color: #334155;
+    color: #334155; 
     transition: all 0.3s ease;
 }
+
 
 .glass-pill:hover {
     background: rgba(255, 255, 255, 0.75);
@@ -103,79 +97,17 @@
 }
 
 .glass-pill-active {
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(15, 23, 42, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
-
-.estrellita-drop {
+.estrellita-drop{
     color: blue !important;
 }
 
-<<<<<<< HEAD
-
-@keyframes paso-in {
-    from {
-        opacity: 0;
-        transform: translateY(28px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-@keyframes dot-on {
-    from {
-        border-color: #cbd5e1;
-        color: #94a3b8;
-        transform: scale(1);
-    }
-
-    to {
-        border-color: #db2777;
-        color: #db2777;
-        transform: scale(1.12);
-    }
-}
-
-@keyframes dot-on-last {
-    from {
-        border-color: #cbd5e1;
-        color: #94a3b8;
-        transform: scale(1);
-    }
-
-    to {
-        border-color: #4f46e5;
-        color: #4f46e5;
-        transform: scale(1.12);
-    }
-}
-
-@keyframes linea-llena {
-    from {
-        transform: scaleY(0);
-    }
-
-    to {
-        transform: scaleY(1);
-    }
-}
-
-@supports (animation-timeline: view()) {
-    .como-funciona .paso {
-        view-timeline-name: --paso;
-    }
-
-    .como-funciona .lista-pasos {
-        view-timeline-name: --lista;
-    }
-=======
  @keyframes paso-in {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: none; }
@@ -197,7 +129,6 @@
 @supports (animation-timeline: view()) {
     .como-funciona .paso       { view-timeline-name: --paso; }
     .como-funciona .lista-pasos { view-timeline-name: --lista; }
->>>>>>> origin/naiara
 
     .como-funciona .paso-body,
     .como-funciona .paso-dot {
@@ -206,24 +137,9 @@
         animation-timeline: --paso;
         animation-range: entry 25% entry 90%;
     }
-<<<<<<< HEAD
-
-    .como-funciona .paso-body {
-        animation-name: paso-in;
-    }
-
-    .como-funciona .paso-dot {
-        animation-name: dot-on;
-    }
-
-    .como-funciona .paso:last-child .paso-dot {
-        animation-name: dot-on-last;
-    }
-=======
     .como-funciona .paso-body { animation-name: paso-in; }
     .como-funciona .paso-dot  { animation-name: dot-on; }
     .como-funciona .paso:last-child .paso-dot { animation-name: dot-on-last; }
->>>>>>> origin/naiara
 
     .como-funciona .linea-progreso {
         transform-origin: top;
@@ -232,16 +148,11 @@
         animation-range: cover 15% cover 75%;
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/naiara
 @media (max-width: 767px) {
-    .container-pad {
+    .container-pad{
         padding: 10px !important;
     }
-
-    .formas-coloridas {
+    .formas-coloridas{
         display: none !important;
     }
 }
